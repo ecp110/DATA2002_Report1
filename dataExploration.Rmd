@@ -1,0 +1,83 @@
+---
+title: "Assignment2_dataExploration"
+author: '500586901'
+date: "19/10/2021"
+output: html_document
+---
+
+```{r, message = False}
+library(tidyverse)
+library(janitor)
+library(dplyr)
+library(GGally)
+library(leaps)
+
+```
+
+```{r, message = False}
+
+
+data <- read.table("winequality-red.csv", sep=";", header=T)
+data %>% 
+  clean_names()
+View(data)
+```
+
+```{r, include= False}
+
+
+cor_matrix = cor(data)
+melted_cor_matrix = cor_matrix %>% 
+  data.frame() %>% 
+  rownames_to_column(var = "var1") %>% 
+  gather(key = "var2", value = "cor", -var1)
+
+ggplot(data = melted_cor_matrix, 
+       aes(x=var1, y=var2, fill=cor)) + 
+  geom_tile() + theme_minimal(base_size = 30) +
+  scale_fill_gradient2(
+    low = "blue", high = "red", mid = "white", 
+    midpoint = 0, limit = c(-1,1)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r}
+
+qtlcharts::iplotCorr(data)
+
+#at first glance, doesn't appear to be an amazing correlation between birthweight and anything really 
+
+```
+
+
+
+
+```{r}
+
+#Could include AIC and formula in the report
+#could potential discuss forward vs backward selection 
+M0 = lm(quality ~ 1, data = data)
+M1 = lm(quality ~ ., data = data)
+
+round(summary(M1)$coef,3)
+
+step.fwd.aic = step(M0, scope = list(lower = M0, upper = M1), direction = "forward", trace = FALSE)
+summary(step.fwd.aic)
+
+#N0 = lm(logbwt ~ 1, data = birthwt2)
+#N1 = lm(logbwt ~ ., data = birthwt2)
+
+#round(summary(N1)$coef,4)
+```
+
+```{r}
+GGally::ggpairs(data) + theme_minimal(base_size = 5)
+
+```
+
+```{r}
+exh = regsubsets(quality~., data = data, nvmax = 11)
+summary(exh)$outmat
+
+```
+
