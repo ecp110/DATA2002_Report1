@@ -5,7 +5,7 @@ date: "19/10/2021"
 output: html_document
 ---
 
-```{r, message = False}
+```{r, message = FALSE}
 library(tidyverse)
 library(janitor)
 library(dplyr)
@@ -14,7 +14,7 @@ library(leaps)
 
 ```
 
-```{r, message = False}
+```{r, message = FALSE}
 
 
 data <- read.table("winequality-red.csv", sep=";", header=T)
@@ -56,13 +56,21 @@ qtlcharts::iplotCorr(data)
 
 #Could include AIC and formula in the report
 #could potential discuss forward vs backward selection 
-M0 = lm(quality ~ 1, data = data)
-M1 = lm(quality ~ ., data = data)
+dataNew = data.frame(data$quality, data$alcohol, data$volatile.acidity, data$total.sulfur.dioxide, data$citric.acid)
+dataNew = dataNew %>%
+  mutate(data.volatile.acidity = log(data.volatile.acidity))
 
-round(summary(M1)$coef,3)
+dataNew = dataNew %>%
+  mutate(data.total.sulfur.dioxide = log(data.total.sulfur.dioxide))
+
+M0 = lm(data.quality ~ 1, data = dataNew)
+M1 = lm(data.quality ~ ., data = dataNew)
+
+#round(summary(M1)$coef,3)
 
 step.fwd.aic = step(M0, scope = list(lower = M0, upper = M1), direction = "forward", trace = FALSE)
 summary(step.fwd.aic)
+
 
 #N0 = lm(logbwt ~ 1, data = birthwt2)
 #N1 = lm(logbwt ~ ., data = birthwt2)
@@ -71,13 +79,55 @@ summary(step.fwd.aic)
 ```
 
 ```{r}
-GGally::ggpairs(data) + theme_minimal(base_size = 5)
+step.back.aic = step(M1, direction = "backward", trace = FALSE)
+summary(step.back.aic)
+```
+
+```{r}
+GGally::ggpairs(dataNew) + theme_minimal(base_size = 15)
 
 ```
 
 ```{r}
-exh = regsubsets(quality~., data = data, nvmax = 11)
+exh = regsubsets(data.quality~., data = dataNew, nvmax = 11)
 summary(exh)$outmat
 
 ```
 
+```{r}
+library("caret")
+```
+
+```{r}
+
+cv_settings = trainControl(
+    method = "cv", number = 10,
+    verboseIter = FALSE
+  )
+
+cv_full = train(
+  data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide, dataNew,
+  method = "lm",
+  trControl =  cv_settings
+)
+
+cv_medium = train(
+  data.quality ~ data.alcohol + data.volatile.acidity, dataNew,
+  method = "lm",
+  trControl =  cv_settings
+)
+
+
+cv_simple = train(
+  data.quality ~ data.alcohol, 
+  dataNew,
+  method = "lm",
+  trControl = cv_settings
+)
+
+cv_full
+cv_medium
+cv_simple
+```
+
+asdasdsad
