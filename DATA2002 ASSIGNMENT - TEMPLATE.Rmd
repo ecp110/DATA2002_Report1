@@ -5,14 +5,14 @@ author: "Authors"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
-    self_contained: false # if true, fonts will be stored locally
-    seal: true # show a title slide with YAML information
+    self_contained: false 
+    seal: true 
     nature:
       beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      ratio: '16:9' 
       navigation:
         scroll: false # disable slide transitions by scrolling
 ---
@@ -41,6 +41,11 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Background 
+---
+## Introduction 
+- Aim
+- Method
+ 
 ---
 ## Dataset 
 ---
