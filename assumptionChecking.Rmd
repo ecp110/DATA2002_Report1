@@ -1,0 +1,123 @@
+---
+title: "assumptionChecking"
+output:
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_float: true
+    number_sections: true
+    theme: simplex 
+---
+
+``` {r setup, include=TRUE, cache = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(janitor)
+library(dplyr)
+library(GGally)
+library(leaps)
+
+```
+
+```{r, message = FALSE}
+data = read.table("winequality-red.csv", sep=";", header=T)
+```
+
+# ALCOHOL VS QUALITY
+```{r}
+# ALCOHOL LINEARITY
+lm1 = lm(quality ~ alcohol, data = data)
+par(cex = 0.5)
+plot(quality ~ alcohol, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# SULPHATES VS QUALITY
+```{r}
+# SULPHATES LINEARITY
+lm1 = lm(quality ~ sulphates, data = data)
+par(cex = 0.5)
+plot(quality ~ sulphates, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# VOLATILE ACIDITY VS QUALITY
+```{r}
+# VOLATILE ACIDITY LINEARITY
+lm1 = lm(quality ~ volatile.acidity, data = data)
+par(cex = 0.5)
+plot(quality ~ volatile.acidity, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# TOTAL SULFUR DIOXIDE VS QUALITY
+```{r}
+# TOTAL SULFUR DIOXIDE LINEARITY
+lm1 = lm(quality ~ total.sulfur.dioxide, data = data)
+par(cex = 0.5)
+plot(quality ~ total.sulfur.dioxide, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# FREE SULFUR DIOXIDE VS QUALITY
+```{r}
+# FREE SULFUR DIOXIDE LINEARITY
+lm1 = lm(quality ~ free.sulfur.dioxide, data = data)
+par(cex = 0.5)
+plot(quality ~ free.sulfur.dioxide, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# CHLODIES VS QUALITY
+```{r}
+# CHLORIDES LINEARITY
+lm1 = lm(quality ~ chlorides, data = data)
+par(cex = 0.5)
+plot(quality ~ chlorides, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# PH VS QUALITY
+```{r}
+# pH LINEARITY
+lm1 = lm(quality ~ pH, data = data)
+par(cex = 0.5)
+plot(quality ~ pH, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# CITRIC ACID VS QUALITY
+```{r}
+# citric.acid LINEARITY
+lm1 = lm(quality ~ citric.acid, data = data)
+par(cex = 0.5)
+plot(quality ~ citric.acid, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# RESIDUAL SUGAR VS QUALITY
+```{r}
+# residual.sugar LINEARITY
+lm1 = lm(quality ~ residual.sugar, data = data)
+par(cex = 0.5)
+plot(quality ~ residual.sugar, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# FIXED.ACIDITY VS QUALITY
+```{r}
+# fixed.acidity LINEARITY
+lm1 = lm(quality ~ fixed.acidity, data = data)
+par(cex = 0.5)
+plot(quality ~ fixed.acidity, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
+
+# DENSITY VS QUALITY
+```{r}
+# density LINEARITY
+lm1 = lm(quality ~ density, data = data)
+par(cex = 0.5)
+plot(quality ~ density, data = data)
+abline(lm1, lwd = 3, col = 'red')
+```
