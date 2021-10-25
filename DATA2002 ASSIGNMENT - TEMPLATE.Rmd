@@ -1,24 +1,45 @@
 ---
-title: "DATA2002 ASSIGNMENT - TEMPLATE"
-author: '480025267'
-date: "26/10/2021"
-output: html_document
+title: "Determining Risk Factors Associate With Red Wine"
+subtitle: "DATA2002 Group Presentation"
+author: "Authors"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+            bib.style = "authoryear",
+            cite.style = 'authoryear', 
+            style = "markdown",
+            hyperlink = FALSE, 
+            dashed = FALSE)
+ myBib <- ReadBib("assets/example.bib", check = FALSE)
+library(tidyverse)
+library(GGally)
+library(car)
+library(ggfortify)
+library(sjPlot)
+library(equatiomatic)
+library(faraway)
+library(qtlcharts)
+library(ggfortify)
+library(caret)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
-```{r}
-install.packages('xaringan')
-remotes::install_github("mitchelloharawild/icons")
-install.packages("RefManageR")
-install.packages("DT")
-install.packages("tidyverse")
-```
----
 ## Background 
 ---
 ## Dataset 
@@ -27,7 +48,7 @@ install.packages("tidyverse")
 - Linearity 
 ---
 ## Assumptions Checking 
--Independence 
+- Independence 
 ---
 ## Assumptions Checking 
 - Homoskedasticity 
