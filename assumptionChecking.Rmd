@@ -24,21 +24,52 @@ data = read.table("winequality-red.csv", sep=";", header=T)
 ```
 
 # ALCOHOL VS QUALITY
+
+## Linearity
 ```{r}
-# ALCOHOL LINEARITY
 lm1 = lm(quality ~ alcohol, data = data)
 par(cex = 0.5)
 plot(quality ~ alcohol, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
 
-# SULPHATES VS QUALITY
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = alcohol, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
+```
+
+# SULFATES VS QUALITY
 ```{r}
 # SULPHATES LINEARITY
 lm1 = lm(quality ~ sulphates, data = data)
 par(cex = 0.5)
 plot(quality ~ sulphates, data = data)
 abline(lm1, lwd = 3, col = 'red')
+```
+
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = sulphates, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
 ```
 
 # VOLATILE ACIDITY VS QUALITY
@@ -50,6 +81,21 @@ plot(quality ~ volatile.acidity, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
 
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = volatile.acidity, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
+```
+
 # TOTAL SULFUR DIOXIDE VS QUALITY
 ```{r}
 # TOTAL SULFUR DIOXIDE LINEARITY
@@ -57,6 +103,21 @@ lm1 = lm(quality ~ total.sulfur.dioxide, data = data)
 par(cex = 0.5)
 plot(quality ~ total.sulfur.dioxide, data = data)
 abline(lm1, lwd = 3, col = 'red')
+```
+
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = total.sulfur.dioxide, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
 ```
 
 # FREE SULFUR DIOXIDE VS QUALITY
@@ -67,14 +128,43 @@ par(cex = 0.5)
 plot(quality ~ free.sulfur.dioxide, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = free.sulfur.dioxide, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
+```
 
-# CHLODIES VS QUALITY
+# CHLORIDES VS QUALITY
 ```{r}
 # CHLORIDES LINEARITY
 lm1 = lm(quality ~ chlorides, data = data)
 par(cex = 0.5)
 plot(quality ~ chlorides, data = data)
 abline(lm1, lwd = 3, col = 'red')
+```
+
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = chlorides, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
 ```
 
 # PH VS QUALITY
@@ -86,6 +176,21 @@ plot(quality ~ pH, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
 
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = pH, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
+```
+
 # CITRIC ACID VS QUALITY
 ```{r}
 # citric.acid LINEARITY
@@ -93,6 +198,21 @@ lm1 = lm(quality ~ citric.acid, data = data)
 par(cex = 0.5)
 plot(quality ~ citric.acid, data = data)
 abline(lm1, lwd = 3, col = 'red')
+```
+
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = citric.acid, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
 ```
 
 # RESIDUAL SUGAR VS QUALITY
@@ -104,6 +224,21 @@ plot(quality ~ residual.sugar, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
 
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = residual.sugar, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
+```
+
 # FIXED.ACIDITY VS QUALITY
 ```{r}
 # fixed.acidity LINEARITY
@@ -111,6 +246,20 @@ lm1 = lm(quality ~ fixed.acidity, data = data)
 par(cex = 0.5)
 plot(quality ~ fixed.acidity, data = data)
 abline(lm1, lwd = 3, col = 'red')
+```
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = fixed.acidity, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
 ```
 
 # DENSITY VS QUALITY
@@ -120,4 +269,19 @@ lm1 = lm(quality ~ density, data = data)
 par(cex = 0.5)
 plot(quality ~ density, data = data)
 abline(lm1, lwd = 3, col = 'red')
+```
+
+## Residuals
+```{r}
+d = data %>%
+  mutate (
+    resid = lm1$residuals,
+    fitted = lm1$fitted.values
+  )
+d %>% ggplot() +
+  aes(x = density, y = resid) +
+  geom_point(size = 3) +
+  theme_classic(base_size = 30) +
+  geom_hline(yintercept = 0) +
+  geom_smooth(method = "loess", se = FALSE)
 ```
