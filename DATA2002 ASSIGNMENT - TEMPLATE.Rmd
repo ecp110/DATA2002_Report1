@@ -9,6 +9,14 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+install.packages('xaringan')
+remotes::install_github("mitchelloharawild/icons")
+install.packages("RefManageR")
+install.packages("DT")
+install.packages("tidyverse")
+```
+
 ##1. Abstract: 
 #A one paragraph summary of what you set out to learn, and what you ended up finding. It should summarise the entire report.
 
