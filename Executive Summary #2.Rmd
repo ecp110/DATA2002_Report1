@@ -45,6 +45,12 @@ table2 %>%
   kable_styling("striped")
 
 ```
+wef
+wq
+
+
+bh;bib
+
 
 ```{r}
 table60 <- matrix(c("Description of Fixed Acidity", "Description of Volatile Acidity", "Description of Citric Acid", "Description of Residual Sugar", "Description of Chlorides", "Description of Free Sulphur Dioxide","Description of Total Sulphur Dioxide", "Description of Density", "Description of pH", "Description of Sulphates",  "Description of Alcohol", "Description of Quality"), ncol=1, byrow=TRUE)
@@ -58,22 +64,10 @@ table20 %>%
   kbl(caption = "<center><strong>Analysis of Wine Quality Variables", allign = "c") %>% 
   kable_styling("striped")
 ```
-## R Markdown
+```{r}
+abc =2 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
+abcfsadadhkk
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
