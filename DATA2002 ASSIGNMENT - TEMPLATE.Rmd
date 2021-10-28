@@ -20,13 +20,7 @@ output:
 
 ```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
 library(RefManageR)
-BibOptions(check.entries = FALSE, 
-            bib.style = "authoryear",
-            cite.style = 'authoryear', 
-            style = "markdown",
-            hyperlink = FALSE, 
-            dashed = FALSE)
- myBib <- ReadBib("assets/example.bib", check = FALSE)
+
 library(tidyverse)
 library(GGally)
 library(car)
@@ -39,7 +33,13 @@ library(ggfortify)
 library(caret)
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
+BibOptions(check.entries = FALSE, 
+            bib.style = "authoryear",
+            cite.style = 'authoryear', 
+            style = "markdown",
+            hyperlink = FALSE, 
+            dashed = FALSE)
+ myBib <- ReadBib("assets/example.bib", check = FALSE)
 ## Background 
 ---
 ## Introduction 
@@ -48,7 +48,28 @@ knitr::opts_chunk$set(echo = FALSE)
  
 ---
 ## Dataset 
+
+
+```{r, echo = FALSE, results = 'hide', message=FALSE, warning=FALSE}
+table60 <- matrix(c("Measure of the tartaric, malic, citric and succinic in grapes", "fatty acids in wine which contribute to a distasteful vinegar flavour in the wine", "Manipulated to increase flavour", "Raw sugar derived from grapes (post fermentation). Higher residual sugar = Sweeter Wine", "Impacts on saltiness of the wine", "Sulphur Dioxide that has not yet reacted. Stops product from reacting to oxygen (causes browing and oxidation","Free Sulphur Dioxide + amount of SO2 in chemicals which are included in the wine", "Higher Density = better quality (expand on idea)", "Measure of the acidity. Lower pH = less susceptible to bacteria growth + increased flavour", "Introduced to protect against bacteria", "Concentration of alcohol in final product, impacts on flavour massively", "Summary of results of previous eleven variables"), ncol=1, byrow=TRUE)
+
+colnames(table60) <- c('Description of Variable')
+rownames(table60) <- c("Fixed Acidity", "Volatile Acidity", "Citric Acid", "Residual Sugar", "Chlorides", "Free Sulphur Dioxide","Total Sulphur Dioxide", "Density", "pH", "Sulphates", "Alcohol", "Quality")
+table20 <- as.table(table60)
+library(kableExtra)
+
+```
+
+```{r, echo = FALSE}
+table20 %>% 
+  kbl(caption = "<center><strong>Analysis of Wine Quality Variables", allign = "c") %>% 
+  kable_styling("striped")
+```
+
+
 ---
+
+
 ## Assumptions Checking 
 - Linearity 
 ---
