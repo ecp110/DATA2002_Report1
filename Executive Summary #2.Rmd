@@ -1,0 +1,79 @@
+---
+title: "Executive Summary Content"
+output: html_document
+---
+
+
+---
+title: "Lab Report 1"
+output: html_document
+---
+
+Executive Summary
+
+The data set which our group will be exploring highlights different factors which contribute to an overall quality rating of the Portugese red wine “Vinho Verde”. The first of the 12 variables is the fixed acidity. 
+
+The fixed acidity is a measure of the tartaric, malic, citric and succinic, found within grapes, which are measured by a steam distillation of a sample of the wine. 
+
+The volatile acidity (being the second variable) however measures the acetic acid levels in the wine which impacts on the flavour of the wine negatively if the acetic acid is too high. 
+
+The third variable is citric acid which is used in wine in order to assist in increasing flavour by in turn increasing acidity. In analysying our data we should therefore find a correlation between citric acid and ___ acidity. 
+
+Moving away from acidity now, the data set analyses the residual sugars in “Vinho Verde”. The residual sugar in wines is not the artificially added sugars, but the raw sugar from grapes found post fermentation, with higher levels of residual sugar unsurprisingly resulting in sweeter wine. (describe the red wine not very sweet????????). 
+
+Chlorides are used in this data set as a factor contributing towards an overall rating for the wine due to its impact on the saltiness of the final product. 
+
+The density of wine is deemed to be a major contributer to the overall quality of wine, with higher density resulting in higher quality (need to elaborate on why?). 
+
+pH is simply used in wine making in order to “determine ripeness in relation to acidity”. Lower pH is far more desirable as it reduces susceptibility to bacteria growth, while also increasing the quality of taste by making the final product “tart and crisp”. 
+
+Sulphate levels is the next criteria the researchers used to determine overall wine quality rankings, with the sulphate being used in wine in order to protect the final product from bacteria. 
+
+Evidently, alcohol concentration is a major contributing factor towards the final quality of “Vinho Verde”, with it having a large impact on flavour and desirability for the intended market. Finally, the final quality ranking summarises all of the previous factors into a final value. 
+
+
+
+```{r}
+table <- matrix(c("Fixed Acidity", "Description of Fixed Acidity", "Volatile Acidity", "Description of Volatile Acidity", "Citric Acid", "Description of Citric Acid", "Residual Sugar", "Description of Residual Sugar", "Chlorides", "Description of Chlorides", "Free Sulphur Dioxide", "Description of Free Sulphur Dioxide", "Total Sulphur Dioxide", "Description of Total Sulphur Dioxide", "Density", "Description of Density", "pH", "Description of pH", "Sulphates", "Description of Sulphates", "Alcohol", "Description of Alcohol", "Quality", "Description of Quality"), ncol=2, byrow=TRUE)
+colnames(table) <- c('Variable','Description of Variable')
+rownames(table) <- NULL
+table2 <- as.table(table)
+table2
+library(kableExtra)
+table2 %>% 
+  kbl(caption = "<center><strong>Analysis of Wine Quality Variables", allign = "c") %>% 
+  kable_styling("striped")
+
+```
+
+```{r}
+table60 <- matrix(c("Description of Fixed Acidity", "Description of Volatile Acidity", "Description of Citric Acid", "Description of Residual Sugar", "Description of Chlorides", "Description of Free Sulphur Dioxide","Description of Total Sulphur Dioxide", "Description of Density", "Description of pH", "Description of Sulphates",  "Description of Alcohol", "Description of Quality"), ncol=1, byrow=TRUE)
+
+colnames(table60) <- c('Description of Variable')
+rownames(table60) <- c("Fixed Acidity", "Volatile Acidity", "Citric Acid", "Residual Sugar", "Chlorides", "Free Sulphur Dioxide","Total Sulphur Dioxide", "Density", "pH", "Sulphates", "Alcohol", "Quality")
+table20 <- as.table(table60)
+table20
+library(kableExtra)
+table20 %>% 
+  kbl(caption = "<center><strong>Analysis of Wine Quality Variables", allign = "c") %>% 
+  kable_styling("striped")
+```
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
