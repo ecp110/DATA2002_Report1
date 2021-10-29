@@ -7,7 +7,7 @@ output: html_document
 
 ```{r, message = FALSE}
 library(tidyverse)
-library(janitor)
+library(janitor) 
 library(dplyr)
 library(GGally)
 library(leaps)
@@ -130,4 +130,60 @@ cv_medium
 cv_simple
 ```
 
-asdasdsad
+### Cross validation
+
+Out of sample performance
+
+```{r}
+library(caret)
+control = trainControl(method = "cv", number = 10)
+
+step_model = data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide
+full_model = quality ~ .
+simple_model = quality ~ alcohol
+
+step_cv = train(step_model, method = "lm", data = dataNew, trControl = control)
+full_cv = train(full_model, method = "lm", data = data, trControl = control)
+simple_cv = train(simple_model, method = "lm", data = data, trControl = control)
+
+results <- resamples(list(simple = simple_cv, step = step_cv, full = full_cv))
+summary(results)
+
+p1 = ggplot(results, metric = "RMSE") + 
+  theme_classic() + 
+  labs(y = "RMSE")
+
+p2 = ggplot(results, metric = "MAE") + 
+  theme_classic() + 
+  labs(y = "MAE")
+
+p3 = ggplot(results, metric = "Rsquared") + 
+  theme_classic() + 
+  labs(y = "Rsquared")
+
+cowplot::plot_grid(p1,p2,p3, ncol = 1)
+```
+
+### Residuals of ideal model
+
+```{r}
+
+modelIdeal = lm(data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide, data = dataNew)
+autoplot(modelIdeal, which=1:2)
+```
+
+### Residuals of full model
+
+```{r}
+
+modelIdeal = lm(quality ~ ., data = data)
+autoplot(modelIdeal, which=1:2)
+```
+
+### Residuals of simple model
+
+```{r}
+
+modelIdeal = lm(quality ~ alcohol, data = data)
+autoplot(modelIdeal, which=1:2)
+```
