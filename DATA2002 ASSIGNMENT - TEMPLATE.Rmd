@@ -10,6 +10,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+devtools::install_github('yihui/xaringan')
+```
+
 
 ```{r}
 install.packages('xaringan')
