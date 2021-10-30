@@ -61,6 +61,7 @@ library(kableExtra)
 ```
 
 ```{r, echo = FALSE}
+
 table20 %>% 
   kbl(caption = "<center><strong>Analysis of Wine Quality Variables", allign = "c") %>% 
   kable_styling("striped")
@@ -71,6 +72,8 @@ table20 %>%
 
 
 ## Assumptions Checking 
+
+
 - Linearity 
 ---
 ## Assumptions Checking 
