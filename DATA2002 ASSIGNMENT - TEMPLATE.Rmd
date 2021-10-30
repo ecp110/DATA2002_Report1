@@ -1,0 +1,302 @@
+---
+title: "Determining Risk Factors Associate With Red Wine"
+subtitle: "DATA2002 Group Presentation"
+author: "500520320   480025267"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
+    self_contained: false 
+    seal: true 
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' 
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+
+
+```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+            bib.style = "authoryear",
+            cite.style = 'authoryear', 
+            style = "markdown",
+            hyperlink = FALSE, 
+            dashed = FALSE)
+
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+library(tidyverse)
+library(GGally)
+library(car)
+library(ggfortify)
+library(sjPlot)
+library(equatiomatic)
+library(faraway)
+library(qtlcharts)
+library(caret)
+library(kableExtra)
+library(janitor)
+library(dplyr)
+library(leaps)
+data = read.table("winequality-red.csv", sep=";", header=T)
+```
+
+
+
+## Introduction 
+In this project, we will explore the 'red-wine quality' dataset to research relevance between each factors. The attributes in the dataset are following:
+"fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","quality"
+
+High quality: (>= 8) Good wine is usually one that has a good balance of sweet, sour, salty, and bitter elements 
+Low quality: (< 7.5) Wine that has crossed the line toward vinegar, it can be described as dusty and dried out, all tannin, no fruit.
+
+Linear regression is used to analysis the influence of each attribute on the quality of red wine in our project.
+
+---
+## Dataset 
+---
+## Assumptions Checking 
+- LINEARITY Valid
+```{r}
+# FREE SULFUR DIOXIDE VS QUALITY
+lm5 = lm(quality ~ free.sulfur.dioxide, data = data)
+# PH VS QUALITY
+lm7 = lm(quality ~ I(pH^2), data = data)
+# RESIDUAL SUGAR VS QUALITY
+lm9 = lm(quality ~ residual.sugar, data = data)
+```
+.scroll-box-14[
+```{r}
+attach(mtcars)
+par(mfrow=c(3,1))
+par(cex = 0.3)
+plot(quality ~ free.sulfur.dioxide, data = data) 
+abline(lm5, lwd = 3, col = 'red')
+
+plot(quality ~ I(pH^2), data = data)
+abline(lm7, lwd = 3, col = 'red') 
+
+plot(quality ~ residual.sugar, data = data)
+abline(lm9, lwd = 3, col = 'red')
+```
+]
+
+---
+## Assumptions Checking 
+- Linearity Invaid 
+
+```{r}
+# ALCOHOL VS QUALITY
+lm1 = lm(quality ~ alcohol, data = data)
+# SULPHATES LINEARITY
+lm2 = lm(quality ~ log(sulphates, 30), data = data)
+# VOLATILE ACIDITY VS QUALITY
+lm3 = lm(quality ~ log(sqrt((volatile.acidity))), data = data)
+# CHLORIDES VS QUALITY
+lm6 = lm(quality ~ chlorides, data = data)
+```
+
+```{r}
+attach(mtcars)
+par(mfrow=c(2,2))
+par(cex = 0.5)
+plot(quality ~ alcohol, data = data)
+abline(lm1, lwd = 3, col = 'red')
+
+plot(quality ~ log(sulphates, 30), data = data)
+abline(lm2, lwd = 3, col = 'red')
+
+plot(quality ~ log(sqrt((volatile.acidity))), data = data)
+abline(lm3, lwd = 3, col = 'red')
+
+plot(quality ~ chlorides, data = data)
+abline(lm6, lwd = 3, col = 'red')
+```
+
+
+
+---
+## Assumptions Checking 
+- Normality Valid
+```{r}
+
+autoplot(lm1, which = 1:2)
+# SULFATES VS QUALITY
+autoplot(lm2, which = 1:2)
+# VOLATILE ACIDITY VS QUALITY
+autoplot(lm3, which = 1:2)
+
+```
+
+```{r}
+# SULFATES VS QUALITY
+autoplot(lm2, which = 1:2)
+```
+
+```{r}
+# VOLATILE ACIDITY VS QUALITY
+autoplot(lm3, which = 1:2)
+```
+
+
+---
+## Assumptions Checking 
+- Normality invalid 
+```{r}
+# FREE SULFUR DIOXIDE VS QUALITY
+autoplot(lm5, which = 1:2)
+```
+
+```{r}
+# CHLORIDES VS QUALITY
+autoplot(lm6, which = 1:2)
+```
+
+```{r}
+# PH VS QUALITY
+autoplot(lm7, which = 1:2)
+```
+
+```{r}
+# RESIDUAL SUGAR VS QUALITY
+autoplot(lm9, which = 1:2)
+```
+
+---
+## Assumptions Checking 
+- Residual valid 
+```{r}
+# ALCOHOL VS QUALITY
+autoplot(lm1, which = 1:2)
+```
+
+```{r}
+# VOLATILE ACIDITY VS QUALITY
+autoplot(lm3, which = 1:2)
+```
+
+```{r}
+# FREE SULFUR DIOXIDE VS QUALITY
+autoplot(lm5, which = 1:2)
+```
+---
+## Assumptions Checking 
+- Residual invalid 
+
+```{r}
+
+# SULFATES VS QUALITY
+autoplot(lm2, which = 1:2)
+```
+
+```{r}
+# CHLORIDES VS QUALITY
+autoplot(lm6, which = 1:2)
+```
+
+```{r}
+# FIXED.ACIDITY VS QUALITY
+lm10 = lm(quality ~ fixed.acidity, data = data)
+autoplot(lm10, which = 1:2)
+```
+
+```{r}
+# DENSITY VS QUALITY
+lm11 = lm(quality ~ density, data = data)
+autoplot(lm11, which = 1:2)
+```
+
+
+---
+
+## Analysis 
+- Selecting appropriate model 
+- 
+- Forward 
+---
+## Results
+---
+## Discussion
+---
+## Conclusion
+#Limitation 
+The data collection process was unknown. Therefore, we are uncertain about
+- if there are any biases when collecting the data. E.g. selection biases
+- the brands of wines 
+- whether the same bottle of wine was accidentally been tested multiple times 
+
+Small $r^2$ means the linear model isn't able to represent the total variance well
+
+The wine-quality data doesn't meet most of the linearity assumptions, therefore a nonlinear analysis might be considered 
+
+.red[We should investigate further on how the data was obtained, hence look into if any biases can be removed]
+---
+## Reference 
+.scroll-output[
+Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
+Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
+  
+McLean MW (2017). “RefManageR: Import and Manage BibTeX and BibLaTeX
+References in R.” _The Journal of Open Source Software_. doi:
+10.21105/joss.00338 (URL: https://doi.org/10.21105/joss.00338).
+
+McLean MW (2014). _Straightforward Bibliography Management in R
+Using the RefManager Package_. arXiv: 1403.2036 [cs.DL], <URL:
+https://arxiv.org/abs/1403.2036>.
+
+Barret Schloerke, Di Cook, Joseph Larmarange, Francois Briatte,
+Moritz Marbach, Edwin Thoen, Amos Elberg and Jason Crowley (2021).
+GGally: Extension to 'ggplot2'. R package version 2.1.2.
+https://CRAN.R-project.org/package=GGally
+
+John Fox and Sanford Weisberg (2019). An {R} Companion to Applied
+Regression, Third Edition. Thousand Oaks CA: Sage. URL:
+https://socialsciences.mcmaster.ca/jfox/Books/Companion/
+
+Yuan Tang, Masaaki Horikoshi, and Wenxuan Li. "ggfortify: Unified
+Interface to Visualize Statistical Result of Popular R Packages."
+The R Journal 8.2 (2016): 478-489.
+
+Lüdecke D (2021). _sjPlot: Data Visualization for Statistics in
+Social Science_. R package version 2.8.9, <URL:
+https://CRAN.R-project.org/package=sjPlot>.
+
+Daniel Anderson, Andrew Heiss and Jay Sumners (2021).
+equatiomatic: Transform Models into 'LaTeX' Equations. R package
+version 0.3.0. https://CRAN.R-project.org/package=equatiomatic
+
+Julian Faraway (2016). faraway: Functions and Datasets for Books
+by Julian Faraway. R package version 1.0.7.
+https://CRAN.R-project.org/package=faraway
+
+Broman KW (2015) R/qtlcharts: interactive graphics for
+quantitative trait locus mapping. Genetics 199:359-361
+doi:10.1534/genetics.114.172742
+
+Max Kuhn (2021). caret: Classification and Regression Training. R
+package version 6.0-90. https://CRAN.R-project.org/package=caret
+
+Hao Zhu (2021). kableExtra: Construct Complex Table with 'kable'
+and Pipe Syntax. R package version 1.3.4.
+https://CRAN.R-project.org/package=kableExtra
+
+Sam Firke (2021). janitor: Simple Tools for Examining and Cleaning
+Dirty Data. R package version 2.1.0.
+https://CRAN.R-project.org/package=janitor
+
+Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
+(2021). dplyr: A Grammar of Data Manipulation. R package version
+1.0.7. https://CRAN.R-project.org/package=dplyr
+
+Thomas Lumley based on Fortran code by Alan Miller (2020). leaps:
+Regression Subset Selection. R package version 3.1.
+https://CRAN.R-project.org/package=leaps
+]
