@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "Assignment2_dataExploration"
 author: '500586901'
@@ -202,3 +203,138 @@ autoplot(modelIdeal, which=1:2)
 modelAlcohol = lm(quality ~ alcohol, data = data)
 autoplot(modelIdeal, which=1:2)
 ```
+=======
+---
+title: "Assignment2_dataExploration"
+author: '500586901'
+date: "19/10/2021"
+output: html_document
+---
+
+```{r, message = FALSE}
+library(tidyverse)
+library(janitor)
+library(dplyr)
+library(GGally)
+library(leaps)
+
+```
+
+```{r, message = FALSE}
+
+
+data <- read.table("winequality-red.csv", sep=";", header=T)
+data %>% 
+  clean_names()
+View(data)
+```
+
+```{r, include= False}
+
+
+cor_matrix = cor(data)
+melted_cor_matrix = cor_matrix %>% 
+  data.frame() %>% 
+  rownames_to_column(var = "var1") %>% 
+  gather(key = "var2", value = "cor", -var1)
+
+ggplot(data = melted_cor_matrix, 
+       aes(x=var1, y=var2, fill=cor)) + 
+  geom_tile() + theme_minimal(base_size = 30) +
+  scale_fill_gradient2(
+    low = "blue", high = "red", mid = "white", 
+    midpoint = 0, limit = c(-1,1)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r}
+
+qtlcharts::iplotCorr(data)
+
+#at first glance, doesn't appear to be an amazing correlation between birthweight and anything really 
+
+```
+
+
+
+
+```{r}
+
+#Could include AIC and formula in the report
+#could potential discuss forward vs backward selection 
+dataNew = data.frame(data$quality, data$alcohol, data$volatile.acidity, data$total.sulfur.dioxide, data$citric.acid)
+dataNew = dataNew %>%
+  mutate(data.volatile.acidity = log(data.volatile.acidity))
+
+dataNew = dataNew %>%
+  mutate(data.total.sulfur.dioxide = log(data.total.sulfur.dioxide))
+
+M0 = lm(data.quality ~ 1, data = dataNew)
+M1 = lm(data.quality ~ ., data = dataNew)
+
+#round(summary(M1)$coef,3)
+
+step.fwd.aic = step(M0, scope = list(lower = M0, upper = M1), direction = "forward", trace = FALSE)
+summary(step.fwd.aic)
+
+
+#N0 = lm(logbwt ~ 1, data = birthwt2)
+#N1 = lm(logbwt ~ ., data = birthwt2)
+
+#round(summary(N1)$coef,4)
+```
+
+```{r}
+step.back.aic = step(M1, direction = "backward", trace = FALSE)
+summary(step.back.aic)
+```
+
+```{r}
+GGally::ggpairs(dataNew) + theme_minimal(base_size = 15)
+
+```
+
+```{r}
+exh = regsubsets(data.quality~., data = dataNew, nvmax = 11)
+summary(exh)$outmat
+
+```
+
+```{r}
+library("caret")
+```
+
+```{r}
+
+cv_settings = trainControl(
+    method = "cv", number = 10,
+    verboseIter = FALSE
+  )
+
+cv_full = train(
+  data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide, dataNew,
+  method = "lm",
+  trControl =  cv_settings
+)
+
+cv_medium = train(
+  data.quality ~ data.alcohol + data.volatile.acidity, dataNew,
+  method = "lm",
+  trControl =  cv_settings
+)
+
+
+cv_simple = train(
+  data.quality ~ data.alcohol, 
+  dataNew,
+  method = "lm",
+  trControl = cv_settings
+)
+
+cv_full
+cv_medium
+cv_simple
+```
+
+asdasdsad
+>>>>>>> be523f39dcaf9b2e579da870ceaee9b1e4b38649
