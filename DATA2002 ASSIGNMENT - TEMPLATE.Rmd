@@ -18,9 +18,21 @@ output:
 ---
 
 
-```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE, warning=FALSE}
+```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
 library(RefManageR)
+BibOptions(check.entries = FALSE, 
+            bib.style = "authoryear",
+            cite.style = 'authoryear', 
+            style = "markdown",
+            hyperlink = FALSE, 
+            dashed = FALSE)
 
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
 library(tidyverse)
 library(GGally)
 library(car)
@@ -31,79 +43,181 @@ library(faraway)
 library(qtlcharts)
 library(ggfortify)
 library(caret)
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-<<<<<<< HEAD
-```{r}
-devtools::install_github('yihui/xaringan')
+data = read.table("winequality-red.csv", sep=";", header=T)
 ```
 
 
-```{r}
-install.packages('xaringan')
-remotes::install_github("mitchelloharawild/icons")
-install.packages("RefManageR")
-install.packages("DT")
-install.packages("tidyverse")
-=======
-```{r, message=FALSE}
-BibOptions(check.entries = FALSE, 
-            bib.style = "authoryear",
-            cite.style = 'authoryear', 
-            style = "markdown",
-            hyperlink = FALSE, 
-            dashed = FALSE)
- myBib <- ReadBib("assets/example.bib", check = FALSE)
->>>>>>> a53257e57b0dc81381ed1845a4729d6d7497e6ab
-```
- 
 
-## Background 
----
 ## Introduction 
-- Aim
-- Method
+
+In this project, we will explore the 'red-wine quality' dataset to research relavance between each facotrs. The attributes in the dataset are following: "fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","quality"
+High quality: (>= 8) Good wine is usually one that has a good balance of sweet, sour, salty, and bitter elements 
+Low quality: (< 7.5) Wine that has crossed the line toward vinegar, it can be described as dusty and dried out, all tannin, no fruit. 
+Linear regression is used to analysis the influence of each attribute on the quality of red wine in our project. 
  
 ---
 ## Dataset 
+---
+## Assumptions Checking 
+- LINEARITY Valid
+```{r}
+# FREE SULFUR DIOXIDE VS QUALITY
+lm5 = lm(quality ~ free.sulfur.dioxide, data = data)
+# PH VS QUALITY
+lm7 = lm(quality ~ I(pH^2), data = data)
+# RESIDUAL SUGAR VS QUALITY
+lm9 = lm(quality ~ residual.sugar, data = data)
+```
+.scroll-box-14[
+```{r}
+attach(mtcars)
+par(mfrow=c(3,1))
+par(cex = 0.3)
+plot(quality ~ free.sulfur.dioxide, data = data) 
+abline(lm5, lwd = 3, col = 'red')
 
+plot(quality ~ I(pH^2), data = data)
+abline(lm7, lwd = 3, col = 'red') 
 
-```{r, echo = FALSE, results = 'hide', message=FALSE, warning=FALSE}
-table60 <- matrix(c("Measure of the tartaric, malic, citric and succinic in grapes", "fatty acids in wine which contribute to a distasteful vinegar flavour in the wine", "Manipulated to increase flavour", "Raw sugar derived from grapes (post fermentation). Higher residual sugar = Sweeter Wine", "Impacts on saltiness of the wine", "Sulphur Dioxide that has not yet reacted. Stops product from reacting to oxygen (causes browing and oxidation","Free Sulphur Dioxide + amount of SO2 in chemicals which are included in the wine", "Higher Density = better quality (expand on idea)", "Measure of the acidity. Lower pH = less susceptible to bacteria growth + increased flavour", "Introduced to protect against bacteria", "Concentration of alcohol in final product, impacts on flavour massively", "Summary of results of previous eleven variables"), ncol=1, byrow=TRUE)
+plot(quality ~ residual.sugar, data = data)
+abline(lm9, lwd = 3, col = 'red')
+```
+]
 
-colnames(table60) <- c('Description of Variable')
-rownames(table60) <- c("Fixed Acidity", "Volatile Acidity", "Citric Acid", "Residual Sugar", "Chlorides", "Free Sulphur Dioxide","Total Sulphur Dioxide", "Density", "pH", "Sulphates", "Alcohol", "Quality")
-table20 <- as.table(table60)
-library(kableExtra)
+---
+## Assumptions Checking 
+- Linearity Invaid 
 
+```{r}
+# ALCOHOL VS QUALITY
+lm1 = lm(quality ~ alcohol, data = data)
+# SULPHATES LINEARITY
+lm2 = lm(quality ~ log(sulphates, 30), data = data)
+# VOLATILE ACIDITY VS QUALITY
+lm3 = lm(quality ~ log(sqrt((volatile.acidity))), data = data)
+# CHLORIDES VS QUALITY
+lm6 = lm(quality ~ chlorides, data = data)
 ```
 
-```{r, echo = FALSE}
-table20 %>% 
-  kbl(caption = "<center><strong>Analysis of Wine Quality Variables", allign = "c") %>% 
-  kable_styling("striped")
+```{r}
+attach(mtcars)
+par(mfrow=c(2,2))
+par(cex = 0.5)
+plot(quality ~ alcohol, data = data)
+abline(lm1, lwd = 3, col = 'red')
+
+plot(quality ~ log(sulphates, 30), data = data)
+abline(lm2, lwd = 3, col = 'red')
+
+plot(quality ~ log(sqrt((volatile.acidity))), data = data)
+abline(lm3, lwd = 3, col = 'red')
+
+plot(quality ~ chlorides, data = data)
+abline(lm6, lwd = 3, col = 'red')
+```
+```{r}
+library(ggplot2)
+p1 = ggplot(data, aes(x = alcohol, y = quality)) + geom_point(size = 3) + theme_classic(base_size = 30) + labs(x = "Alcohol", y = "Quality") + geom_smooth(method = "lm", se = FALSE)
+p1
+```
+
+
+---
+## Assumptions Checking 
+- Normality Valid
+```{r}
+# ALCOHOL VS QUALITY
+autoplot(lm1, which = 1:2)
+autoplot(lm2, which = 1:2)
+autoplot(lm5, which = 1:2)
+rlang::last_error()
+rlang::last_trace()
+```
+
+```{r}
+# SULFATES VS QUALITY
+autoplot(lm2, which = 1:2)
+```
+
+```{r}
+# VOLATILE ACIDITY VS QUALITY
+autoplot(lm3, which = 1:2)
+```
+
+
+---
+## Assumptions Checking 
+- Normality invalid 
+```{r}
+# FREE SULFUR DIOXIDE VS QUALITY
+autoplot(lm5, which = 1:2)
+```
+
+```{r}
+# CHLORIDES VS QUALITY
+autoplot(lm6, which = 1:2)
+```
+
+```{r}
+# PH VS QUALITY
+autoplot(lm7, which = 1:2)
+```
+
+```{r}
+# RESIDUAL SUGAR VS QUALITY
+autoplot(lm9, which = 1:2)
+```
+
+---
+## Assumptions Checking 
+- Residual valid 
+```{r}
+# ALCOHOL VS QUALITY
+autoplot(lm1, which = 1:2)
+```
+
+```{r}
+# VOLATILE ACIDITY VS QUALITY
+autoplot(lm3, which = 1:2)
+```
+
+```{r}
+# FREE SULFUR DIOXIDE VS QUALITY
+autoplot(lm5, which = 1:2)
+```
+---
+## Assumptions Checking 
+- Residual invalid 
+
+```{r}
+
+# SULFATES VS QUALITY
+autoplot(lm2, which = 1:2)
+```
+
+```{r}
+# CHLORIDES VS QUALITY
+autoplot(lm6, which = 1:2)
+```
+
+```{r}
+# FIXED.ACIDITY VS QUALITY
+lm10 = lm(quality ~ fixed.acidity, data = data)
+autoplot(lm10, which = 1:2)
+```
+
+```{r}
+# DENSITY VS QUALITY
+lm11 = lm(quality ~ density, data = data)
+autoplot(lm11, which = 1:2)
 ```
 
 
 ---
 
-
-## Assumptions Checking 
-- Linearity 
----
-## Assumptions Checking 
-- Independence 
----
-## Assumptions Checking 
-- Homoskedasticity 
----
-## Assumptions Checking 
-- Normality 
----
 ## Analysis 
 - Selecting appropriate model 
-- Backward 
+- 
 - Forward 
 ---
 ## Results
@@ -111,9 +225,4 @@ table20 %>%
 ## Discussion
 ---
 ## Conclusion
-
-
-
-
-
-
+---
