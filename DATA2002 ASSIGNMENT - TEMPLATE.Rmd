@@ -17,6 +17,9 @@ output:
         scroll: false # disable slide transitions by scrolling
 ---
 
+```{r}
+install.packages("systemfonts")
+```
 
 ```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
 library(RefManageR)
@@ -56,11 +59,11 @@ table60 <- matrix(c("Measure of the tartaric, malic, citric and succinic in grap
 colnames(table60) <- c('Description of Variable')
 rownames(table60) <- c("Fixed Acidity", "Volatile Acidity", "Citric Acid", "Residual Sugar", "Chlorides", "Free Sulphur Dioxide","Total Sulphur Dioxide", "Density", "pH", "Sulphates", "Alcohol", "Quality")
 table20 <- as.table(table60)
-library(kableExtra)
-
+table20
 ```
 
 ```{r, echo = FALSE}
+install.packages("kable_styling")
 table20 %>% 
   kbl(caption = "<center><strong>Analysis of Wine Quality Variables", allign = "c") %>% 
   kable_styling("striped")

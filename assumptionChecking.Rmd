@@ -42,9 +42,9 @@ autoplot(lm1, which = 1:2)
 # SULFATES VS QUALITY
 ```{r}
 # SULPHATES LINEARITY
-lm1 = lm(quality ~ log(sulphates, 30), data = data)
+lm1 = lm(quality ~ sulphates, data = data)
 par(cex = 0.5)
-plot(quality ~ log(sulphates, 30), data = data)
+plot(quality ~ sulphates, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
 
@@ -56,9 +56,9 @@ autoplot(lm1, which = 1:2)
 # VOLATILE ACIDITY VS QUALITY
 ```{r}
 # VOLATILE ACIDITY LINEARITY
-lm1 = lm(quality ~ log(sqrt((volatile.acidity))), data = data)
+lm1 = lm(quality ~ volatile.acidity, data = data)
 par(cex = 0.5)
-plot(quality ~ log(sqrt((volatile.acidity))), data = data)
+plot(quality ~ volatile.acidity, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
 
@@ -70,9 +70,9 @@ autoplot(lm1, which = 1:2)
 # TOTAL SULFUR DIOXIDE VS QUALITY
 ```{r}
 # TOTAL SULFUR DIOXIDE LINEARITY
-lm1 = lm(quality ~ log(total.sulfur.dioxide), data = data)
+lm1 = lm(quality ~ total.sulfur.dioxide, data = data)
 par(cex = 0.5)
-plot(quality ~ log(total.sulfur.dioxide), data = data)
+plot(quality ~ total.sulfur.dioxide, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
 
@@ -111,9 +111,9 @@ autoplot(lm1, which = 1:2)
 # PH VS QUALITY
 ```{r}
 # pH LINEARITY
-lm1 = lm(quality ~ I(pH^2), data = data)
+lm1 = lm(quality ~ pH, data = data)
 par(cex = 0.5)
-plot(quality ~ I(pH^2), data = data)
+plot(quality ~ pH, data = data)
 abline(lm1, lwd = 3, col = 'red')
 ```
 

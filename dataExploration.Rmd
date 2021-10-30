@@ -56,7 +56,7 @@ qtlcharts::iplotCorr(data)
 
 #Could include AIC and formula in the report
 #could potential discuss forward vs backward selection 
-dataNew = data.frame(data$quality, data$alcohol, data$volatile.acidity, data$total.sulfur.dioxide, data$citric.acid)
+dataNew = data.frame(data$quality, data$alcohol, data$volatile.acidity, data$total.sulfur.dioxide, data$citric.acid, data$density)
 dataNew = dataNew %>%
   mutate(data.volatile.acidity = log(data.volatile.acidity))
 
@@ -65,7 +65,7 @@ dataNew = dataNew %>%
 
 M0 = lm(data.quality ~ 1, data = dataNew)
 M1 = lm(data.quality ~ ., data = dataNew)
-
+MFull = lm(quality ~ ., data = data)
 #round(summary(M1)$coef,3)
 
 step.fwd.aic = step(M0, scope = list(lower = M0, upper = M1), direction = "forward", trace = FALSE)
@@ -80,18 +80,31 @@ summary(step.fwd.aic)
 
 ```{r}
 step.back.aic = step(M1, direction = "backward", trace = FALSE)
-summary(step.back.aic)
+step.back.aic %>%
+  broom::glance() %>%
+  round(2) %>% t()
+
+M0 %>%
+  broom::glance() %>%
+  round(2) %>% t()
+
+
+data %>%
+  glimpse()
+
+MFull %>%
+  broom::glance() %>%
+  round(2) %>% t()
 ```
 
 ```{r}
-GGally::ggpairs(dataNew) + theme_minimal(base_size = 15)
+GGally::ggpairs(dataNew) + theme_bw(base_size = 8)
 
 ```
 
 ```{r}
 exh = regsubsets(data.quality~., data = dataNew, nvmax = 11)
 summary(exh)$outmat
-
 ```
 
 ```{r}
@@ -106,7 +119,7 @@ cv_settings = trainControl(
   )
 
 cv_full = train(
-  data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide, dataNew,
+  data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide + data.density, dataNew,
   method = "lm",
   trControl =  cv_settings
 )
@@ -146,29 +159,31 @@ step_cv = train(step_model, method = "lm", data = dataNew, trControl = control)
 full_cv = train(full_model, method = "lm", data = data, trControl = control)
 simple_cv = train(simple_model, method = "lm", data = data, trControl = control)
 
-results <- resamples(list(simple = simple_cv, step = step_cv, full = full_cv))
+results <- resamples(list(simple = simple_cv, selected = step_cv, full = full_cv))
 summary(results)
 
 p1 = ggplot(results, metric = "RMSE") + 
   theme_classic() + 
   labs(y = "RMSE")
 
-p2 = ggplot(results, metric = "MAE") + 
-  theme_classic() + 
-  labs(y = "MAE")
-
 p3 = ggplot(results, metric = "Rsquared") + 
   theme_classic() + 
   labs(y = "Rsquared")
 
-cowplot::plot_grid(p1,p2,p3, ncol = 1)
+cowplot::plot_grid(p1,p3, ncol = 1)
+```
+
+```{r}
+step_cv %>%
+  broom::glance() %>%
+  round(2) %>% t()
 ```
 
 ### Residuals of ideal model
 
 ```{r}
 
-modelIdeal = lm(data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide, data = dataNew)
+modelIdeal = lm(data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide + data.density, data = dataNew)
 autoplot(modelIdeal, which=1:2)
 ```
 
@@ -176,7 +191,7 @@ autoplot(modelIdeal, which=1:2)
 
 ```{r}
 
-modelIdeal = lm(quality ~ ., data = data)
+modelFull = lm(quality ~ ., data = data)
 autoplot(modelIdeal, which=1:2)
 ```
 
@@ -184,6 +199,6 @@ autoplot(modelIdeal, which=1:2)
 
 ```{r}
 
-modelIdeal = lm(quality ~ alcohol, data = data)
+modelAlcohol = lm(quality ~ alcohol, data = data)
 autoplot(modelIdeal, which=1:2)
 ```
