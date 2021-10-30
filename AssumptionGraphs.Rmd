@@ -102,33 +102,25 @@ grid.arrange(g1, g2, ncol = 2,top=textGrob("Red Wine Quality vs Total Sulfur Dio
 
 ## Normality
 ```{r}
-g1 = data %>%
-  ggplot()+
-  aes(x=total.sulfur.dioxide,y=quality) +
-  geom_point(size = 1) +
+l = lm(quality ~ volatile.acidity, data=data)
+autoplot(l, which=2) +
   theme_bw() +
   theme(axis.line = element_line(color='black'),
     plot.background = element_blank(),
     panel.grid.minor = element_blank(),
     panel.border = element_blank()) +
-  xlab("XXX") +
-  ylab("Red Wine Quality") +
-  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+  ggtitle("Q-Q Plot of Volatile Acidity vs Quality")
 
-g2 = data %>%
-  ggplot()+
-  aes(x=residual.sugar,y=quality) +
-  geom_point(size = 1) +
+
+r = lm(quality ~ residual.sugar, data=data)
+autoplot(r, which=2) +
   theme_bw() +
   theme(axis.line = element_line(color='black'),
     plot.background = element_blank(),
     panel.grid.minor = element_blank(),
     panel.border = element_blank()) +
-  xlab("Residual Sugar Content") +
-  ylab("Red Wine Quality") +
-  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+  ggtitle("Q-Q Plot of Residual Sugar vs Quality")
 
-grid.arrange(g1, g2, ncol = 2,top=textGrob("Red Wine Quality vs Total Sulfur Dioxide: with & without log"))
 ```
 
 
