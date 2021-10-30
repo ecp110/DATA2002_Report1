@@ -50,9 +50,12 @@ data = read.table("winequality-red.csv", sep=";", header=T)
 
 ## Introduction 
 
-In this project, we will explore the 'red-wine quality' dataset to research relavance between each facotrs. The attributes in the dataset are following: "fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","quality"
+In this project, we will explore the 'red-wine quality' dataset to research relavance between each facotrs. The attributes in the dataset are following:
+"fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","quality"
+
 High quality: (>= 8) Good wine is usually one that has a good balance of sweet, sour, salty, and bitter elements 
-Low quality: (< 7.5) Wine that has crossed the line toward vinegar, it can be described as dusty and dried out, all tannin, no fruit. 
+Low quality: (< 7.5) Wine that has crossed the line toward vinegar, it can be described as dusty and dried out, all tannin, no fruit.
+
 Linear regression is used to analysis the influence of each attribute on the quality of red wine in our project. 
  
 ---
