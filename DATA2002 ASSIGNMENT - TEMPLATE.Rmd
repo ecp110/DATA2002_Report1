@@ -18,7 +18,7 @@ output:
 ---
 
 
-```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE, warning=FALSE}
 library(RefManageR)
 
 library(tidyverse)
@@ -33,6 +33,8 @@ library(ggfortify)
 library(caret)
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+```{r, message=FALSE}
 BibOptions(check.entries = FALSE, 
             bib.style = "authoryear",
             cite.style = 'authoryear', 
@@ -40,6 +42,9 @@ BibOptions(check.entries = FALSE,
             hyperlink = FALSE, 
             dashed = FALSE)
  myBib <- ReadBib("assets/example.bib", check = FALSE)
+```
+ 
+
 ## Background 
 ---
 ## Introduction 
