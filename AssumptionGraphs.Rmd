@@ -1,0 +1,132 @@
+---
+title: "AssumptionGraphs"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(janitor) 
+library(dplyr)
+library(GGally)
+library(leaps)
+library(broom)
+library(ggfortify)
+library(grid)
+library(gridExtra)
+```
+
+```{r, message = FALSE}
+data <- read.table("winequality-red.csv", sep=";", header=T)
+data %>% 
+  clean_names()
+
+dataSelected = data.frame(data$quality, data$alcohol, data$volatile.acidity, data$total.sulfur.dioxide, data$citric.acid, data$density)
+dataSelected = dataSelected %>%
+  mutate(data.volatile.acidity = log(data.volatile.acidity))
+dataSelected = dataSelected %>%
+  mutate(data.total.sulfur.dioxide = log(data.total.sulfur.dioxide))
+
+M0 = lm(data.quality ~ 1, data = dataNew)
+M1 = lm(data.quality ~ ., data = dataNew)
+MFull = lm(quality ~ ., data = data)
+```
+
+```{r}
+glimpse(data)
+```
+
+## Linearity
+```{r}
+g1 = data %>%
+  ggplot()+
+  aes(x=alcohol,y=quality) +
+  geom_point(size = 1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Red Wine Quality vs Alcohol Percentage")+
+  xlab("Alcohol Percentage") +
+  ylab("Red Wine Quality") +
+  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+
+g2 = data %>%
+  ggplot()+
+  aes(x=pH,y=quality) +
+  geom_point(size = 1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Red Wine Quality vs pH")+
+  xlab("Wine pH") +
+  ylab("Red Wine Quality") +
+  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+
+grid.arrange(g1, g2, ncol = 2,top=textGrob("Linearity Examples"))
+```
+
+## Linearity Transformation
+```{r}
+g1 = data %>%
+  ggplot()+
+  aes(x=total.sulfur.dioxide,y=quality) +
+  geom_point(size = 1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  xlab("Total Sulfur Dioxide") +
+  ylab("Red Wine Quality") +
+  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+
+g2 = dataNew %>%
+  ggplot()+
+  aes(x=data.total.sulfur.dioxide,y=data.quality) +
+  geom_point(size = 1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  xlab("log(Total Sulfur Dioxide)") +
+  ylab("Red Wine Quality") +
+  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+
+grid.arrange(g1, g2, ncol = 2,top=textGrob("Red Wine Quality vs Total Sulfur Dioxide: with & without log"))
+```
+
+## Normality
+```{r}
+l = lm(quality ~ volatile.acidity, data=data)
+autoplot(l, which=2) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Q-Q Plot of Volatile Acidity vs Quality")
+
+
+r = lm(quality ~ residual.sugar, data=data)
+autoplot(r, which=2) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Q-Q Plot of Residual Sugar vs Quality")
+
+```
+
+
+
+
+
+
+
+
