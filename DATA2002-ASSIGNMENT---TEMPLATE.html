@@ -1,142 +1,359 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Determining Risk Factors Associate With Red Wine</title>
+    <title>Predictors of the Quality of Red Wine</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Authors" />
+    <meta name="author" content="500520320 480025267 500505430 500586901" />
     <script src="DATA2002-ASSIGNMENT---TEMPLATE_files/header-attrs-2.10/header-attrs.js"></script>
-    <link href="DATA2002-ASSIGNMENT---TEMPLATE_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <script src="DATA2002-ASSIGNMENT---TEMPLATE_files/kePrint-0.0.1/kePrint.js"></script>
     <link href="DATA2002-ASSIGNMENT---TEMPLATE_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/sydney-fonts.css" type="text/css" />
-    <link rel="stylesheet" href="assets/sydney.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Determining Risk Factors Associate With Red Wine
+# Predictors of the Quality of Red Wine
 ## DATA2002 Group Presentation
-### Authors
+### 500520320 480025267 500505430 500586901
 
 ---
 
 
 
 
-BibOptions(check.entries = FALSE, 
-            bib.style = "authoryear",
-            cite.style = 'authoryear', 
-            style = "markdown",
-            hyperlink = FALSE, 
-            dashed = FALSE)
- myBib &lt;- ReadBib("assets/example.bib", check = FALSE)
-## Background 
----
-## Introduction 
-- Aim
-- Method
- 
+
+
+
+
+
+## Introduction
+&lt;div align = "center"&gt;
+In this project, we will explore the 'red-wine quality' dataset to research relevance between quality and wine composition attributes.
+
+Quality of wine is a measure from 0-10, split into: 
+* High quality: (&gt;= 8) Good wine is usually one that has a good balance of sweet, sour, salty, and bitter elements 
+* Low quality: (&lt; 7.5) Wine that has crossed the line toward vinegar, it can be described as dusty and dried out, all tannin, no fruit.
+
+Linear regression is used to analysis the influence of each attribute on the quality of red wine in our project.
+
 ---
 ## Dataset 
 
+---
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;div align = center&gt;
+# Assumption Checking 
 
+---
+## Independence
 
+---
+## Linearity
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-2-1.png" width="65%" style="float:right; padding:10px" /&gt;
+&lt;br/&gt;
+* Linearity refers to the ability to fit a linear relationship between two variables.
 
-&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
-&lt;caption&gt;&lt;center&gt;&lt;strong&gt;Analysis of Wine Quality Variables&lt;/strong&gt;&lt;/center&gt;&lt;/caption&gt;
+* Linearity is essential as we are fitting linear regression models.
+
+* Non-linear data, eg. the pH of the Wine (right diagram) is unable to be accurately modeled with linear regression.
+
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Description of Variable &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Non-Linear Variables &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Fixed Acidity &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Measure of the tartaric, malic, citric and succinic in grapes &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Volatile Acidity &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; fatty acids in wine which contribute to a distasteful vinegar flavour in the wine &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Citric Acid &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Manipulated to increase flavour &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Residual Sugar &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Raw sugar derived from grapes (post fermentation). Higher residual sugar = Sweeter Wine &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Chlorides &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Impacts on saltiness of the wine &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Free Sulphur Dioxide &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Sulphur Dioxide that has not yet reacted. Stops product from reacting to oxygen (causes browing and oxidation &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Total Sulphur Dioxide &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Free Sulphur Dioxide + amount of SO2 in chemicals which are included in the wine &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Density &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Higher Density = better quality (expand on idea) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Free Sulfur Dioxide &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; pH &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Measure of the acidity. Lower pH = less susceptible to bacteria growth + increased flavour &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Sulphates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Introduced to protect against bacteria &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Alcohol &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Concentration of alcohol in final product, impacts on flavour massively &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Quality &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Summary of results of previous eleven variables &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Fixed Acidity &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 
 ---
+## Linearity Transformation
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-4-1.png" width="65%" style="float:right; padding:10px" /&gt;
+
+&lt;br/&gt;
+* Transformations on data can be used to better suit the data to regression modelling assumptions.
+
+* An example is the log transformation of Total Sulfur Dioxide.
+
+* Due to it spanning multiple orders of magnitude, the log function allows for a more even and linear distribution, and thus better analysis in the model.
+
+---
+## Normality 
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-5-1.png" width="65%" style="float:right; padding:10px" /&gt;
+&lt;br/&gt;
+* Normality refers to the how normal the distribution of variable residuals are distributed.
+
+* As our data involved the discrete value of quality, it was often difficult to assess.
+
+* Obvious violations were removed, as can be seen by Residual Sugar.
+
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Non-Normal Variables &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Residual Sugar &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+## Homoscedasticity 
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-7-1.png" width="65%" style="float:right; padding:10px" /&gt;
+&lt;br/&gt;
+* Homoscedasticity refers to the even distribution of residual values.
+
+* Residuals should be evenly distributed around the center line (y = 0).
+
+* Residuals should also not 'fan', with a flat and even distribution over the entirety of the fitted values.
+
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Hetroscedastic Variables &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chlorides &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sulfates &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+## Model Selection  
 
 
-## Assumptions Checking 
+* After sub-setting the initial wine data frame to leave only the variables that didn't violate assumptions, we ran both step-back and step-forward selections to figure out which combination of predictors minimized AIC  
+
+&lt;table class="table" style="font-size: 17px; width: auto !important; float: left; margin-right: 10px;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;Step-Forward Method&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Std. Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; t value &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr(&amp;gt;|t|) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Intercept &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -21.222 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.311 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.058 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.040 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Alcohol Concentration &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.322 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.019 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16.988 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Volatile Acidity &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.666 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.049 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -13.641 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total Sulfur Dioxide &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.056 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.024 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.291 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.022 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Density &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.311 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.247 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.275 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.023 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table class="table" style="font-size: 17px; width: auto !important; "&gt;
+&lt;caption style="font-size: initial !important;"&gt;Step-Back Method&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Std. Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; t value &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr(&amp;gt;|t|) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Intercept &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -21.222 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.311 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.058 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.040 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Alcohol Concentration &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.322 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.019 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16.988 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Volatile Acidity &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.666 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.049 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -13.641 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total Sulfur Dioxide &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.056 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.024 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.291 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.022 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Density &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.311 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.247 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.275 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.023 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+* Both the forward and backwards selection came to the same conclusion 
 
 
-- Linearity 
+
 ---
-## Assumptions Checking 
-- Independence 
+## Results and Analysis
+
+&lt;br/&gt;
+
+* The forward and backward-step methods came to the following conclusion: 
+
+$$
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06TSD + 23.31D}
+$$
+
+* Note that TSD in this equation refers to the log of the initial total sulfur dioxide values 
+
+* We then ran 10-fold cross validation using the Caret package to test our model 
+
+* To do this, we compared our selected model from the forward and backward step analysis, with two other models. The full model refers to all the potential predictor variables from the initial dataset, and a simple model containing only the alcohol concentration which was the most significant predictor variable from our analysis
+
 ---
-## Assumptions Checking 
-- Homoskedasticity 
----
-## Assumptions Checking 
-- Normality 
----
-## Analysis 
-- Selecting appropriate model 
-- Backward 
-- Forward 
----
-## Results
----
-## Discussion
+## Analysis Continued
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-10-1.png" style="float:right; padding:10px" /&gt;
+
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-11-1.png" style="float:left; padding:10px" /&gt;
+
+
+
 ---
 ## Conclusion
 
+&lt;br/&gt;
 
+* We were able to model the quality of red wine as a linear combination of alcohol concentration,volatile acidity, log of total sulfur dioxide and density
+$$
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06TSD + 23.31D}
+$$
 
+* Limitations include: 
+    * Linearity of most predictor variables in the data-set was quite poor, so we had to be generous with what met this assumption
+    * `\(r^2\)` for the selected model was fairly low indicated the performance isn't particularly strong and unable to represent the total variance well
+    * Independence is hard to gauge as there is not much information on the data collection - potential selection biases, wine brands 
 
+    
+    
 
+---
+## References
+Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
+Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
+  
+McLean MW (2017). “RefManageR: Import and Manage BibTeX and BibLaTeX
+References in R.” _The Journal of Open Source Software_. doi:
+10.21105/joss.00338 (URL: https://doi.org/10.21105/joss.00338).
 
+McLean MW (2014). _Straightforward Bibliography Management in R
+Using the RefManager Package_. arXiv: 1403.2036 [cs.DL], &lt;URL:
+https://arxiv.org/abs/1403.2036&gt;.
+
+Barret Schloerke, Di Cook, Joseph Larmarange, Francois Briatte,
+Moritz Marbach, Edwin Thoen, Amos Elberg and Jason Crowley (2021).
+GGally: Extension to 'ggplot2'. R package version 2.1.2.
+https://CRAN.R-project.org/package=GGally
+
+John Fox and Sanford Weisberg (2019). An {R} Companion to Applied
+Regression, Third Edition. Thousand Oaks CA: Sage. URL:
+https://socialsciences.mcmaster.ca/jfox/Books/Companion/
+
+Yuan Tang, Masaaki Horikoshi, and Wenxuan Li. "ggfortify: Unified
+Interface to Visualize Statistical Result of Popular R Packages."
+The R Journal 8.2 (2016): 478-489.
+
+Lüdecke D (2021). _sjPlot: Data Visualization for Statistics in
+Social Science_. R package version 2.8.9, &lt;URL:
+https://CRAN.R-project.org/package=sjPlot&gt;.
+
+Daniel Anderson, Andrew Heiss and Jay Sumners (2021).
+equatiomatic: Transform Models into 'LaTeX' Equations. R package
+version 0.3.0. https://CRAN.R-project.org/package=equatiomatic
+
+---
+## References (continued)
+Julian Faraway (2016). faraway: Functions and Datasets for Books
+by Julian Faraway. R package version 1.0.7.
+https://CRAN.R-project.org/package=faraway
+
+Broman KW (2015) R/qtlcharts: interactive graphics for
+quantitative trait locus mapping. Genetics 199:359-361
+doi:10.1534/genetics.114.172742
+
+Max Kuhn (2021). caret: Classification and Regression Training. R
+package version 6.0-90. https://CRAN.R-project.org/package=caret
+
+Hao Zhu (2021). kableExtra: Construct Complex Table with 'kable'
+and Pipe Syntax. R package version 1.3.4.
+https://CRAN.R-project.org/package=kableExtra
+
+Sam Firke (2021). janitor: Simple Tools for Examining and Cleaning
+Dirty Data. R package version 2.1.0.
+https://CRAN.R-project.org/package=janitor
+
+Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
+(2021). dplyr: A Grammar of Data Manipulation. R package version
+1.0.7. https://CRAN.R-project.org/package=dplyr
+
+Thomas Lumley based on Fortran code by Alan Miller (2020). leaps:
+Regression Subset Selection. R package version 3.1.
+https://CRAN.R-project.org/package=leaps
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

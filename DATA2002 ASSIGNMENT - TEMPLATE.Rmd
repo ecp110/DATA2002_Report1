@@ -1,7 +1,7 @@
 ---
-title: "Determining Risk Factors Associate With Red Wine"
+title: "Predictors of the Quality of Red Wine"
 subtitle: "DATA2002 Group Presentation"
-author: "500520320   480025267   500505430"
+author: "500520320   480025267   500505430 500586901"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -19,7 +19,7 @@ output:
 
 ---
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning = FALSE}
 library(xaringanthemer)
 style_mono_accent(base_color = "#43418A")
 
@@ -27,7 +27,7 @@ style_mono_accent(base_color = "#43418A")
 ```
 
 
-```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE, warning = FALSE}
 library(RefManageR)
 BibOptions(check.entries = FALSE, 
             bib.style = "authoryear",
@@ -256,27 +256,142 @@ kable(nonLinear) %>%
 
 ---
 
-## Analysis 
-- Selecting appropriate model 
-- 
-- Forward 
+## Model Selection  
+
+
+* After sub-setting the initial wine data frame to leave only the variables that didn't violate assumptions, we ran both step-back and step-forward selections to figure out which combination of predictors minimized AIC  
+
+```{r, echo=FALSE, message=FALSE, out.width= "65%", fig.height = 5, out.extra='style="float:right; padding:10px"'}
+
+dataNew = data.frame(data$quality, data$alcohol, data$volatile.acidity, data$total.sulfur.dioxide, data$citric.acid, data$density)
+dataNew = dataNew %>%
+  mutate(data.volatile.acidity = log(data.volatile.acidity))
+
+dataNew = dataNew %>%
+  mutate(data.total.sulfur.dioxide = log(data.total.sulfur.dioxide))
+
+M0 = lm(data.quality ~ 1, data = dataNew)
+M1 = lm(data.quality ~ ., data = dataNew)
+MFull = lm(quality ~ ., data = data)
+#round(summary(M1)$coef,3)
+
+step.fwd.aic = step(M0, scope = list(lower = M0, upper = M1), direction = "forward", trace = FALSE)
+
+summary_table = summary(step.fwd.aic)
+
+summary_table$coefficients <- round(summary_table$coefficients, 3)
+rownames(summary_table$coefficients) <-c("Intercept", "Alcohol Concentration", "Volatile Acidity", "Total Sulfur Dioxide", "Density")
+x1 = kable(summary_table$coefficients, caption="Step-Forward Method")
+
+
+step.back.aic = step(M1, direction = "backward", trace = FALSE)
+summary_table2 = summary(step.back.aic)
+
+summary_table2$coefficients <- round(summary_table2$coefficients, 3)
+rownames(summary_table2$coefficients) <-c("Intercept", "Alcohol Concentration", "Volatile Acidity", "Total Sulfur Dioxide", "Density")
+x2 = kable(summary_table2$coefficients, caption="Step-Back Method")
+
+x1 %>% kable_styling(font_size = 17, full_width = FALSE, position = "float_left")
+
+x2 %>% kable_styling(font_size = 17, full_width = FALSE, position = "left")
+
+```
+
+* Both the forward and backwards selection came to the same conclusion 
+
+
+
 ---
-## Results
+## Results and Analysis
+
+<br/>
+
+* The forward and backward-step methods came to the following conclusion: 
+
+$$
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06TSD + 23.31D}
+$$
+
+* Note that TSD in this equation refers to the log of the initial total sulfur dioxide values 
+
+* We then ran 10-fold cross validation using the Caret package to test our model 
+
+* To do this, we compared our selected model from the forward and backward step analysis, with two other models. The full model refers to all the potential predictor variables from the initial dataset, and a simple model containing only the alcohol concentration which was the most significant predictor variable from our analysis
+
 ---
-## Discussion
+## Analysis Continued
+```{r, echo=FALSE, message=FALSE, out.extra='style="float:right; padding:10px"'}
+library(caret)
+control = trainControl(method = "cv", number = 10)
+
+step_model = data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide + data.density
+full_model = quality ~ .
+simple_model = quality ~ alcohol
+
+step_cv = train(step_model, method = "lm", data = dataNew, trControl = control)
+full_cv = train(full_model, method = "lm", data = data, trControl = control)
+simple_cv = train(simple_model, method = "lm", data = data, trControl = control)
+
+results <- resamples(list(simple = simple_cv, selected = step_cv, full = full_cv))
+
+p1 = ggplot(results, metric = "RMSE") + 
+  theme_classic() + 
+  labs(y = "RMSE")
+
+p2 = ggplot(results, metric = "MAE")+
+  theme_classic()+
+  labs(y="MAE")
+
+p3 = ggplot(results, metric = "Rsquared") + 
+  theme_classic() + 
+  labs(y = "Rsquared")
+
+cowplot::plot_grid(p1,p2, p3, ncol = 1)
+```
+
+```{r, echo=FALSE, message=FALSE, out.extra='style="float:left; padding:10px"'}
+modelIdeal = lm(data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide + data.density, data = dataNew)
+ residual_selected = autoplot(modelIdeal, which=1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Residual Plot of Selected Model")
+ 
+ normal_selected = autoplot(modelIdeal, which=2) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("QQ Plot of Selected Model")
+ 
+grid.arrange(residual_selected@plots[[1]], normal_selected@plots[[1]], ncol = 2)
+
+
+```
+
+
+
 ---
 ## Conclusion
-#Limitation 
-The data collection process was unknown. Therefore, we are uncertain about
-- if there are any biases when collecting the data. E.g. selection biases
-- the brands of wines 
-- whether the same bottle of wine was accidentally been tested multiple times 
 
-Small $r^2$ means the linear model isn't able to represent the total variance well
+<br/>
 
-The wine-quality data doesn't meet most of the linearity assumptions, therefore a nonlinear analysis might be considered 
+* We were able to model the quality of red wine as a linear combination of alcohol concentration,volatile acidity, log of total sulfur dioxide and density
+$$
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06TSD + 23.31D}
+$$
 
-.red[We should investigate further on how the data was obtained, hence look into if any biases can be removed]
+* Limitations include: 
+    * Linearity of most predictor variables in the data-set was quite poor, so we had to be generous with what met this assumption
+    * $r^2$ for the selected model was fairly low indicated the performance isn't particularly strong and unable to represent the total variance well
+    * Independence is hard to gauge as there is not much information on the data collection - potential selection biases, wine brands 
+
+    
+    
+
 ---
 ## References
 Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
