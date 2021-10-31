@@ -3,7 +3,7 @@
   <head>
     <title>Predictors of the Quality of Red Wine</title>
     <meta charset="utf-8" />
-    <meta name="author" content="500520320 480025267 500505430 500586901" />
+    <meta name="author" content="500520320 480025267 500505430 500586901 500555424" />
     <script src="DATA2002-ASSIGNMENT---TEMPLATE_files/header-attrs-2.10/header-attrs.js"></script>
     <script src="DATA2002-ASSIGNMENT---TEMPLATE_files/kePrint-0.0.1/kePrint.js"></script>
     <link href="DATA2002-ASSIGNMENT---TEMPLATE_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 
 # Predictors of the Quality of Red Wine
 ## DATA2002 Group Presentation
-### 500520320 480025267 500505430 500586901
+### 500520320 480025267 500505430 500586901 500555424
 
 ---
 
@@ -40,17 +40,98 @@ Linear regression is used to analysis the influence of each attribute on the qua
 ---
 ## Dataset 
 
+&lt;table class="table table-striped" style="font-size: 18px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;&lt;center&gt;&lt;strong&gt;Analysis of Wine Quality Variables&lt;/strong&gt;&lt;/center&gt;&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Description of Variable &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Fixed Acidity &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measure of the tartaric, malic, citric and succinic in grapes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Volatile Acidity &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; fatty acids in wine which contribute to a distasteful vinegar flavour in the wine &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Citric Acid &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Manipulated to increase flavour &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Residual Sugar &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Raw sugar derived from grapes (post fermentation). Higher residual sugar = Sweeter Wine &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chlorides &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Impacts on saltiness of the wine &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Free Sulphur Dioxide &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sulphur Dioxide that has not yet reacted. Stops product from reacting to oxygen (causes browing and oxidation &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total Sulphur Dioxide &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Free Sulphur Dioxide + amount of SO2 in chemicals which are included in the wine &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Density &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Higher Density = better quality (expand on idea) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; pH &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measure of the acidity. Lower pH = less susceptible to bacteria growth + increased flavour &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sulphates &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Introduced to protect against bacteria &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Alcohol &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Concentration of alcohol in final product, impacts on flavour massively &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Quality &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Summary of results of previous eleven variables &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
 ---
-&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
-&lt;div align = center&gt;
-# Assumption Checking 
+## Assumptions for Linear Regression
+There are 4 assumptions underling our linear regression model:
+
+1.  *Linearity* - the relationship between \(Y\) and \(x\) is linear
+2.  *Independence* - all the errors are independent of each other
+3.  *Homoskedasticity* - the errors have constant variance `$$\operatorname{Var}\varepsilon_i = \sigma^2 \text{for all } i = 1,2,\ldots,n$$`
+4.  *Normality* - the errors follow a normal distribution
+
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://www.jmp.com/en_us/statistics-knowledge-portal/what-is-regression/simple-linear-regression-assumptions/_jcr_content/par/styledcontainer_2069/par/lightbox_e99c/lightboxImage.img.png/1595273803560.png" alt="Analysis of Linear Regression Assumptions" width="50%" /&gt;
+&lt;p class="caption"&gt;Analysis of Linear Regression Assumptions&lt;/p&gt;
+&lt;/div&gt;
 
 ---
 ## Independence
 
+&lt;img src="https://d2mvzyuse3lwjc.cloudfront.net/doc/en/UserGuide/images/Graphic_Residual_Analysis/Graphic_Residual_Analysis-4.jpg?v=10731" width="35%" style="float:right; padding:10px" /&gt;
+
+\(X\) and \(Y\) are said to be independent if 
+
+`$$P(X=x~|~Y=y) = P(X=x) \quad$$`
+or
+`$$\quad P(X=x, Y=y) = P(X=x)P(Y=y)$$`
+
+
+
 ---
 ## Linearity
-&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-2-1.png" width="65%" style="float:right; padding:10px" /&gt;
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-5-1.png" width="65%" style="float:right; padding:10px" /&gt;
 &lt;br/&gt;
 * Linearity refers to the ability to fit a linear relationship between two variables.
 
@@ -80,7 +161,7 @@ Linear regression is used to analysis the influence of each attribute on the qua
 
 ---
 ## Linearity Transformation
-&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-4-1.png" width="65%" style="float:right; padding:10px" /&gt;
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-7-1.png" width="65%" style="float:right; padding:10px" /&gt;
 
 &lt;br/&gt;
 * Transformations on data can be used to better suit the data to regression modelling assumptions.
@@ -91,7 +172,7 @@ Linear regression is used to analysis the influence of each attribute on the qua
 
 ---
 ## Normality 
-&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-5-1.png" width="65%" style="float:right; padding:10px" /&gt;
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-8-1.png" width="65%" style="float:right; padding:10px" /&gt;
 &lt;br/&gt;
 * Normality refers to the how normal the distribution of variable residuals are distributed.
 
@@ -114,7 +195,7 @@ Linear regression is used to analysis the influence of each attribute on the qua
 
 ---
 ## Homoscedasticity 
-&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-7-1.png" width="65%" style="float:right; padding:10px" /&gt;
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-10-1.png" width="65%" style="float:right; padding:10px" /&gt;
 &lt;br/&gt;
 * Homoscedasticity refers to the even distribution of residual values.
 
@@ -257,7 +338,7 @@ Linear regression is used to analysis the influence of each attribute on the qua
 * The forward and backward-step methods came to the following conclusion: 
 
 $$
-\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06TSD + 23.31D}
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
 $$
 
 * Note that TSD in this equation refers to the log of the initial total sulfur dioxide values 
@@ -268,9 +349,9 @@ $$
 
 ---
 ## Analysis Continued
-&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-10-1.png" style="float:right; padding:10px" /&gt;
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-13-1.png" style="float:right; padding:10px" /&gt;
 
-&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-11-1.png" style="float:left; padding:10px" /&gt;
+&lt;img src="DATA2002-ASSIGNMENT---TEMPLATE_files/figure-html/unnamed-chunk-14-1.png" style="float:left; padding:10px" /&gt;
 
 
 
@@ -281,7 +362,7 @@ $$
 
 * We were able to model the quality of red wine as a linear combination of alcohol concentration,volatile acidity, log of total sulfur dioxide and density
 $$
-\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06TSD + 23.31D}
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
 $$
 
 * Limitations include: 
@@ -354,6 +435,22 @@ Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
 Thomas Lumley based on Fortran code by Alan Miller (2020). leaps:
 Regression Subset Selection. R package version 3.1.
 https://CRAN.R-project.org/package=leaps
+
+---
+## References (continued)
+Tarr, G. (2021). Week three Lecture L08: Testing for independence – who was more likely to die on the Titanic? [Powerpoint slides]. Unpublished manuscript, DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week eleven Lecture L26: Simple linear regression [Powerpoint slides]. Unpublished manuscript, DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week eleven Lecture L27: Multiple regression and model selection [Powerpoint slides]. Unpublished manuscript, DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week eleven Lecture L28: Prediction internals and performance assessment [Powerpoint slides]. Unpublished manuscript, DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week eleven Live Lecture: [Video file]. DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week ten Live Lecture: [Video file].  DATA2002, University of Sydney, Sydney, Australia
+
+Garrick Aden-Buie (2021). xaringanthemer: Custom 'xaringan' CSS Themes. R package version 0.4.0. https://CRAN.R-project.org/package=xaringanthemer
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

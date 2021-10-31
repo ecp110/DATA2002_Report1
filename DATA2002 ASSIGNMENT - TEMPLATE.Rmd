@@ -121,10 +121,7 @@ $$P(X=x~|~Y=y) = P(X=x) \quad$$
 or
 $$\quad P(X=x, Y=y) = P(X=x)P(Y=y)$$
 
-Reasons for studying independence: 
 
-- Correlation/Lack of Correlation between two of the data set's variables
-- Allows for initialisation of study of linear regression
 
 ---
 ## Linearity
@@ -347,7 +344,7 @@ x2 %>% kable_styling(font_size = 17, full_width = FALSE, position = "left")
 * The forward and backward-step methods came to the following conclusion: 
 
 $$
-\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06TSD + 23.31D}
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
 $$
 
 * Note that TSD in this equation refers to the log of the initial total sulfur dioxide values 
@@ -372,7 +369,7 @@ simple_cv = train(simple_model, method = "lm", data = data, trControl = control)
 
 results <- resamples(list(simple = simple_cv, selected = step_cv, full = full_cv))
 
-p1 = ggplot(results, metric = "RMSE") + 
+p3 = ggplot(results, metric = "RMSE") + 
   theme_classic() + 
   labs(y = "RMSE")
 
@@ -380,7 +377,7 @@ p2 = ggplot(results, metric = "MAE")+
   theme_classic()+
   labs(y="MAE")
 
-p3 = ggplot(results, metric = "Rsquared") + 
+p1 = ggplot(results, metric = "Rsquared") + 
   theme_classic() + 
   labs(y = "Rsquared")
 
@@ -419,7 +416,7 @@ grid.arrange(residual_selected@plots[[1]], normal_selected@plots[[1]], ncol = 2)
 
 * We were able to model the quality of red wine as a linear combination of alcohol concentration,volatile acidity, log of total sulfur dioxide and density
 $$
-\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06TSD + 23.31D}
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
 $$
 
 * Limitations include: 
@@ -506,3 +503,5 @@ Tarr, G. (2021). Week eleven Lecture L28: Prediction internals and performance a
 Tarr, G. (2021). Week eleven Live Lecture: [Video file]. DATA2002, University of Sydney, Sydney, Australia 
 
 Tarr, G. (2021). Week ten Live Lecture: [Video file].  DATA2002, University of Sydney, Sydney, Australia
+
+Garrick Aden-Buie (2021). xaringanthemer: Custom 'xaringan' CSS Themes. R package version 0.4.0. https://CRAN.R-project.org/package=xaringanthemer
