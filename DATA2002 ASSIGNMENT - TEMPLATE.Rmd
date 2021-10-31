@@ -4,7 +4,7 @@ subtitle: "DATA2002 Group Presentation"
 author: "500520320   480025267   500505430"
 output:
   xaringan::moon_reader:
-    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
+    css: xaringan-themer.css
     self_contained: false 
     seal: true 
     nature:
@@ -15,7 +15,17 @@ output:
       ratio: '16:9' 
       navigation:
         scroll: false # disable slide transitions by scrolling
+        
+
 ---
+
+```{r, echo=FALSE, message=FALSE}
+library(xaringanthemer)
+style_mono_accent(base_color = "#43418A")
+
+
+```
+
 
 ```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
 library(RefManageR)
@@ -57,12 +67,13 @@ dataNew = dataNew %>%
 
 
 
-## Introduction 
-In this project, we will explore the 'red-wine quality' dataset to research relevance between each factors. The attributes in the dataset are following:
-"fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","quality"
+## Introduction
+<div align = "center">
+In this project, we will explore the 'red-wine quality' dataset to research relevance between quality and wine composition attributes.
 
-High quality: (>= 8) Good wine is usually one that has a good balance of sweet, sour, salty, and bitter elements 
-Low quality: (< 7.5) Wine that has crossed the line toward vinegar, it can be described as dusty and dried out, all tannin, no fruit.
+Quality of wine is a measure from 0-10, split into: 
+* High quality: (>= 8) Good wine is usually one that has a good balance of sweet, sour, salty, and bitter elements 
+* Low quality: (< 7.5) Wine that has crossed the line toward vinegar, it can be described as dusty and dried out, all tannin, no fruit.
 
 Linear regression is used to analysis the influence of each attribute on the quality of red wine in our project.
 
@@ -158,7 +169,7 @@ g2 = dataNew %>%
 grid.arrange(g1, g2, ncol = 2,top=textGrob("Red Wine Quality vs Total Sulfur Dioxide: with & without log"))
 ```
 
-<br/><br/><br/>
+<br/>
 * Transformations on data can be used to better suit the data to regression modelling assumptions.
 
 * An example is the log transformation of Total Sulfur Dioxide.
@@ -243,7 +254,6 @@ kable(nonLinear) %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
-
 ---
 
 ## Analysis 
@@ -268,8 +278,7 @@ The wine-quality data doesn't meet most of the linearity assumptions, therefore 
 
 .red[We should investigate further on how the data was obtained, hence look into if any biases can be removed]
 ---
-## Reference 
-.scroll-output[
+## References
 Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
 Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
   
@@ -302,6 +311,8 @@ Daniel Anderson, Andrew Heiss and Jay Sumners (2021).
 equatiomatic: Transform Models into 'LaTeX' Equations. R package
 version 0.3.0. https://CRAN.R-project.org/package=equatiomatic
 
+---
+## References (continued)
 Julian Faraway (2016). faraway: Functions and Datasets for Books
 by Julian Faraway. R package version 1.0.7.
 https://CRAN.R-project.org/package=faraway
@@ -328,4 +339,3 @@ Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
 Thomas Lumley based on Fortran code by Alan Miller (2020). leaps:
 Regression Subset Selection. R package version 3.1.
 https://CRAN.R-project.org/package=leaps
-]
