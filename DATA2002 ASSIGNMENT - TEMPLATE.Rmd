@@ -80,13 +80,51 @@ Linear regression is used to analysis the influence of each attribute on the qua
 ---
 ## Dataset 
 
+```{r, echo = FALSE, message = FALSE}
+table60 <- matrix(c("Measure of the tartaric, malic, citric and succinic in grapes", "fatty acids in wine which contribute to a distasteful vinegar flavour in the wine", "Manipulated to increase flavour", "Raw sugar derived from grapes (post fermentation). Higher residual sugar = Sweeter Wine", "Impacts on saltiness of the wine", "Sulphur Dioxide that has not yet reacted. Stops product from reacting to oxygen (causes browing and oxidation","Free Sulphur Dioxide + amount of SO2 in chemicals which are included in the wine", "Higher Density = better quality (expand on idea)", "Measure of the acidity. Lower pH = less susceptible to bacteria growth + increased flavour", "Introduced to protect against bacteria", "Concentration of alcohol in final product, impacts on flavour massively", "Summary of results of previous eleven variables"), ncol=1, byrow=TRUE)
+
+colnames(table60) <- c('Description of Variable')
+rownames(table60) <- c("Fixed Acidity", "Volatile Acidity", "Citric Acid", "Residual Sugar", "Chlorides", "Free Sulphur Dioxide","Total Sulphur Dioxide", "Density", "pH", "Sulphates", "Alcohol", "Quality")
+table20 <- as.table(table60)
+
+table20 %>% 
+  kbl(caption = "<center><strong>Analysis of Wine Quality Variables", allign = "c") %>% 
+  kable_styling("striped", font_size = 18)
+
+```
+
 ---
-<br/><br/><br/><br/><br/><br/><br/><br/>
-<div align = center>
-# Assumption Checking 
+## Assumptions for Linear Regression
+There are 4 assumptions underling our linear regression model:
+
+1.  *Linearity* - the relationship between \(Y\) and \(x\) is linear
+2.  *Independence* - all the errors are independent of each other
+3.  *Homoskedasticity* - the errors have constant variance $$\operatorname{Var}\varepsilon_i = \sigma^2 \text{for all } i = 1,2,\ldots,n$$
+4.  *Normality* - the errors follow a normal distribution
+
+
+
+```{r, echo=FALSE, out.width="50%", fig.align = "center", fig.cap="Analysis of Linear Regression Assumptions"}
+knitr::include_graphics("https://www.jmp.com/en_us/statistics-knowledge-portal/what-is-regression/simple-linear-regression-assumptions/_jcr_content/par/styledcontainer_2069/par/lightbox_e99c/lightboxImage.img.png/1595273803560.png")
+```
 
 ---
 ## Independence
+
+```{r, echo=FALSE, fig.height = 4, message = FALSE, out.width="35%", out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://d2mvzyuse3lwjc.cloudfront.net/doc/en/UserGuide/images/Graphic_Residual_Analysis/Graphic_Residual_Analysis-4.jpg?v=10731")
+```
+
+\(X\) and \(Y\) are said to be independent if 
+
+$$P(X=x~|~Y=y) = P(X=x) \quad$$
+or
+$$\quad P(X=x, Y=y) = P(X=x)P(Y=y)$$
+
+Reasons for studying independence: 
+
+- Correlation/Lack of Correlation between two of the data set's variables
+- Allows for initialisation of study of linear regression
 
 ---
 ## Linearity
@@ -103,7 +141,7 @@ g1 = data %>%
   ggtitle("Red Wine Quality vs Alcohol Percentage")+
   xlab("Alcohol Percentage") +
   ylab("Red Wine Quality") +
-  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+  geom_smooth(method='lm', se=FALSE, color='#48448c') 
 
 g2 = data %>%
   ggplot()+
@@ -117,7 +155,7 @@ g2 = data %>%
   ggtitle("Red Wine Quality vs pH")+
   xlab("Wine pH") +
   ylab("Red Wine Quality") +
-  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+  geom_smooth(method='lm', se=FALSE, color='#48448c') 
 
 grid.arrange(g1, g2, ncol = 2)
 
@@ -151,7 +189,7 @@ g1 = data %>%
     panel.border = element_blank()) +
   xlab("Total Sulfur Dioxide") +
   ylab("Red Wine Quality") +
-  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+  geom_smooth(method='lm', se=FALSE, color='#48448c') 
 
 g2 = dataNew %>%
   ggplot()+
@@ -164,7 +202,7 @@ g2 = dataNew %>%
     panel.border = element_blank()) +
   xlab("log(Total Sulfur Dioxide)") +
   ylab("Red Wine Quality") +
-  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+  geom_smooth(method='lm', se=FALSE, color='#48448c') 
 
 grid.arrange(g1, g2, ncol = 2,top=textGrob("Red Wine Quality vs Total Sulfur Dioxide: with & without log"))
 ```
@@ -454,3 +492,17 @@ Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
 Thomas Lumley based on Fortran code by Alan Miller (2020). leaps:
 Regression Subset Selection. R package version 3.1.
 https://CRAN.R-project.org/package=leaps
+
+---
+## References (continued)
+Tarr, G. (2021). Week three Lecture L08: Testing for independence – who was more likely to die on the Titanic? [Powerpoint slides]. Unpublished manuscript, DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week eleven Lecture L26: Simple linear regression [Powerpoint slides]. Unpublished manuscript, DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week eleven Lecture L27: Multiple regression and model selection [Powerpoint slides]. Unpublished manuscript, DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week eleven Lecture L28: Prediction internals and performance assessment [Powerpoint slides]. Unpublished manuscript, DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week eleven Live Lecture: [Video file]. DATA2002, University of Sydney, Sydney, Australia 
+
+Tarr, G. (2021). Week ten Live Lecture: [Video file].  DATA2002, University of Sydney, Sydney, Australia
