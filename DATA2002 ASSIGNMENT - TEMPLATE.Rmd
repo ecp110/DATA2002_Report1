@@ -1,7 +1,7 @@
 ---
 title: "Predictors of the Quality of Red Wine"
 subtitle: "DATA2002 Group Presentation"
-author: "500520320   480025267   500505430 500586901"
+author: "500520320   480025267   500505430 500586901 500555424"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
