@@ -1,7 +1,7 @@
 ---
 title: "Determining Risk Factors Associate With Red Wine"
 subtitle: "DATA2002 Group Presentation"
-author: "500520320   480025267"
+author: "500520320   480025267   500505430"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
@@ -16,7 +16,6 @@ output:
       navigation:
         scroll: false # disable slide transitions by scrolling
 ---
-
 
 ```{r load_refs, echo=FALSE, cache=FALSE, message=FALSE}
 library(RefManageR)
@@ -46,7 +45,14 @@ library(kableExtra)
 library(janitor)
 library(dplyr)
 library(leaps)
+library(grid)
+library(gridExtra)
 data = read.table("winequality-red.csv", sep=";", header=T)
+dataNew = data.frame(data$quality, data$alcohol, data$volatile.acidity, data$total.sulfur.dioxide, data$citric.acid, data$density)
+dataNew = dataNew %>%
+  mutate(data.volatile.acidity = log(data.volatile.acidity))
+dataNew = dataNew %>%
+  mutate(data.total.sulfur.dioxide = log(data.total.sulfur.dioxide))
 ```
 
 
@@ -62,156 +68,179 @@ Linear regression is used to analysis the influence of each attribute on the qua
 
 ---
 ## Dataset 
----
-## Assumptions Checking 
-- LINEARITY Valid
-```{r}
-# FREE SULFUR DIOXIDE VS QUALITY
-lm5 = lm(quality ~ free.sulfur.dioxide, data = data)
-# PH VS QUALITY
-lm7 = lm(quality ~ I(pH^2), data = data)
-# RESIDUAL SUGAR VS QUALITY
-lm9 = lm(quality ~ residual.sugar, data = data)
-```
-.scroll-box-14[
-```{r}
-attach(mtcars)
-par(mfrow=c(3,1))
-par(cex = 0.3)
-plot(quality ~ free.sulfur.dioxide, data = data) 
-abline(lm5, lwd = 3, col = 'red')
-
-plot(quality ~ I(pH^2), data = data)
-abline(lm7, lwd = 3, col = 'red') 
-
-plot(quality ~ residual.sugar, data = data)
-abline(lm9, lwd = 3, col = 'red')
-```
-]
 
 ---
-## Assumptions Checking 
-- Linearity Invaid 
-
-```{r}
-# ALCOHOL VS QUALITY
-lm1 = lm(quality ~ alcohol, data = data)
-# SULPHATES LINEARITY
-lm2 = lm(quality ~ log(sulphates, 30), data = data)
-# VOLATILE ACIDITY VS QUALITY
-lm3 = lm(quality ~ log(sqrt((volatile.acidity))), data = data)
-# CHLORIDES VS QUALITY
-lm6 = lm(quality ~ chlorides, data = data)
-```
-
-```{r}
-attach(mtcars)
-par(mfrow=c(2,2))
-par(cex = 0.5)
-plot(quality ~ alcohol, data = data)
-abline(lm1, lwd = 3, col = 'red')
-
-plot(quality ~ log(sulphates, 30), data = data)
-abline(lm2, lwd = 3, col = 'red')
-
-plot(quality ~ log(sqrt((volatile.acidity))), data = data)
-abline(lm3, lwd = 3, col = 'red')
-
-plot(quality ~ chlorides, data = data)
-abline(lm6, lwd = 3, col = 'red')
-```
-
-
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<div align = center>
+# Assumption Checking 
 
 ---
-## Assumptions Checking 
-- Normality Valid
-```{r}
+## Independence
 
-autoplot(lm1, which = 1:2)
-# SULFATES VS QUALITY
-autoplot(lm2, which = 1:2)
-# VOLATILE ACIDITY VS QUALITY
-autoplot(lm3, which = 1:2)
+---
+## Linearity
+```{r, echo=FALSE, message=FALSE, out.width= "65%", fig.height = 5, out.extra='style="float:right; padding:10px"'}
+g1 = data %>%
+  ggplot()+
+  aes(x=alcohol,y=quality) +
+  geom_point(size = 1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Red Wine Quality vs Alcohol Percentage")+
+  xlab("Alcohol Percentage") +
+  ylab("Red Wine Quality") +
+  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+
+g2 = data %>%
+  ggplot()+
+  aes(x=pH,y=quality) +
+  geom_point(size = 1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Red Wine Quality vs pH")+
+  xlab("Wine pH") +
+  ylab("Red Wine Quality") +
+  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+
+grid.arrange(g1, g2, ncol = 2)
 
 ```
+<br/>
+* Linearity refers to the ability to fit a linear relationship between two variables.
 
-```{r}
-# SULFATES VS QUALITY
-autoplot(lm2, which = 1:2)
-```
+* Linearity is essential as we are fitting linear regression models.
 
-```{r}
-# VOLATILE ACIDITY VS QUALITY
-autoplot(lm3, which = 1:2)
+* Non-linear data, eg. the pH of the Wine (right diagram) is unable to be accurately modeled with linear regression.
+
+```{r, echo=FALSE, message=FALSE}
+nonLinear = data.frame(c("Free Sulfur Dioxide","pH", "Fixed Acidity"))
+colnames(nonLinear) = c("Non-Linear Variables")
+kable(nonLinear) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 
 ---
-## Assumptions Checking 
-- Normality invalid 
-```{r}
-# FREE SULFUR DIOXIDE VS QUALITY
-autoplot(lm5, which = 1:2)
+## Linearity Transformation
+```{r, echo=FALSE, message=FALSE, out.width= "65%", fig.height = 5, out.extra='style="float:right; padding:10px"'}
+g1 = data %>%
+  ggplot()+
+  aes(x=total.sulfur.dioxide,y=quality) +
+  geom_point(size = 1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  xlab("Total Sulfur Dioxide") +
+  ylab("Red Wine Quality") +
+  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+
+g2 = dataNew %>%
+  ggplot()+
+  aes(x=data.total.sulfur.dioxide,y=data.quality) +
+  geom_point(size = 1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  xlab("log(Total Sulfur Dioxide)") +
+  ylab("Red Wine Quality") +
+  geom_smooth(method='lm', se=FALSE, color='#bc3808') 
+
+grid.arrange(g1, g2, ncol = 2,top=textGrob("Red Wine Quality vs Total Sulfur Dioxide: with & without log"))
 ```
 
-```{r}
-# CHLORIDES VS QUALITY
-autoplot(lm6, which = 1:2)
-```
+<br/><br/><br/>
+* Transformations on data can be used to better suit the data to regression modelling assumptions.
 
-```{r}
-# PH VS QUALITY
-autoplot(lm7, which = 1:2)
-```
+* An example is the log transformation of Total Sulfur Dioxide.
 
-```{r}
-# RESIDUAL SUGAR VS QUALITY
-autoplot(lm9, which = 1:2)
+* Due to it spanning multiple orders of magnitude, the log function allows for a more even and linear distribution, and thus better analysis in the model.
+
+---
+## Normality 
+```{r, echo=FALSE, message=FALSE, out.width= "65%", fig.height = 5, out.extra='style="float:right; padding:10px"'}
+l = lm(quality ~ volatile.acidity, data=data)
+g1 = autoplot(l, which=2) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Q-Q Plot of Volatile Acidity vs Quality")
+
+
+r = lm(quality ~ residual.sugar, data=data)
+g2 = autoplot(r, which=2) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Q-Q Plot of Residual Sugar vs Quality")
+
+grid.arrange(g1@plots[[1]], g2@plots[[1]], ncol = 2)
+
+```
+<br/>
+* Normality refers to the how normal the distribution of variable residuals are distributed.
+
+* As our data involved the discrete value of quality, it was often difficult to assess.
+
+* Obvious violations were removed, as can be seen by Residual Sugar.
+
+```{r, echo=FALSE, message=FALSE}
+nonLinear = data.frame(c("Residual Sugar"))
+colnames(nonLinear) = c("Non-Normal Variables")
+kable(nonLinear) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 ---
-## Assumptions Checking 
-- Residual valid 
-```{r}
-# ALCOHOL VS QUALITY
-autoplot(lm1, which = 1:2)
+## Homoscedasticity 
+```{r, echo=FALSE, message=FALSE, out.width= "65%", fig.height = 5, out.extra='style="float:right; padding:10px"'}
+l = lm(quality ~ log(total.sulfur.dioxide), data=data)
+g1 = autoplot(l, which=1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Residual Plot of Total Sulfur Dioxide")
+
+
+r = lm(quality ~ chlorides, data=data)
+g2 = autoplot(r, which=1) +
+  theme_bw() +
+  theme(axis.line = element_line(color='black'),
+    plot.background = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()) +
+  ggtitle("Residual Plot of Chlorides")
+
+grid.arrange(g1@plots[[1]], g2@plots[[1]], ncol = 2)
+
 ```
+<br/>
+* Homoscedasticity refers to the even distribution of residual values.
 
-```{r}
-# VOLATILE ACIDITY VS QUALITY
-autoplot(lm3, which = 1:2)
-```
+* Residuals should be evenly distributed around the center line (y = 0).
 
-```{r}
-# FREE SULFUR DIOXIDE VS QUALITY
-autoplot(lm5, which = 1:2)
-```
----
-## Assumptions Checking 
-- Residual invalid 
+* Residuals should also not 'fan', with a flat and even distribution over the entirety of the fitted values.
 
-```{r}
-
-# SULFATES VS QUALITY
-autoplot(lm2, which = 1:2)
-```
-
-```{r}
-# CHLORIDES VS QUALITY
-autoplot(lm6, which = 1:2)
-```
-
-```{r}
-# FIXED.ACIDITY VS QUALITY
-lm10 = lm(quality ~ fixed.acidity, data = data)
-autoplot(lm10, which = 1:2)
-```
-
-```{r}
-# DENSITY VS QUALITY
-lm11 = lm(quality ~ density, data = data)
-autoplot(lm11, which = 1:2)
+```{r, echo=FALSE, message=FALSE}
+nonLinear = data.frame(c("Chlorides", "Sulfates"))
+colnames(nonLinear) = c("Hetroscedastic Variables")
+kable(nonLinear) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 
