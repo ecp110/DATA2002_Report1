@@ -1,8 +1,220 @@
 ---
-title: "Lab Report 1"
-output: html_document
+title: Executive Summary 
+
+# Use letters 'a', 'b', ... or digits '1', '2', ... for different
+# affiliations and addresses. Use '~' or '""' to suppress the
+# display of the affiliation and address.
+author:
+  - name: Lab-03-CC
+    affiliation: a
+  - name: 500520320, 480025267, 00505430, 500586901, 500555424
+    affiliation: a
+address:
+  - code: a
+    address: University of Sydney
+
+# Optional: line of arbitrary text with additional information.
+# Could be used, for example, to mention the bibliographic info in a post-print.
+# If not specified, defaults to "This version was compiled on \today"
+#date_subtitle: Published in *Journal of Statistical Software*, 2018
+
+# For footer text  TODO(fold into template, allow free form two-authors)
+lead_author_surname: Eddelbuettel and Balamuta
+
+# Place DOI URL or CRAN Package URL here
+doi_footer: "https://cran.r-project.org/package=pinp"
+
+# Abstract
+abstract: |
+  This short vignette details several of the available options for the `pinp` pdf vignette template. 
+
+# Optional: Acknowledgements
+acknowledgements: |
+   We gratefully acknowledge all the help from the
+   [rticles](https://cran.r-project.org/package=rticles) package
+   \citep{CRAN:rticles} which not only introduced us to the powerful
+   [PNAS LaTeX](http://www.pnas.org/site/authors/latex.xhtml) style
+   class, but also provided useful code templates to study in the
+   other mode as the fine macros. The [pandoc](http://pandoc.org)
+   document converter \citep{pandoc} is the much-admired driving force
+   behind the document manipulation.
+
+# Optional: One or more keywords
+#keywords:
+#  - pdf
+#  - vignette
+
+# Paper size for the document, values of letter and a4
+papersize: letter
+
+# Font size of the document, values of 9pt (default), 10pt, 11pt and 12pt
+fontsize: 9pt
+
+# Optional: Force one-column layout, default is two-column
+#one_column: true
+
+# Optional: Enables lineo mode, but only if one_column mode is also true
+#lineno: true
+
+# Optional: Enable one-sided layout, default is two-sided
+#one_sided: true
+
+# Optional: Enable section numbering, default is unnumbered
+numbersections: true
+
+# Optional: Specify the depth of section number, default is 5
+secnumdepth: 3
+
+# Optional: Bibliography 
+#bibliography: pinp
+
+# Optional: include-after
+#include-after: somefile.tex
+
+# Optional: Skip inserting final break between acknowledgements, default is false
+skip_final_break: true
+
+# Customize footer, eg by referencing the vignette
+footer_contents: "pinp Vignette"
+
+# Optional: Enable a 'Draft' watermark on the document
+#watermark: true
+
+# Produce a pinp document
+# 
+# Other options that can be set here, shown with their defaults
+#   keep_tex: TRUE
+#   collapse: FALSE
+#   citation_package: natbib
+#
+# Any other arguments to rmarkdown::pdf_document could be set 
+# here as well
+#
+output:
+  pinp::pinp:
+    includes:
+      after_body: bib.tex
+
+
+# Required: Vignette metadata for inclusion in a package.
+vignette: >
+  %\VignetteIndexEntry{Introduction to pinp}
+  %\VignetteKeywords{pinp,vignette}
+  %\VignettePackage{pinp}
+  %\VignetteEngine{knitr::rmarkdown}
+
 ---
+# Abstract 
 
-Executive Summary
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
 
-The data set which our group will be exploring highlights different factors which contribute to an overall quality rating of the Portugese red wine “Vinho Verde”. The first of the 12 variables is the fixed acidity. The fixed acidity is a measure of the tartaric, malic, citric and succinic, found within grapes, which are measured by a steam distillation of a sample of the wine. The fixed acidity (being the second variable) however measures the acetic acid levels in the wine which impacts on the flavour of the wine negatively if the acetic acid is too high. The third variable is citric acid which is used in wine in order to assist in increasing flavour by in turn increasing acidity. In analysying our data we should therefore find a correlation between citric acid and ___ acidity. Moving away from acidity now, the data set analyses the residual sugars in “Vinho Verde”. The residual sugar in wines is not the artificially added sugars, but the raw sugar from grapes found post fermentation, with higher levels of residual sugar unsurprisingly resulting in sweeter wine. (describe the red wine not very sweet????????). Chlorides are used in this data set as a factor contributing towards an overall rating for the wine due to its impact on the saltiness of the final product. The density of wine is deemed to be a major contributer to the overall quality of wine, with higher density resulting in higher quality (need to elaborate on why?). pH is simply used in wine making in order to “determine ripeness in relation to acidity”. Lower pH is far more desirable as it reduces susceptibility to bacteria growth, while also increasing the quality of taste by making the final product “tart and crisp”. Sulphate levels is the next criteria the researchers used to determine overall wine quality rankings, with the sulphate being used in wine in order to protect the final product from bacteria. Evidently, alcohol concentration is a major contributing factor towards the final quality of “Vinho Verde”, with it having a large impact on flavour and desirability for the intended market. Finally, the final quality ranking summarises all of the previous factors into a final value. 
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+
+
+
+
+
+# Introduction 
+## `Backgroud`
+
+
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+
+
+
+
+# Data set description 
+
+
+
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+
+
+
+
+# Analysis 
+## `Assumption checkings` 
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+
+## `Model selection`
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+
+
+
+
+
+
+
+
+
+# Results
+
+## `Inferences `
+
+Equation explaination
+
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+
+## `Performance `
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+
+
+
+
+
+
+
+
+
+# Dicussion 
+
+## `Limitation`
+An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+
+
+
+
+
+
+
+
+# Conclusion 
+ An _optional_ selection (via value `true`) of one-sided rather than
+two-sided output. This should probably alter the footnote but does not
+currently do so.
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+# Reference
+
+
+
+
+<!-- Acknowledgements, and References, are automatically typeset after this -->
