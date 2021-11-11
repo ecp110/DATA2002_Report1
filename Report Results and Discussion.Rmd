@@ -1,0 +1,37 @@
+---
+title: "Report Results and Discussion"
+author: '500586901'
+date: "11/11/2021"
+output: html_document
+---
+
+```{r}
+"Analysis and Results
+
+Both step-forward and step-back AIC variable selection methods for building a multiple regression model of the quality of red wine came to the same conclusion as can be shown using the tables below. Of the predictor variables that were used to build the model, i.e. those that met the fundamental multiple regression assumptions outlined previously, only the predictors in the two tables were significant. Therefore, the combination of predictors we are using to predict the quality of red wine are the alcohol concentration, volatile acidity, total sulphur dioxide, and the density. 
+
+Hence, our model is as follows: (display model)
+
+Model Interpretation:
+
+
+Discussion 
+
+Should probably do a prediction
+
+In sample performance
+The selected model had an R^2 of 0.32 
+
+Out of sample performance
+Using the caret package, we performed a 10-fold cross validation. The purpose of this was to test how well our model with predictor variables of alcohol concentration, volatile acidity, the log of total sulphur dioxide and density performed out of sample. This method allows for error to only be judged based on performance on the testing subset of the original sample, such that our judgement on the performance of the model isn’t impacted by the data that was used to produce the model in the first place. 
+
+Using 10-fold cross validation, we divided our sample randomly into 10 folds, of which one was allocated to be the testing set, while the rest were training folds used to build the model using the significant predictor variables. This process was repeated 10 times, where a different fold would be the testing set each time. The R^2, root mean squared error and mean average error of each prediction, compared to the real value in the testing set was then computed. 
+
+The following graph shows the distribution of R^2, MAE and RMSE for each of the 10 total cross validations performed. We have compared the performance of three separate models. The ‘full’ model represents all of the potential predictors that were initially present in the red wine quality data frame – even those that didn’t meet assumptions such as linearity. The ‘selected’ model represents the predictor variables we chose that were outlined previously. Finally, the simple model was the regression of red wine quality using only alcohol concentration which was the most significant predictor.
+
+The full model had a median R^2 of 0.35, which was higher than the median R^2 of both the selected and simple models. However, as the full model had predictors that violated assumptions, it is an inappropriate multiple regression model so we must take this result with a grain of salt. The median R^2 of our model, 0.32, was higher than that of the simple model, 0.23. 
+
+Again, discounting the full model, the selected model had the lowest median MAE and RMSE, indicating that it performed better on the testing set of red wine quality compared to the simple model.  (add specific values)"
+
+```
+
