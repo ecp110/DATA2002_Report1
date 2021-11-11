@@ -1,0 +1,236 @@
+\documentclass[letterpaper,9pt,twocolumn,twoside,]{pinp}
+
+%% Some pieces required from the pandoc template
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Use the lineno option to display guide line numbers if required.
+% Note that the use of elements such as single-column equations
+% may affect the guide line number alignment.
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% pinp change: the geometry package layout settings need to be set here, not in pinp.cls
+\geometry{layoutsize={0.95588\paperwidth,0.98864\paperheight},%
+  layouthoffset=0.02206\paperwidth, layoutvoffset=0.00568\paperheight}
+
+\definecolor{pinpblue}{HTML}{185FAF}  % imagecolorpicker on blue for new R logo
+\definecolor{pnasbluetext}{RGB}{101,0,0} %
+
+
+
+\title{Executive Summary}
+
+\author[a]{Lab-03-CC}
+\author[a]{500520320, 480025267, 00505430, 500586901, 500555424}
+
+  \affil[a]{University of Sydney}
+
+\setcounter{secnumdepth}{3}
+
+% Please give the surname of the lead author for the running footer
+\leadauthor{Eddelbuettel and Balamuta}
+
+% Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
+ 
+
+\begin{abstract}
+This short vignette details several of the available options for the
+\texttt{pinp} pdf vignette template.
+\end{abstract}
+
+\dates{This version was compiled on \today} 
+
+
+% initially we use doi so keep for backwards compatibility
+% new name is doi_footer
+\doifooter{\url{https://cran.r-project.org/package=pinp}}
+
+\pinpfootercontents{pinp Vignette}
+
+\begin{document}
+
+% Optional adjustment to line up main text (after abstract) of first page with line numbers, when using both lineno and twocolumn options.
+% You should only change this length when you've finalised the article contents.
+\verticaladjustment{-2pt}
+
+\maketitle
+\thispagestyle{firststyle}
+\ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+% If your first paragraph (i.e. with the \dropcap) contains a list environment (quote, quotation, theorem, definition, enumerate, itemize...), the line after the list may have some extra indentation. If this is the case, add \parshape=0 to the end of the list environment.
+
+\acknow{We gratefully acknowledge all the help from the
+\href{https://cran.r-project.org/package=rticles}{rticles} package
+\citep{CRAN:rticles} which not only introduced us to the powerful
+\href{http://www.pnas.org/site/authors/latex.xhtml}{PNAS LaTeX} style
+class, but also provided useful code templates to study in the other
+mode as the fine macros. The \href{http://pandoc.org}{pandoc} document
+converter \citep{pandoc} is the much-admired driving force behind the
+document manipulation.}
+
+\hypertarget{abstract}{%
+\section{Abstract}\label{abstract}}
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\hypertarget{backgroud}{%
+\subsection{\texorpdfstring{\texttt{Backgroud}}{Backgroud}}\label{backgroud}}
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.
+
+\hypertarget{data-set-description}{%
+\section{Data set description}\label{data-set-description}}
+
+Where from?
+
+The data set which our group will be exploring highlights different
+factors which contribute to an overall quality rating of the Portuguese
+red wine ``Vinho Verde''. The first of the 12 variables is the fixed
+acidity. The fixed acidity is a measure of the tartaric, malic, citric
+and succinic, found within grapes, which are measured by a steam
+distillation of a sample of the wine. The volatile acidity (being the
+second variable) however measures the acetic acid levels in the wine
+which impacts on the flavour of the wine negatively if the acetic acid
+is too high. The third variable is citric acid which is used in wine in
+order to assist in increasing flavour by in turn increasing acidity.
+Moving away from acidity now, the data set analyses the residual sugars
+in ``Vinho Verde''. The residual sugar in wines is not the artificially
+added sugars, but the raw sugar from grapes found post fermentation,
+with higher levels of residual sugar unsurprisingly resulting in sweeter
+wine. Chlorides are used in this data set as a factor contributing
+towards an overall rating for the wine due to its impact on the
+saltiness of the final product. The density of wine is deemed to be a
+major contributor to the overall quality of wine, with higher density
+resulting in higher quality (need to elaborate on why?). pH is simply
+used in wine making in order to ``determine ripeness in relation to
+acidity''. Lower pH is far more desirable as it reduces susceptibility
+to bacteria growth, while also increasing the quality of taste by making
+the final product ``tart and crisp''. Sulphate levels are the next
+criteria the researchers used to determine overall wine quality
+rankings, with the sulphate being used in wine in order to protect the
+final product from bacteria. Evidently, alcohol concentration is a major
+contributing factor towards the final quality of ``Vinho Verde'', with
+it having a large impact on flavour and desirability for the intended
+market. Finally, the final quality ranking summarises all of the
+previous factors into a final value.
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.An \emph{optional} selection (via value
+\texttt{true}) of one-sided rather than two-sided output. This should
+probably alter the footnote but does not currently do so.
+
+\hypertarget{analysis}{%
+\section{Analysis}\label{analysis}}
+
+\hypertarget{assumption-checkings}{%
+\subsection{\texorpdfstring{\texttt{Assumption\ checkings}}{Assumption checkings}}\label{assumption-checkings}}
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.
+
+\hypertarget{model-selection}{%
+\subsection{\texorpdfstring{\texttt{Model\ selection}}{Model selection}}\label{model-selection}}
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\hypertarget{inferences}{%
+\subsection{\texorpdfstring{\texttt{Inferences}}{Inferences}}\label{inferences}}
+
+Equation explaination
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.
+
+\hypertarget{performance}{%
+\subsection{\texorpdfstring{\texttt{Performance}}{Performance}}\label{performance}}
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.An \emph{optional} selection (via value
+\texttt{true}) of one-sided rather than two-sided output. This should
+probably alter the footnote but does not currently do so.
+
+\hypertarget{dicussion}{%
+\section{Dicussion}\label{dicussion}}
+
+\hypertarget{limitation}{%
+\subsection{\texorpdfstring{\texttt{Limitation}}{Limitation}}\label{limitation}}
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+An \emph{optional} selection (via value \texttt{true}) of one-sided
+rather than two-sided output. This should probably alter the footnote
+but does not currently do so.
+
+\hypertarget{reference}{%
+\section{Reference}\label{reference}}
+
+%\showmatmethods
+\showacknow
+
+
+
+
+\begin{thebibliography}{3}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Allaire \emph{et~al.}(2017)Allaire, {R Foundation}, Wickham, {Journal
+  of Statistical Software}, Xie, Vaidyanathan, {Association for Computing
+  Machinery}, Boettiger, {Elsevier}, Broman, Mueller, Quast, Pruim, Marwick,
+  Wickham, Keyes, and Yu}]{CRAN:rticles}
+Allaire J, {R Foundation}, Wickham H, {Journal of Statistical Software}, Xie Y,
+  Vaidyanathan R, {Association for Computing Machinery}, Boettiger C,
+  {Elsevier}, Broman K, Mueller K, Quast B, Pruim R, Marwick B, Wickham C,
+  Keyes O, Yu M (2017).
+\newblock \emph{rticles: Article Formats for R Markdown}.
+\newblock R package version 0.4.1,
+  \urlprefix\url{https://CRAN.R-project.org/package=rticles}.
+
+\bibitem[{MacFarlane(2017)}]{pandoc}
+MacFarlane J (2017).
+\newblock \emph{Pandoc: A Universal Document Converter}.
+\newblock Version 1.19.2.1, \urlprefix\url{http://pandoc.org}.
+
+\bibitem[{Xie(2017)}]{CRAN:knitr}
+Xie Y (2017).
+\newblock \emph{knitr: A General-Purpose Package for Dynamic Report Generation
+  in R}.
+\newblock R package version 1.17, \urlprefix\url{https://yihui.name/knitr/}.
+
+\end{thebibliography}
+
+\end{document}
