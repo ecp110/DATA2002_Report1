@@ -1,4 +1,4 @@
-\documentclass[letterpaper,9pt,twocolumn,twoside,]{pinp}
+\documentclass[letterpaper,8pt,twocolumn,twoside,]{pinp}
 
 %% Some pieces required from the pandoc template
 \providecommand{\tightlist}{%
@@ -19,25 +19,56 @@
 \definecolor{pnasbluetext}{RGB}{101,0,0} %
 
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
-\title{Executive Summary}
+\title{Executive Summary - DATA2002 Assignment 2}
 
-\author[a]{Lab-03-CC}
-\author[a]{500520320, 480025267, 00505430, 500586901, 500555424}
+\author[]{500520320, 480025267, 500505430, 500586901, 500555424}
 
-  \affil[a]{University of Sydney}
+  \affil[]{University of Sydney}
 
 \setcounter{secnumdepth}{3}
 
 % Please give the surname of the lead author for the running footer
-\leadauthor{Eddelbuettel and Balamuta}
+\leadauthor{500520320, 480025267, 500505430, 500586901, 500555424}
 
 % Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
  
 
 \begin{abstract}
-This short vignette details several of the available options for the
-\texttt{pinp} pdf vignette template.
+The following paper analyses the quality of Vinho Verde red wine from
+Northern Portugal, measured from a scale of one to ten. Using multiple
+regression, this paper aims to model the quality of various red wines on
+other factors such as the alcohol concentration or total sulfur dioxide
+concentration. Various potential predictor variables were removed from
+the model for not meeting key assumption criteria such as co-linearity
+with red wine quality, normality, or residual homoscedasticity.
+Transformations were attempted on variables that didn't meet the
+co-linearity assumption, with the only successful transformation being
+the log of total sulfur dioxide. Multiple regression was then computed
+using both a step-back and step-forward AIC-based model. These both
+netted the same model; a regression of red wine quality against alcohol
+concentration, volatile acidity, the log of total sulfur dioxide and
+density. In-sample performance of this model showcased an \(R^2\) value
+of 0.32, indicating that the model may not be particularly strong, and
+an RMSE of 0.669. Performing 10-fold cross validation suggested that our
+selected model wasn't subject to obvious overfitting issues. The model
+generated was as follows: \[
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
+\]
 \end{abstract}
 
 \dates{This version was compiled on \today} 
@@ -45,9 +76,9 @@ This short vignette details several of the available options for the
 
 % initially we use doi so keep for backwards compatibility
 % new name is doi_footer
-\doifooter{\url{https://cran.r-project.org/package=pinp}}
+\doifooter{\url{https://github.sydney.edu.au/epro3000/LAB-03-CC_early_8}}
 
-\pinpfootercontents{pinp Vignette}
+\pinpfootercontents{LAB-03-CC\_early\_8}
 
 \begin{document}
 
@@ -68,18 +99,9 @@ This short vignette details several of the available options for the
 class, but also provided useful code templates to study in the other
 mode as the fine macros. The \href{http://pandoc.org}{pandoc} document
 converter \citep{pandoc} is the much-admired driving force behind the
-document manipulation.}
-
-\hypertarget{abstract}{%
-\section{Abstract}\label{abstract}}
-
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.
-
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.
+document manipulation. Additionally, we acknowledge the fantastic
+support and teaching provided by G. Tarr and the DATA2002 team
+throughout the semester.}
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -87,78 +109,258 @@ but does not currently do so.
 \hypertarget{backgroud}{%
 \subsection{\texorpdfstring{\texttt{Backgroud}}{Backgroud}}\label{backgroud}}
 
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.
+This dataset highlights different factors which contribute to an overall
+quality rating of the Portuguese red wine ``Vinho Verde''. Red wine
+quality may be of interest to producers of wine who are trying to better
+understand the factors that contribute to overall quality, as well as
+consumers who are interested in specific characteristics of red wines
+from speciality regions such as Portugal.
 
-\hypertarget{data-set-description}{%
-\section{Data set description}\label{data-set-description}}
+\hypertarget{dataset-overview}{%
+\subsection{\texorpdfstring{\texttt{Dataset\ Overview}}{Dataset Overview}}\label{dataset-overview}}
 
-insert description
+The dataset had 1599 rows corresponding to different wine observations,
+and was collected in 2009 from ``Vinho Verde'' wine in the north of
+Portugal. The input variables presented to us were collected from
+chemical tests, and consisted of fixed acidity, volatile acidity, citric
+acid, residual sugar, chlorides, free sulfur dioxide, total sulfur
+dioxide, density, pH, sulphates, and alcohol. The output variable is the
+wine quality, graded on a scale of 0 to 10. This was determined by the
+median score of at least three evaluations made by wine experts.
 
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.An \emph{optional} selection (via value
-\texttt{true}) of one-sided rather than two-sided output. This should
-probably alter the footnote but does not currently do so.
+The first of the 12 variables is the fixed acidity. The fixed acidity is
+a measure of the tartaric, malic, citric and succinic, found within
+grapes, which are measured by a steam distillation of a sample of the
+wine. The volatile acidity (being the second variable) however measures
+the acetic acid levels in the wine which impacts on the flavour of the
+wine negatively if the acetic acid is too high. The third variable is
+citric acid which is used in wine in order to assist in increasing
+flavour by in turn increasing acidity. Moving away from acidity now, the
+data set analyses the residual sugars in ``Vinho Verde''. The residual
+sugar in wines is not the artificially added sugars, but the raw sugar
+from grapes found post fermentation, with higher levels of residual
+sugar unsurprisingly resulting in sweeter wine. Chlorides are used in
+this data set as a factor contributing towards an overall rating for the
+wine due to its impact on the saltiness of the final product. The
+density of wine is deemed to be a major contributor to the overall
+quality of wine, with higher density resulting in higher quality. pH is
+simply used in wine making in order to ``determine ripeness in relation
+to acidity''. Lower pH is far more desirable as it reduces
+susceptibility to bacteria growth, while also increasing the quality of
+taste by making the final product ``tart and crisp''. Sulphate levels
+are the next criteria the researchers used to determine overall wine
+quality rankings, with the sulphate being used in wine in order to
+protect the final product from bacteria. Evidently, alcohol
+concentration is a major contributing factor towards the final quality
+of ``Vinho Verde'', with it having a large impact on flavour and
+desirability for the intended market. Finally, the final quality ranking
+summarises all of the previous factors into a final value.
 
 \hypertarget{analysis}{%
 \section{Analysis}\label{analysis}}
 
-\hypertarget{assumption-checkings}{%
-\subsection{\texorpdfstring{\texttt{Assumption\ checkings}}{Assumption checkings}}\label{assumption-checkings}}
+\hypertarget{assumption-validation}{%
+\subsection{\texorpdfstring{\texttt{Assumption\ Validation}}{Assumption Validation}}\label{assumption-validation}}
 
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.
+Multiple regression relies upon four key assumptions: 1. Linearity. 2.
+Independence. 3. Normality. 4. Homoscedasticity.
+
+For each of these assumptions, the individual relationships between the
+input variables and quality of wine must meet the assumptions
+themselves, as well as the final model, and thus were checked
+individually for each input variable against the quality of wine. For
+independence, collection methodologies were not explicitly outlined in
+the dataset, however we can assume that each wine was independent of
+each other for the purposes of this report.
+
+Linearity refers to how well the input variables can be linearly mapped
+to the output variable. Violations included free sulphur dioxide, fixed
+acidity and pH, the latter of which is shown as an example here. {[}{]}
+is also shown as an example of meeting the linearity assumption.
+Additionally, for any variable which violated the linearity assumptions,
+data transformations were attempted to improve linearity. The only
+successful case of this was the log transformation of Total Sulphur
+Dioxide, as it allowed for the multiple orders of magnitude of total
+sulphur dioxide to be better expressed linearly against wine quality.
+(FIgure xxx)
+
+Normality refers to the fact that residuals should be normally
+distributed. Violations included residual sugar which can be seen below,
+as compared to a normal example of {[}{]}.
+
+Finally, homoscedasticity refers to the even distribution of the
+residuals around the mean. Any fanning of the residuals suggests
+heteroscedasticity, violating this assumption. Violations include
+sulphates and chlorides as they displayed distinct residual distribution
+patterns. Variables which violated assumptions were excluded from the
+dataset used to construct the model. As such, we were left with alcohol,
+volatile acidity, the log of total sulphur dioxide, density and citric
+acid as the remaining input variables which met all assumptions.
 
 \hypertarget{model-selection}{%
-\subsection{\texorpdfstring{\texttt{Model\ selection}}{Model selection}}\label{model-selection}}
+\subsection{\texorpdfstring{\texttt{Model\ Selection}}{Model Selection}}\label{model-selection}}
 
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.
+Both step-forward and step-back AIC variable selection methods for
+building a multiple regression model of the quality of red wine came to
+the same conclusion as can be shown in table 1 and table 2 below. Of the
+predictor variables that were used to build the model, i.e.~those that
+met the fundamental multiple regression assumptions outlined previously,
+only the predictors in the two tables were significant. Therefore, the
+combination of predictors we are using to predict the quality of red
+wine are the alcohol concentration, volatile acidity, total sulphur
+dioxide, and the density.
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+Hence, our model is as follows:
 
-\hypertarget{inferences}{%
-\subsection{\texorpdfstring{\texttt{Inferences}}{Inferences}}\label{inferences}}
+\[
+\mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
+\] This model had an AIC of 3259.415, an \(R^2\) of 0.32 and an RMSE of
+0.669.
 
-Equation explaination
+\begin{table}[!h]
 
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.
+\caption{\label{tab:unnamed-chunk-2}Step-Forward Method}
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+  & Estimate & Std. Error & t value & Pr(>|t|)\\
+\midrule
+Intercept & -21.22 & 10.31 & -2.06 & 0.04\\
+Alcohol Concentration & 0.32 & 0.02 & 16.99 & 0.00\\
+Volatile Acidity & -0.67 & 0.05 & -13.64 & 0.00\\
+Total Sulfur Dioxide & -0.06 & 0.02 & -2.29 & 0.02\\
+Density & 23.31 & 10.25 & 2.27 & 0.02\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\hypertarget{performance}{%
-\subsection{\texorpdfstring{\texttt{Performance}}{Performance}}\label{performance}}
+\begin{table}[!h]
 
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.An \emph{optional} selection (via value
-\texttt{true}) of one-sided rather than two-sided output. This should
-probably alter the footnote but does not currently do so.
+\caption{\label{tab:unnamed-chunk-2}Step-Back Method}
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+  & Estimate & Std. Error & t value & Pr(>|t|)\\
+\midrule
+Intercept & -21.22 & 10.31 & -2.06 & 0.04\\
+Alcohol Concentration & 0.32 & 0.02 & 16.99 & 0.00\\
+Volatile Acidity & -0.67 & 0.05 & -13.64 & 0.00\\
+Total Sulfur Dioxide & -0.06 & 0.02 & -2.29 & 0.02\\
+Density & 23.31 & 10.25 & 2.27 & 0.02\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\hypertarget{dicussion}{%
-\section{Dicussion}\label{dicussion}}
+\hypertarget{results-discussion}{%
+\section{Results \& Discussion}\label{results-discussion}}
 
-\hypertarget{limitation}{%
-\subsection{\texorpdfstring{\texttt{Limitation}}{Limitation}}\label{limitation}}
+\hypertarget{in-sample-performance}{%
+\subsection{\texorpdfstring{\texttt{In\ Sample\ Performance}}{In Sample Performance}}\label{in-sample-performance}}
 
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.
+As stated, the selected model had an \(R^2\) of 0.32 and an RMSE of
+0.669. This means that approximately 32\% of the total variance in red
+wine quality can be explained by our regression model. This isn't
+particularly high, indicating this linear model may not be performing
+strongly. This could be due to the somewhat poor co-linearity observed
+with most predictor variables versus wine quality in this dataset.
+However, to ensure that our model isn't subject to overfitting, we want
+to test it using out of sample performance.
+
+\hypertarget{out-of-sample-performance}{%
+\subsection{\texorpdfstring{\texttt{Out\ of\ Sample\ Performance}}{Out of Sample Performance}}\label{out-of-sample-performance}}
+
+Using the caret package, we performed a 10-fold cross validation. The
+purpose of this was to test how well our model with predictor variables
+of alcohol concentration, volatile acidity, the log of total sulphur
+dioxide and density performed out of sample. This method allows for
+error to only be judged based on performance on the testing subset of
+the original sample, such that our judgement on the performance of the
+model isn't impacted by the data that was used to produce the model in
+the first place.
+
+Using 10-fold cross validation, we divided our sample randomly into 10
+folds, of which one was allocated to be the testing set, while the rest
+were training folds used to build the model using the significant
+predictor variables. This process was repeated 10 times, where a
+different fold would be the testing set each time. The \(R^2\), root
+mean squared error and mean average error of each prediction, compared
+to the real value in the testing set was then computed.
+
+The following graph shows the distribution of \(R^2\), MAE and RMSE for
+each of the 10 total cross validations performed. We have compared the
+performance of three separate models. The `full' model represents all of
+the potential predictors that were initially present in the red wine
+quality data frame -- even those that didn't meet assumptions such as
+linearity. The `selected' model represents the predictor variables we
+chose that were outlined previously. Finally, the simple model was the
+regression of red wine quality using only alcohol concentration which
+was the most significant predictor.
+
+The full model had a median \(R^2\) of 0.35, which was higher than the
+median \(R^2\) of both the selected and simple models. However, as the
+full model had predictors that violated assumptions, it is an
+inappropriate multiple regression model so we must take this result with
+a grain of salt. The higher \(R^2\) is likely to do with the fact that
+the larger number of predictors used would result in overfitting of the
+data, and artificially increasing the \(R^2\) even though the
+relationship between the wine quality and some of the predictors may not
+have been linear in the first place. In comparison, the median \(R^2\)
+of our model was 0.32, which was higher than that of the simple model
+which was 0.23. Interestingly, as the \(R^2\) of our selected model on
+the training data was very similar to the \(R^2\) during in-sample
+performance, it appears that our selected model didn't suffer from
+overfitting.
+
+Again, discounting the full model, the selected model had the lowest
+median MAE 0.527 and RMSE (0.671) of the models being compared,
+indicating that it performed better on the testing set of red wine
+quality compared to the simple model. (figure name)
+
+\hypertarget{assumption-re-validation}{%
+\subsection{\texorpdfstring{\texttt{Assumption\ Re-Validation}}{Assumption Re-Validation}}\label{assumption-re-validation}}
+
+Additionally, our multiple regression model was also checked against the
+key assumptions outlined previously -- normality and homoscedasticity.
+The following figures show that there is no obvious fanning pattern in
+the residuals, indicating homoscedasticity, and that the residuals of
+the full model are also normally distributed.
+
+\hypertarget{limitations}{%
+\subsection{\texorpdfstring{\texttt{Limitations}}{Limitations}}\label{limitations}}
+
+This model has a few limitations. The linearity of most predictor
+variables against red wine quality, even after attempting
+transformations, wasn't very clear and so we had to be generous when
+determining what met this assumption for the purpose of analysis. An
+\(R^2\) of 0.32 for the selected model is fairly low, which indicates
+that the in-sample performance of the model isn't particularly strong,
+even though it appears the model didn't run into overfitting issues when
+performing 10-fold cross-validation
+
+There is also not much information available on the data collection
+process, so we are unsure about whether the different observations are
+independent or not. For example, red wines from neighbouring regions may
+not be independent and the quality of wine could be influenced as such.
+This is an assumption we have had to make for the purpose of the
+analysis.
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
 
-An \emph{optional} selection (via value \texttt{true}) of one-sided
-rather than two-sided output. This should probably alter the footnote
-but does not currently do so.
+Overall, we were able to model the quality of red wine by linear
+regression, using alcohol concentration, volatile acidity, log of total
+sulfur dioxide, and density. We determined from this that there was a
+positive relationship between wine quality and alcohol quantity as well
+as density, whereas a negative relationship was determined between wine
+quality and volatile acidity as well as total sulphur dioxide.
 
-\hypertarget{reference}{%
-\section{Reference}\label{reference}}
+This could be of interest to both consumers of wine who are interested
+in characteristics of wine that may determine quality, as well as
+producers who are trying to make wines of certain qualities at certain
+price ranges.
+
+\hypertarget{references}{%
+\section{References}\label{references}}
 
 %\showmatmethods
 \showacknow
@@ -177,7 +379,7 @@ but does not currently do so.
   \urlstyle{rm}\Url}\fi
 \providecommand{\eprint}[2][]{\url{#2}}
 
-\bibitem[{Allaire \emph{et~al.}(2017)Allaire, {R Foundation}, Wickham, {Journal
+\bibitem[{Allaire \emph{et~al}(2017)Allaire, {R Foundation}, Wickham, {Journal
   of Statistical Software}, Xie, Vaidyanathan, {Association for Computing
   Machinery}, Boettiger, {Elsevier}, Broman, Mueller, Quast, Pruim, Marwick,
   Wickham, Keyes, and Yu}]{CRAN:rticles}
@@ -189,16 +391,130 @@ Allaire J, {R Foundation}, Wickham H, {Journal of Statistical Software}, Xie Y,
 \newblock R package version 0.4.1,
   \urlprefix\url{https://CRAN.R-project.org/package=rticles}.
 
-\bibitem[{MacFarlane(2017)}]{pandoc}
+\bibitem[{MacFarlane J (2017)}]{pandoc}
 MacFarlane J (2017).
 \newblock \emph{Pandoc: A Universal Document Converter}.
 \newblock Version 1.19.2.1, \urlprefix\url{http://pandoc.org}.
 
-\bibitem[{Xie(2017)}]{CRAN:knitr}
+\bibitem[{Xie Y (2017)}]{}
 Xie Y (2017).
 \newblock \emph{knitr: A General-Purpose Package for Dynamic Report Generation
   in R}.
 \newblock R package version 1.17, \urlprefix\url{https://yihui.name/knitr/}.
+
+\bibitem[{Wickham et al., (2019)}]{}
+Wickham et al., (2019).
+\newblock \emph{Welcome to the tidyverse. Journal of Open
+Source Software, 4(43), 1686}.
+\newblock \urlprefix\url{https://doi.org/10.21105/joss.01686}.
+
+\bibitem[{McLean MW(2017)}]{}
+McLean MW (2017).
+\newblock \emph{RefManageR: Import and Manage BibTeX and BibLaTeX
+References in R. The Journal of Open Source Software}.
+\newblock \urlprefix\url{https://doi.org/10.21105/joss.00338}.
+
+\bibitem[{McLean MW (2014)}]{}
+McLean MW (2014).
+\newblock \emph{Straightforward Bibliography Management in R
+Using the RefManager Package. arXiv: 1403.2036 [cs.DL]{}}.
+\newblock \urlprefix\url{https://arxiv.org/abs/1403.2036}.
+
+\bibitem[{Schloerke B, Cook D, Larmarange J, Briatte F,
+Marbach M, Thoen E, Elberg T and Crowley J (2021)}]{}
+Schloerke B, Cook D, Larmarange J, Briatte F,
+Marbach M, Thoen E, Elberg T and Crowley J (2021).
+\newblock \emph{GGally: Extension to ggplot2}.
+\newblock R package version 2.1.2. \urlprefix\url{https://CRAN.R-project.org/package=GGally}.
+
+\bibitem[{Fox J and Weisberg S (2019)}]{}
+Fox J and Weisberg S (2019).
+\newblock \emph{R Companion to Applied
+Regression, Third Edition. Thousand Oaks CA: Sage}.
+\newblock \urlprefix\url{https://socialsciences.mcmaster.ca/jfox/Books/Companion/}.
+
+\bibitem[{Tang Y, Horijoshi M and Li W (2016)}]{}
+Tang Y, Horijoshi M and Li W (2016)
+\newblock \emph{ggfortify: Unified
+Interface to Visualize Statistical Result of Popular R Packages}.
+\newblock The R Journal 8.2 (2016): 478-489.
+
+\bibitem[{Lüdecke D (2021)}]{}
+Lüdecke D (2021)
+\newblock \emph{sjPlot: Data Visualization for Statistics in
+Social Science}.
+\newblock R package version 2.8.9 \urlprefix\url{https://CRAN.R-project.org/package=sjPlot}.
+
+\bibitem[{Anderson D, Heiss A, Sumners J (2021)}]{}
+Anderson D, Heiss A, Sumners J (2021).
+\newblock \emph{equatiomatic: Transform Models into LaTeX Equations}.
+\newblock R package version 0.3.0 \urlprefix\url{https://CRAN.R-project.org/package=equatiomatic}.
+
+\bibitem[{Faraway J (2016)}]{}
+Faraway J (2016).
+\newblock \emph{faraway: Functions and Datasets for Books}.
+\newblock R package version 1.0.7 \urlprefix\url{https://CRAN.R-project.org/package=faraway}.
+
+\bibitem[{Broman K(2015)}]{}
+Broman K (2015).
+\newblock \emph{R/qtlcharts: interactive graphics for
+quantitative trait locus mapping}.
+\newblock \urlprefix\url{doi:10.1534/genetics.114.172742}.
+
+\bibitem[{Kuhn M (2021)}]{}
+Kuhn M (2021).
+\newblock \emph{caret: Classification and Regression Training}.
+\newblock R package version 6.0-90. \urlprefix\url{https://CRAN.R-project.org/package=caret}.
+
+\bibitem[{Zhu H (2021)}]{}
+Zhu H (2021).
+\newblock \emph{ableExtra: Construct Complex Table with 'kable' and Pipe Syntax}.
+\newblock R package version 1.3.4. \urlprefix\url{https://CRAN.R-project.org/package=kableExtra}..
+
+\bibitem[{Firke S (2021)}]{}
+Firke S (2021).
+\newblock \emph{Janitor: Simple Tools for Examining and Cleaning Dirty Data}.
+\newblock R package version 2.1.0. \urlprefix\url{https://CRAN.R-project.org/package=janitor}.
+
+\bibitem[{Wickham H, François R, Henry L and Müller K (2021)}]{}
+Wickham H, François R, Henry L and Müller K (2021).
+\newblock \emph{dplyr: A Grammar of Data Manipulation}.
+\newblock R package version 1.0.7. \urlprefix\url{https://CRAN.R-project.org/package=dplyr}.
+
+\bibitem[{Lumley T(2020)}]{}
+Lumley T(2020).
+\newblock \emph{leaps: Regression Subset Selection}.
+\newblock  R package version 3.1.0. \urlprefix\url{https://CRAN.R-project.org/package=leaps}.
+
+\bibitem[{Tarr G (2021)}]{}
+Tarr G (2021).
+\newblock \emph{Week three Lecture L08: Testing for independence – who was more likely to die on the Titanic?}.
+\newblock [Powerpoint Slides]{}. DATA2002, University of Sydney, Sydney, Australia. 
+
+\bibitem[{Tarr G (2021)}]{}
+Tarr G (2021).
+\newblock \emph{Week eleven Lecture L26: Simple linear regression}.
+\newblock [Powerpoint Slides]{}. DATA2002, University of Sydney, Sydney, Australia. 
+
+\bibitem[{Tarr G (2021)}]{}
+Tarr G (2021).
+\newblock \emph{Week eleven Lecture L27: Multiple regression and model selection}.
+\newblock [Powerpoint Slides]{}. DATA2002, University of Sydney, Sydney, Australia. 
+
+\bibitem[{Tarr G (2021)}]{}
+Tarr G (2021).
+\newblock \emph{Week eleven Lecture L28: Prediction internals and performance assessment}.
+\newblock [Powerpoint Slides]{}. DATA2002, University of Sydney, Sydney, Australia. 
+
+\bibitem[{Tarr G (2021)}]{}
+Tarr G (2021).
+\newblock \emph{Week ten Live Lecture}.
+\newblock [Video file]{}. DATA2002, University of Sydney, Sydney, Australia. 
+
+\bibitem[{Tarr G (2021)}]{}
+Tarr G (2021).
+\newblock \emph{Week eleven Live Lecture}.
+\newblock [Video file]{}. DATA2002, University of Sydney, Sydney, Australia. 
 
 \end{thebibliography}
 

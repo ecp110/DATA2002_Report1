@@ -1,0 +1,44 @@
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-1}Step-Forward Method}
+\centering
+\fontsize{17}{19}\selectfont
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+  & Estimate & Std. Error & t value & Pr(>|t|)\\
+\hline
+Intercept & -21.222 & 10.311 & -2.058 & 0.040\\
+\hline
+Alcohol Concentration & 0.322 & 0.019 & 16.988 & 0.000\\
+\hline
+Volatile Acidity & -0.666 & 0.049 & -13.641 & 0.000\\
+\hline
+Total Sulfur Dioxide & -0.056 & 0.024 & -2.291 & 0.022\\
+\hline
+Density & 23.311 & 10.247 & 2.275 & 0.023\\
+\hline
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-1}Step-Back Method}
+\centering
+\fontsize{17}{19}\selectfont
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+  & Estimate & Std. Error & t value & Pr(>|t|)\\
+\hline
+Intercept & -21.222 & 10.311 & -2.058 & 0.040\\
+\hline
+Alcohol Concentration & 0.322 & 0.019 & 16.988 & 0.000\\
+\hline
+Volatile Acidity & -0.666 & 0.049 & -13.641 & 0.000\\
+\hline
+Total Sulfur Dioxide & -0.056 & 0.024 & -2.291 & 0.022\\
+\hline
+Density & 23.311 & 10.247 & 2.275 & 0.023\\
+\hline
+\end{tabular}
+\end{table}

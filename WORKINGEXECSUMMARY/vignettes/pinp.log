@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.11)  11 NOV 2021 20:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.11)  12 NOV 2021 00:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -9,8 +9,8 @@ L3 programming layer <2021-10-18> (./pinp.cls
 Document Class: pinp 2019-Sep-07, based on pnas-new 2018/05/06, v1.44
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/extsizes/extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
-(c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/extsizes/size9.clo
-File: size9.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
+(c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/extsizes/size8.clo
+File: size8.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
 ) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/exscale.sty
 Package: exscale 2018/09/24 v2.1i Standard LaTeX package exscale
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 57.
@@ -1054,7 +1054,7 @@ LaTeX Font Info:    Trying to load font information for T1+mdbch on input line 1
 File: t1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for T1/mdbch.
 )
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 186.
+(Font)              scaled to size 7.68005pt on input line 186.
 LaTeX Font Info:    Redeclaring math accent \widetilde on input line 449.
 LaTeX Font Info:    Redeclaring math accent \widehat on input line 450.
 Now handling font encoding MDA ...
@@ -1098,52 +1098,208 @@ Package microtype Info: Loading configuration file microtype.cfg.
 File: microtype.cfg 2021/10/31 v3.0 microtype main configuration file (RS)
 )) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (./pinp.aux)
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
+\LTleft=\skip152
+\LTright=\skip153
+\LTpre=\skip154
+\LTpost=\skip155
+\LTchunksize=\count367
+\LTcapwidth=\dimen341
+\LT@head=\box95
+\LT@firsthead=\box96
+\LT@foot=\box97
+\LT@lastfoot=\box98
+\LT@gbox=\box99
+\LT@cols=\count368
+\LT@rows=\count369
+\c@LT@tables=\count370
+\c@LT@chunks=\count371
+\LT@p@ftn=\toks57
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip156
+\multirow@cntb=\count372
+\multirow@dima=\skip157
+\bigstrutjot=\dimen342
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen343
+\WF@size=\dimen344
+\c@WF@wrappedlines=\count373
+\WF@box=\box100
+\WF@everypar=\toks58
+Package: wrapfig 2003/01/31  v 3.6
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+(c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box101
+\sift@deathcycles=\count374
+\@vwid@loff=\dimen345
+\@vwid@roff=\dimen346
+)
+\c@taburow=\count375
+\tabu@nbcols=\count376
+\tabu@cnt=\count377
+\tabu@Xcol=\count378
+\tabu@alloc=\count379
+\tabu@nested=\count380
+\tabu@target=\dimen347
+\tabu@spreadtarget=\dimen348
+\tabu@naturalX=\dimen349
+\tabucolX=\dimen350
+\tabu@Xsum=\dimen351
+\extrarowdepth=\dimen352
+\abovetabulinesep=\dimen353
+\belowtabulinesep=\dimen354
+\tabustrutrule=\dimen355
+\tabu@thebody=\toks59
+\tabu@footnotes=\toks60
+\tabu@box=\box102
+\tabu@arstrutbox=\box103
+\tabu@hleads=\box104
+\tabu@vleads=\box105
+\tabu@cellskip=\skip158
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box106
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+(c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip159
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box107
+\UL@hyphenbox=\box108
+\UL@skip=\skip160
+\UL@hook=\toks61
+\UL@height=\dimen356
+\UL@pe=\count381
+\UL@pixel=\dimen357
+\ULC@box=\box109
+Package: ulem 2019/11/18
+\ULdepth=\dimen358
+) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen359
+\c@nlinenum=\count382
+\TeXr@lab=\toks62
+) (./pinp.aux
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+LaTeX Warning: Label `tab:unnamed-chunk-2' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+)
 \openout1 = `pinp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 52.
-LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 83.
+LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 83.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 52.
-LaTeX Font Info:    Trying to load font information for MDB+cmr on input line 52.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 83.
+LaTeX Font Info:    Trying to load font information for MDB+cmr on input line 83.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbcmr.fd
 File: mdbcmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    ... okay on input line 83.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-(c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 52.
+Package hyperref Info: Link coloring ON on input line 83.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1151,11 +1307,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count367
+\c@section@level=\count383
 )
-LaTeX Info: Redefining \ref on input line 52.
-LaTeX Info: Redefining \pageref on input line 52.
-LaTeX Info: Redefining \nameref on input line 52.
+LaTeX Info: Redefining \ref on input line 83.
+LaTeX Info: Redefining \pageref on input line 83.
+LaTeX Info: Redefining \nameref on input line 83.
 (./pinp.out) (./pinp.out)
 \@outlinefile=\write5
 \openout5 = `pinp.out'.
@@ -1185,7 +1341,7 @@ LaTeX Info: Redefining \nameref on input line 52.
 * \marginparwidth=38.0pt
 * \marginparsep=10.0pt
 * \columnsep=13.5pt
-* \skip\footins=8.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=7.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1196,164 +1352,165 @@ LaTeX Info: Redefining \nameref on input line 52.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: longtable package is loaded.
+(c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+)
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package newfloat Info: `float' package detected.
+Package newfloat Info: `wrapfig' package detected.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 52.
+(lastpage)             ! on input line 83.
 
-Package mathdesign/mdbch Warning: Package 'amssymb' shouldn't be used in conjonction with package mdbch, on input line 52.
+Package mathdesign/mdbch Warning: Package 'amssymb' shouldn't be used in conjonction with package mdbch, on input line 83.
 
 
-Package mathdesign/mdbch Warning: Package 'amsfonts' shouldn't be used in conjonction with package mdbch, on input line 52.
+Package mathdesign/mdbch Warning: Package 'amsfonts' shouldn't be used in conjonction with package mdbch, on input line 83.
 
-LaTeX Info: Redefining \microtypecontext on input line 52.
-Package microtype Info: Applying patch `item' on input line 52.
-Package microtype Info: Applying patch `toc' on input line 52.
+LaTeX Info: Redefining \microtypecontext on input line 83.
+Package microtype Info: Applying patch `item' on input line 83.
+Package microtype Info: Applying patch `toc' on input line 83.
 
-Package microtype Warning: Unable to apply patch `eqnum' on input line 52.
+Package microtype Warning: Unable to apply patch `eqnum' on input line 83.
 
-Package microtype Info: Applying patch `footnote' on input line 52.
+Package microtype Info: Applying patch `footnote' on input line 83.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 52.
+LaTeX Info: Redefining \showhyphens on input line 83.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-bch.cfg
 File: mt-bch.cfg 2007/03/03 v1.5 microtype config. file: Bitstream Charter (RS)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 58.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 89.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <9> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 58.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <8> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 89.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <22> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 58.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.94696pt on input line 58.
+(Font)              scaled to size 7.06396pt on input line 89.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.94696pt on input line 58.
-LaTeX Font Info:    Trying to load font information for OT1+mdbch on input line 58.
+(Font)              scaled to size 7.06396pt on input line 89.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 7.94696pt on input line 89.
+LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
+(Font)              scaled to size 8.64006pt on input line 89.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.94696pt on input line 89.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 6.18097pt on input line 89.
+LaTeX Font Info:    Trying to load font information for OT1+mdbch on input line 91.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/ot1mdbch.fd
 File: ot1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OT1/mdbch.
 )
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 58.
+(Font)              scaled to size 7.68005pt on input line 91.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 58.
+(Font)              scaled to size 5.76004pt on input line 91.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 58.
-LaTeX Font Info:    Trying to load font information for OML+mdbch on input line 58.
+(Font)              scaled to size 4.80003pt on input line 91.
+LaTeX Font Info:    Trying to load font information for OML+mdbch on input line 91.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbch.fd
 File: omlmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdbch.
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 8.64006pt on input line 58.
+(Font)              scaled to size 7.68005pt on input line 91.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 5.76004pt on input line 58.
+(Font)              scaled to size 5.76004pt on input line 91.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 4.80003pt on input line 58.
-LaTeX Font Info:    Trying to load font information for OMS+mdbch on input line 58.
+(Font)              scaled to size 4.80003pt on input line 91.
+LaTeX Font Info:    Trying to load font information for OMS+mdbch on input line 91.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omsmdbch.fd
 File: omsmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMS/mdbch.
 )
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 58.
+(Font)              scaled to size 7.68005pt on input line 91.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 58.
+(Font)              scaled to size 5.76004pt on input line 91.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 58.
-LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line 58.
+(Font)              scaled to size 4.80003pt on input line 91.
+LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line 91.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 58.
+(Font)              scaled to size 7.68005pt on input line 91.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 58.
+(Font)              scaled to size 5.76004pt on input line 91.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 58.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
+(Font)              scaled to size 4.80003pt on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 58.
+(Font)              scaled to size 7.68005pt on input line 91.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 58.
+(Font)              scaled to size 5.76004pt on input line 91.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 58.
-LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line 58.
+(Font)              scaled to size 4.80003pt on input line 91.
+LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line 91.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 58.
+(Font)              scaled to size 7.68005pt on input line 91.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 58.
+(Font)              scaled to size 5.76004pt on input line 91.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 58.
-LaTeX Font Info:    Trying to load font information for MDB+mdbch on input line 58.
+(Font)              scaled to size 4.80003pt on input line 91.
+LaTeX Font Info:    Trying to load font information for MDB+mdbch on input line 91.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdbmdbch.fd
 File: mdbmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDB/mdbch.
 )
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 58.
+(Font)              scaled to size 7.68005pt on input line 91.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 58.
+(Font)              scaled to size 5.76004pt on input line 91.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 58.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 5.29797pt on input line 58.
+(Font)              scaled to size 4.80003pt on input line 91.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 7.68005pt on input line 91.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 5.76004pt on input line 91.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 4.80003pt on input line 91.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 58.
+(Font)              scaled to size 6.72005pt on input line 91.
+LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 107.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.18097pt on input line 58.
-LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 58.
-LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 58.
-LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 58.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 58.
-LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 58.
-LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 58.
-LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 58.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 4.41498pt on input line 58.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 58.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 58.
+(Font)              scaled to size 8.82996pt on input line 107.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.06396pt on input line 60.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 60.
+(Font)              scaled to size 8.82996pt on input line 107.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 110.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1361,78 +1518,227 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 74.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.82996pt on input line 74.
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 110.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 163.
+
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.82996pt on input line 74.
-LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 8.64006pt on input line 76.
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 88.
-
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 109.
-
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 126.
-
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 147.
-
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 164.
-LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 164.
+(Font)              scaled to size 6.18097pt on input line 222.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.06396pt on input line 169.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 188.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 7.06396pt on input line 188.
+(Font)              scaled to size 6.62247pt on input line 224.
+LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 224.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 190.
+(Font)              scaled to size 7.20004pt on input line 224.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 5.04pt on input line 224.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 3.60002pt on input line 224.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 190.
+(Font)              scaled to size 7.20004pt on input line 224.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 5.04pt on input line 224.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 3.60002pt on input line 224.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 190.
+(Font)              scaled to size 7.20004pt on input line 224.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 5.04pt on input line 224.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 3.60002pt on input line 224.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 190.
+(Font)              scaled to size 7.20004pt on input line 224.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 5.04pt on input line 224.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 3.60002pt on input line 224.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 7.20004pt on input line 224.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 5.04pt on input line 224.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 3.60002pt on input line 224.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 190.
+(Font)              scaled to size 7.20004pt on input line 224.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 5.04pt on input line 224.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 3.60002pt on input line 224.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 190.
+(Font)              scaled to size 7.20004pt on input line 224.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 5.04pt on input line 224.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 3.60002pt on input line 224.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 190.
+(Font)              scaled to size 7.20004pt on input line 224.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 5.04pt on input line 224.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 3.60002pt on input line 224.
 
-AED: lastpage setting LastPage
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.18097pt on input line 205.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 255.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 6.72005pt on input line 255.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 255.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 255.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 6.72005pt on input line 255.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 255.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 255.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 255.
 [1{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] (./pinp.aux)
+]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 258.
+
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 6.72005pt on input line 366.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 390.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 7.06396pt on input line 390.
+[2pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463 
+      ]pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.464 \bibitem[{Kuhn M (2021)}]{}
+                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.469 \bibitem[{Zhu H (2021)}]{}
+                                pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.474 \bibitem[{Firke S (2021)}]{}
+                                  pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.479 ...çois R, Henry L and Müller K (2021)}]{}
+                                                  pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.484 \bibitem[{Lumley T(2020)}]{}
+                                  pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.489 \bibitem[{Tarr G (2021)}]{}
+                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.494 \bibitem[{Tarr G (2021)}]{}
+                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.499 \bibitem[{Tarr G (2021)}]{}
+                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.504 \bibitem[{Tarr G (2021)}]{}
+                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.509 \bibitem[{Tarr G (2021)}]{}
+                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.514 \bibitem[{Tarr G (2021)}]{}
+                                 
+
+Package natbib Warning: There were multiply defined citations.
+
+
+AED: lastpage setting LastPage
+- LAST -
+Extra skip:675.94505pt
+Left:675.94505pt/0.0pt
+Right:0.0pt/0.0pt
+Split: 337.97252pt
+Output:337.97252pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:675.94505pt
+FLUSHEND [output]: 337.97252pt
+FLUSHEND [leftcolumn badness]: 1000000
+FUSHEND [rightcolumn badness]: 0
+[3pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.521 \end{document}
+                    ] (./pinp.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `pinp.out' has not changed.
-(rerunfilecheck)             Checksum: B640F4CCF19291A2F436F913D64879A7;1469.
+(rerunfilecheck)             Checksum: 73E33CAB1DCACEAF4EC6681C12DD7241;1689.
  ) 
 Here is how much of TeX's memory you used:
- 30345 strings out of 480539
- 543335 string characters out of 5900884
- 892993 words of memory out of 5000000
- 47055 multiletter control sequences out of 15000+600000
- 490424 words of font info for 279 fonts, out of 8000000 for 9000
+ 31849 strings out of 480539
+ 565393 string characters out of 5900884
+ 932771 words of memory out of 5000000
+ 48350 multiletter control sequences out of 15000+600000
+ 515565 words of font info for 410 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,14n,122p,1001b,589s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}<c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on pinp.pdf (1 page, 128489 bytes).
+ 117i,15n,122p,1001b,754s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}<c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7t.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on pinp.pdf (3 pages, 154885 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 90749 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 188 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 99957 words of extra memory for PDF output out of 106986 (max. 10000000)
 
