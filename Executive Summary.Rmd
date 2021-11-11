@@ -131,7 +131,7 @@ currently do so.
 
 # Data set description 
 
-
+insert description
 
 An _optional_ selection (via value `true`) of one-sided rather than
 two-sided output. This should probably alter the footnote but does not
