@@ -17,6 +17,10 @@ library(dplyr)
 library(GGally)
 library(leaps)
 library(ggfortify)
+ 
+library(ggthemes)
+library(ggcharts)
+
 ```
 
 ```{r, message = FALSE}
@@ -24,6 +28,17 @@ data = read.table("winequality-red.csv", sep=";", header=T)
 
 ```
 
+
+```{r}
+#GGplot template scatter
+data %>% ggplot() + aes(x=alcohol,y=quality) + geom_point(size =1) + theme_minimal() + ggtitle("Red wine quality vs Alcohol Percentage")+ xlab("Alcohol Percentage") + ylab("Red wine quality") + geom_smooth(method='lm', se=FALSE) 
+
+##GGplot template residual 
+
+```
+
+=======
+>>>>>>> 21c37770ffb5c13364c351a505c245398fc6a057
 # ALCOHOL VS QUALITY
 
 ## Linearity
@@ -32,20 +47,38 @@ lm1 = lm(quality ~ alcohol, data = data)
 par(cex = 0.5)
 plot(quality ~ alcohol, data = data)
 abline(lm1, lwd = 3, col = 'red')
+
+
+data %>% ggplot() + aes(x=alcohol,y=quality) + geom_point(size =1) + theme_minimal() + ggtitle("Red wine quuality vs Alcohol Percentage")+ xlab("Alcohol Percentage") + ylab("Red wine quality") + geom_smooth(method='lm', se=FALSE) 
+
 ```
 
 ## Residuals and Normalitys
 ```{r}
-autoplot(lm1, which = 1:2)
+
+a = autoplot(lm1, which = 1:2) + theme_minimal()
+
+
+
+ 
 ```
 
 # SULFATES VS QUALITY
 ```{r}
 # SULPHATES LINEARITY
+
 lm1 = lm(quality ~ log(sulphates, 30), data = data)
 par(cex = 0.5)
 plot(quality ~ log(sulphates, 30), data = data)
 abline(lm1, lwd = 3, col = 'red')
+
+data %>% ggplot() + aes(x=log(sulphates),y=quality) + geom_point(size =1) + theme_minimal() + ggtitle("Red wine quality vs Log of Sulphate Concentration")+ xlab("Sulphate Concentration") + ylab("Red wine quality") + geom_smooth(method='lm', se=FALSE) 
+
+lm1 = lm(quality ~ sulphates, data = data)
+par(cex = 0.5)
+plot(quality ~ sulphates, data = data)
+abline(lm1, lwd = 3, col = 'red')
+
 ```
 
 ## Residuals and Normalitys
@@ -56,10 +89,19 @@ autoplot(lm1, which = 1:2)
 # VOLATILE ACIDITY VS QUALITY
 ```{r}
 # VOLATILE ACIDITY LINEARITY
+
 lm1 = lm(quality ~ log(sqrt((volatile.acidity))), data = data)
 par(cex = 0.5)
 plot(quality ~ log(sqrt((volatile.acidity))), data = data)
 abline(lm1, lwd = 3, col = 'red')
+
+data %>% ggplot() + aes(x=alcohol,y=quality) + geom_point(size =1) + theme_minimal() + ggtitle("Red wine quuality vs Alcohol Percentage")+ xlab("Alcohol Percentage") + ylab("Red wine quality") + geom_smooth(method='lm', se=FALSE) 
+
+lm1 = lm(quality ~ volatile.acidity, data = data)
+par(cex = 0.5)
+plot(quality ~ volatile.acidity, data = data)
+abline(lm1, lwd = 3, col = 'red')
+
 ```
 
 ## Residuals and Normalitys
@@ -70,9 +112,15 @@ autoplot(lm1, which = 1:2)
 # TOTAL SULFUR DIOXIDE VS QUALITY
 ```{r}
 # TOTAL SULFUR DIOXIDE LINEARITY
+
 lm1 = lm(quality ~ log(total.sulfur.dioxide), data = data)
 par(cex = 0.5)
 plot(quality ~ log(total.sulfur.dioxide), data = data)
+
+lm1 = lm(quality ~ total.sulfur.dioxide, data = data)
+par(cex = 0.5)
+plot(quality ~ total.sulfur.dioxide, data = data)
+
 abline(lm1, lwd = 3, col = 'red')
 ```
 
@@ -111,9 +159,15 @@ autoplot(lm1, which = 1:2)
 # PH VS QUALITY
 ```{r}
 # pH LINEARITY
+
 lm1 = lm(quality ~ I(pH^2), data = data)
 par(cex = 0.5)
 plot(quality ~ I(pH^2), data = data)
+
+lm1 = lm(quality ~ pH, data = data)
+par(cex = 0.5)
+plot(quality ~ pH, data = data)
+
 abline(lm1, lwd = 3, col = 'red')
 ```
 

@@ -1,0 +1,18 @@
+Multiple regression relies upon four key assumptions:
+1.	Linearity.
+2.	Independence.
+3.	Normality.
+4.	Homoscedasticity.
+For each of these assumptions, the individual relationships between the input variables and quality of wine must meet the assumptions themselves, as well as the final model, and thus were checked individually for each input variable against the quality of wine. 
+For independence, collection methodologies were not explicitly outlined in the dataset, however we can assume that each wine was independent of each other for the purposes of this report.
+Linearity refers to how well the input variables can be linearly mapped to the output variable. Violations included free sulphur dioxide, fixed acidity and pH, the latter of which is shown as an example here. [] is also shown as an example of meeting the linearity assumption.
+Additionally, for any variables which violated one of these assumptions, data transformations were applied to make these fit. The non-linear assumption was the most common of these, and an example of this is the log transformation of Total Sulphur Dioxide, as it allowed for the multiple orders of magnitude to be better expressed in a linear fashion for better potential model interpretations. This is seen below.
+Normality refers to the fact that residuals should be normally distributed. Violations included residual sugar, which can be seen below, as compared to a normal example of [].
+Finally, homoscedasticity refers to the even distribution of the residuals around the mean. Any fanning of the residuals suggests heteroscedasticity, violating this assumption. Violations included sulphates and chlorides as they displayed distinct residual distribution patterns.
+Variables which violated assumptions were excluded from the dataset used to construct the model.
+As such, we were left with alcohol, volatile acidity, the log of total sulphur dioxide, density and citric acid as the remaining input variables which met all assumptions.
+On these variables, a step-back and step-forward AIC process was used. For the step-back, the full model with all remaining variables was set as the starting point, and the least significant variables were removed until AIC was minimised. For the step-forward, the opposite approach was taken, whereby the model was started with no variables, and added in order of significance until AIC was again minimised.
+Both methods resulted in the same multiple regression model: win quality against alcohol, volatile acidity, the log of sulphur dioxide and density. This model had an AIC of [], a r^2 value of [] and RMSE of [].
+Citric acid was not deemed to be significant in these models with a p value of 0.718.
+This final model can be expressed with the below equation:
+
