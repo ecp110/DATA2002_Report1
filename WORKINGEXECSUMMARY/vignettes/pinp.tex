@@ -46,7 +46,7 @@
 \leadauthor{500520320, 480025267, 500505430, 500586901, 500555424}
 
 % Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
- 
+
 
 \begin{abstract}
 The following paper analyses the quality of Vinho Verde red wine from
@@ -66,12 +66,12 @@ density. In-sample performance of this model showcased an \(R^2\) value
 of 0.32, indicating that the model may not be particularly strong, and
 an RMSE of 0.669. Performing 10-fold cross validation suggested that our
 selected model wasn't subject to obvious overfitting issues. The model
-generated was as follows: \[
+generated was as follows \[
 \mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
 \]
 \end{abstract}
 
-\dates{This version was compiled on \today} 
+\dates{This version was compiled on \today}
 
 
 % initially we use doi so keep for backwards compatibility
@@ -92,16 +92,6 @@ generated was as follows: \[
 
 % If your first paragraph (i.e. with the \dropcap) contains a list environment (quote, quotation, theorem, definition, enumerate, itemize...), the line after the list may have some extra indentation. If this is the case, add \parshape=0 to the end of the list environment.
 
-\acknow{We gratefully acknowledge all the help from the
-\href{https://cran.r-project.org/package=rticles}{rticles} package
-\citep{CRAN:rticles} which not only introduced us to the powerful
-\href{http://www.pnas.org/site/authors/latex.xhtml}{PNAS LaTeX} style
-class, but also provided useful code templates to study in the other
-mode as the fine macros. The \href{http://pandoc.org}{pandoc} document
-converter \citep{pandoc} is the much-admired driving force behind the
-document manipulation. Additionally, we acknowledge the fantastic
-support and teaching provided by G. Tarr and the DATA2002 team
-throughout the semester.}
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -112,49 +102,47 @@ throughout the semester.}
 This dataset highlights different factors which contribute to an overall
 quality rating of the Portuguese red wine ``Vinho Verde''. Red wine
 quality may be of interest to producers of wine who are trying to better
-understand the factors that contribute to overall quality, as well as
-consumers who are interested in specific characteristics of red wines
-from speciality regions such as Portugal.
+understand the factors that contribute to overall quality. Understanding
+a model of wine quality may allow distilleries to deliberately modify
+specific wine characteristics to achieve desired quality standards.
 
 \hypertarget{dataset-overview}{%
 \subsection{\texorpdfstring{\texttt{Dataset\ Overview}}{Dataset Overview}}\label{dataset-overview}}
 
 The dataset had 1599 rows corresponding to different wine observations,
 and was collected in 2009 from ``Vinho Verde'' wine in the north of
-Portugal. The input variables presented to us were collected from
-chemical tests, and consisted of fixed acidity, volatile acidity, citric
-acid, residual sugar, chlorides, free sulfur dioxide, total sulfur
-dioxide, density, pH, sulphates, and alcohol. The output variable is the
-wine quality, graded on a scale of 0 to 10. This was determined by the
-median score of at least three evaluations made by wine experts.
+Portugal.
 
-The first of the 12 variables is the fixed acidity. The fixed acidity is
-a measure of the tartaric, malic, citric and succinic, found within
-grapes, which are measured by a steam distillation of a sample of the
-wine. The volatile acidity (being the second variable) however measures
-the acetic acid levels in the wine which impacts on the flavour of the
-wine negatively if the acetic acid is too high. The third variable is
-citric acid which is used in wine in order to assist in increasing
-flavour by in turn increasing acidity. Moving away from acidity now, the
-data set analyses the residual sugars in ``Vinho Verde''. The residual
-sugar in wines is not the artificially added sugars, but the raw sugar
-from grapes found post fermentation, with higher levels of residual
-sugar unsurprisingly resulting in sweeter wine. Chlorides are used in
-this data set as a factor contributing towards an overall rating for the
-wine due to its impact on the saltiness of the final product. The
-density of wine is deemed to be a major contributor to the overall
-quality of wine, with higher density resulting in higher quality. pH is
-simply used in wine making in order to ``determine ripeness in relation
-to acidity''. Lower pH is far more desirable as it reduces
-susceptibility to bacteria growth, while also increasing the quality of
-taste by making the final product ``tart and crisp''. Sulphate levels
-are the next criteria the researchers used to determine overall wine
-quality rankings, with the sulphate being used in wine in order to
-protect the final product from bacteria. Evidently, alcohol
-concentration is a major contributing factor towards the final quality
-of ``Vinho Verde'', with it having a large impact on flavour and
-desirability for the intended market. Finally, the final quality ranking
-summarises all of the previous factors into a final value.
+The input variables presented to us were collected from chemical tests,
+and consisted of fixed acidity, volatile acidity, citric acid, residual
+sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density,
+pH, sulphates, and alcohol concentration.
+
+The following paragraph outlines the input variables for ``Vinho Verde''
+wine. The \textbf{fixed acidity} is a measure of the tartaric, malic,
+citric and succinic acid, found within grapes, which are measured by a
+steam distillation of a sample of the wine. The \textbf{volatile
+acidity} influences the acetic acid levels in the wine which impacts on
+the flavour negatively if too high. The third variable is \textbf{citric
+acid} which is used in wine in order to assist in increasing flavour.
+The \textbf{residual sugar} in ``Vinho Verde'' wines is a measure of the
+raw sugar from grapes found post fermentation, with higher levels of
+residual sugar resulting in sweeter wine. \textbf{Chlorides} are used in
+this data set as a potential factor contributing towards overall quality
+due to its impact on the wine saltiness. The \textbf{density} of wine is
+deemed to be a major contributor to the overall quality of wine, with
+higher density typically resulting in higher quality. \textbf{pH} is
+used in wine making in order to quantitatively evaluate both ripeness
+and acidity. Lower pH is generally more desirable as it reduces
+susceptibility to bacteria growth. \textbf{Sulphate} levels are also a
+key variable in wine in order to protect the final product from
+bacteria. \textbf{Alcohol concentration} may contribute towards the
+quality of ``Vinho Verde'', due to a large impact on flavour and
+desirability for the intended market.
+
+The output variable is the wine quality, graded on a scale of 0 to 10.
+This was determined by the median score of at least three evaluations
+made by wine experts.
 
 \hypertarget{analysis}{%
 \section{Analysis}\label{analysis}}
@@ -163,46 +151,49 @@ summarises all of the previous factors into a final value.
 \subsection{\texorpdfstring{\texttt{Assumption\ Validation}}{Assumption Validation}}\label{assumption-validation}}
 
 Multiple regression relies upon four key assumptions: 1. Linearity. 2.
-Independence. 3. Normality. 4. Homoscedasticity.
+Independence. 3. Normality. 4. Homoscedasticity. Each individual input
+variable must meet these assumptions when compared to wine quality
+before they can be reasonably considered for a multiple regression
+model.
 
-For each of these assumptions, the individual relationships between the
-input variables and quality of wine must meet the assumptions
-themselves, as well as the final model, and thus were checked
-individually for each input variable against the quality of wine. For
-independence, collection methodologies were not explicitly outlined in
-the dataset, however we can assume that each wine was independent of
+For independence, collection methodologies were not explicitly outlined
+in the dataset, however we can assume that each wine was independent of
 each other for the purposes of this report.
 
 Linearity refers to how well the input variables can be linearly mapped
 to the output variable. Violations included free sulphur dioxide, fixed
-acidity and pH, the latter of which is shown as an example here. {[}{]}
-is also shown as an example of meeting the linearity assumption.
+acidity and pH, the latter of which can be seem in Appendix 1.
 Additionally, for any variable which violated the linearity assumptions,
 data transformations were attempted to improve linearity. The only
 successful case of this was the log transformation of Total Sulphur
 Dioxide, as it allowed for the multiple orders of magnitude of total
 sulphur dioxide to be better expressed linearly against wine quality.
-(FIgure xxx)
+(Appendix 2).
 
 Normality refers to the fact that residuals should be normally
-distributed. Violations included residual sugar which can be seen below,
-as compared to a normal example of {[}{]}.
+distributed. Violations included the residual sugar variable, seen in
+Appendix 3, compared to a normal residual distribution of Volatile
+Acidity.
 
 Finally, homoscedasticity refers to the even distribution of the
 residuals around the mean. Any fanning of the residuals suggests
 heteroscedasticity, violating this assumption. Violations include
 sulphates and chlorides as they displayed distinct residual distribution
-patterns. Variables which violated assumptions were excluded from the
-dataset used to construct the model. As such, we were left with alcohol,
-volatile acidity, the log of total sulphur dioxide, density and citric
-acid as the remaining input variables which met all assumptions.
+patterns. These two are displayed in Appendix 4.
+
+Variables which violated assumptions were excluded from the dataset used
+to construct the model.
+
+As such, we were left with alcohol, volatile acidity, the log of total
+sulphur dioxide, density and citric acid as the remaining input
+variables which met all assumptions.
 
 \hypertarget{model-selection}{%
 \subsection{\texorpdfstring{\texttt{Model\ Selection}}{Model Selection}}\label{model-selection}}
 
 Both step-forward and step-back AIC variable selection methods for
 building a multiple regression model of the quality of red wine came to
-the same conclusion as can be shown in table 1 and table 2 below. Of the
+the same conclusion as can be shown in Table 1 and Table 2 below. Of the
 predictor variables that were used to build the model, i.e.~those that
 met the fundamental multiple regression assumptions outlined previously,
 only the predictors in the two tables were significant. Therefore, the
@@ -210,16 +201,23 @@ combination of predictors we are using to predict the quality of red
 wine are the alcohol concentration, volatile acidity, total sulphur
 dioxide, and the density.
 
-Hence, our model is as follows:
-
-\[
+Hence, our model is as follows: \[
 \mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
-\] This model had an AIC of 3259.415, an \(R^2\) of 0.32 and an RMSE of
+\]
+
+This model had an AIC of 3259.415, an \(R^2\) of 0.32 and an RMSE of
 0.669.
+
+In the context of wine distilleries who may be interested, the following
+conclusions can be drawn from the model. Increasing the alcohol
+concentration by 1\% will improve the wine quality by 0.32 points on
+average, keeping other factors constant. Similarly, a 1\% increase in
+total sulphur dioxide in the red wine would result in a 0.06\% increase
+in wine quality on average, with other factors remaining constant.
 
 \begin{table}[!h]
 
-\caption{\label{tab:unnamed-chunk-2}Step-Forward Method}
+\caption{\label{tab:unnamed-chunk-1}Step-Forward Method}
 \centering
 \begin{tabular}[t]{lrrrr}
 \toprule
@@ -236,7 +234,7 @@ Density & 23.31 & 10.25 & 2.27 & 0.02\\
 
 \begin{table}[!h]
 
-\caption{\label{tab:unnamed-chunk-2}Step-Back Method}
+\caption{\label{tab:unnamed-chunk-1}Step-Back Method}
 \centering
 \begin{tabular}[t]{lrrrr}
 \toprule
@@ -269,14 +267,14 @@ to test it using out of sample performance.
 \hypertarget{out-of-sample-performance}{%
 \subsection{\texorpdfstring{\texttt{Out\ of\ Sample\ Performance}}{Out of Sample Performance}}\label{out-of-sample-performance}}
 
-Using the caret package, we performed a 10-fold cross validation. The
-purpose of this was to test how well our model with predictor variables
-of alcohol concentration, volatile acidity, the log of total sulphur
-dioxide and density performed out of sample. This method allows for
-error to only be judged based on performance on the testing subset of
-the original sample, such that our judgement on the performance of the
-model isn't impacted by the data that was used to produce the model in
-the first place.
+To test out of sample performance, we conducted a 10-fold cross
+validation. The purpose of this was to test how well our model with
+predictor variables of alcohol concentration, volatile acidity, the log
+of total sulphur dioxide and density performed out of sample. This
+method allows for error to only be judged based on performance on the
+testing subset of the original sample, such that our judgement on the
+performance of the model isn't impacted by the data that was used to
+produce the model in the first place.
 
 Using 10-fold cross validation, we divided our sample randomly into 10
 folds, of which one was allocated to be the testing set, while the rest
@@ -295,6 +293,8 @@ linearity. The `selected' model represents the predictor variables we
 chose that were outlined previously. Finally, the simple model was the
 regression of red wine quality using only alcohol concentration which
 was the most significant predictor.
+
+\begin{center}\includegraphics{pinp_files/figure-latex/unnamed-chunk-2-1} \end{center}
 
 The full model had a median \(R^2\) of 0.35, which was higher than the
 median \(R^2\) of both the selected and simple models. However, as the
@@ -320,16 +320,18 @@ quality compared to the simple model. (figure name)
 \subsection{\texorpdfstring{\texttt{Assumption\ Re-Validation}}{Assumption Re-Validation}}\label{assumption-re-validation}}
 
 Additionally, our multiple regression model was also checked against the
-key assumptions outlined previously -- normality and homoscedasticity.
-The following figures show that there is no obvious fanning pattern in
-the residuals, indicating homoscedasticity, and that the residuals of
-the full model are also normally distributed.
+key assumptions outlined previously -- normality and residual
+homoscedasticity. The following figures show that there is no obvious
+fanning pattern in the residuals, indicating homoscedasticity, and that
+the residuals of the full model are also normally distributed.
+
+\begin{center}\includegraphics{pinp_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 \hypertarget{limitations}{%
 \subsection{\texorpdfstring{\texttt{Limitations}}{Limitations}}\label{limitations}}
 
-This model has a few limitations. The linearity of most predictor
-variables against red wine quality, even after attempting
+However, this model has a few limitations. The linearity of most
+predictor variables against red wine quality, even after attempting
 transformations, wasn't very clear and so we had to be generous when
 determining what met this assumption for the purpose of analysis. An
 \(R^2\) of 0.32 for the selected model is fairly low, which indicates
@@ -349,21 +351,28 @@ analysis.
 
 Overall, we were able to model the quality of red wine by linear
 regression, using alcohol concentration, volatile acidity, log of total
-sulfur dioxide, and density. We determined from this that there was a
-positive relationship between wine quality and alcohol quantity as well
-as density, whereas a negative relationship was determined between wine
-quality and volatile acidity as well as total sulphur dioxide.
+sulfur dioxide, and density.
 
-This could be of interest to both consumers of wine who are interested
-in characteristics of wine that may determine quality, as well as
-producers who are trying to make wines of certain qualities at certain
-price ranges.
+This model could be useful for wine distilleries as any pursuit of
+improving the quality of their red wines would be more data-driven,
+allowing them to deliberately modify certain characteristics such as
+alcohol concentration or total sulphur dioxide in order to achieve a
+desired level of quality at a given price point.
 
-\hypertarget{references}{%
-\section{References}\label{references}}
+\pagebreak
+
+\hypertarget{appendix}{%
+\section{Appendix}\label{appendix}}
+
+\begin{center}\includegraphics{pinp_files/figure-latex/unnamed-chunk-4-1} \end{center}
+
+\begin{center}\includegraphics{pinp_files/figure-latex/unnamed-chunk-4-2} \end{center}
+
+\begin{center}\includegraphics{pinp_files/figure-latex/unnamed-chunk-4-3} \end{center}
+
+\begin{center}\includegraphics{pinp_files/figure-latex/unnamed-chunk-4-4} \end{center}
 
 %\showmatmethods
-\showacknow
 
 
 
@@ -489,32 +498,67 @@ Lumley T(2020).
 \bibitem[{Tarr G (2021)}]{}
 Tarr G (2021).
 \newblock \emph{Week three Lecture L08: Testing for independence – who was more likely to die on the Titanic?}.
-\newblock [Powerpoint Slides]{}. DATA2002, University of Sydney, Sydney, Australia. 
+\newblock [Powerpoint Slides]. DATA2002, University of Sydney, Sydney, Australia.
 
 \bibitem[{Tarr G (2021)}]{}
 Tarr G (2021).
 \newblock \emph{Week eleven Lecture L26: Simple linear regression}.
-\newblock [Powerpoint Slides]{}. DATA2002, University of Sydney, Sydney, Australia. 
+\newblock [Powerpoint Slides]. DATA2002, University of Sydney, Sydney, Australia.
 
 \bibitem[{Tarr G (2021)}]{}
 Tarr G (2021).
 \newblock \emph{Week eleven Lecture L27: Multiple regression and model selection}.
-\newblock [Powerpoint Slides]{}. DATA2002, University of Sydney, Sydney, Australia. 
+\newblock [Powerpoint Slides]. DATA2002, University of Sydney, Sydney, Australia.
 
 \bibitem[{Tarr G (2021)}]{}
 Tarr G (2021).
 \newblock \emph{Week eleven Lecture L28: Prediction internals and performance assessment}.
-\newblock [Powerpoint Slides]{}. DATA2002, University of Sydney, Sydney, Australia. 
+\newblock [Powerpoint Slides]. DATA2002, University of Sydney, Sydney, Australia.
 
 \bibitem[{Tarr G (2021)}]{}
 Tarr G (2021).
 \newblock \emph{Week ten Live Lecture}.
-\newblock [Video file]{}. DATA2002, University of Sydney, Sydney, Australia. 
+\newblock [Video file]. DATA2002, University of Sydney, Sydney, Australia.
 
 \bibitem[{Tarr G (2021)}]{}
 Tarr G (2021).
 \newblock \emph{Week eleven Live Lecture}.
-\newblock [Video file]{}. DATA2002, University of Sydney, Sydney, Australia. 
+\newblock [Video file]. DATA2002, University of Sydney, Sydney, Australia.
+
+\bibitem[{Winemakers Academy (2013)}]{}
+Winemakers Academy (2013).
+\newblock \emph{Understanding Wine Acidity}.
+\newblock \urlprefix\url{https://winemakersacademy.com/understanding-wine-acidity/}.
+
+\bibitem[{Alekseeva D (N.D.)}]{}
+Alekseeva D (N.D.).
+\newblock \emph{Red and White Wine Quality}.
+\newblock \urlprefix\url{https://rstudio-pubs-static.s3.amazonaws.com/57835_c4ace81da9dc45438ad0c286bcbb4224.html#:~:text=1%20%2D%20fixed%20acidity%3A%20most%20acids,to%20an%20unpleasant%2C%20vinegar%20taste}.
+
+\bibitem[{Winemakers Academy (2013)}]{}
+Winemakers Academy (2013).
+\newblock \emph{Understanding Wine Acidity}.
+\newblock \urlprefix\url{https://winemakersacademy.com/understanding-wine-acidity/}.
+
+\bibitem[{The Beverage People (2021)}]{}
+The Beverage People (2021).
+\newblock \emph{How To Use and Test Free SO2 in Wine}.
+\newblock \urlprefix\url{https://www.thebeveragepeople.com/how-to/wine/free-so2-in-wine.html}.
+
+\bibitem[{Vinny Dr. (2009)}]{}
+Vinny Dr. (2009).
+\newblock \emph{What do "pH" and "TA" numbers mean to a wine?}.
+\newblock \urlprefix\url{https://www.winespectator.com/articles/what-do-ph-and-ta-numbers-mean-to-a-wine-5035}.
+
+\bibitem[{Slinkard S (2021)}]{}
+Slinkard S (2021).
+\newblock \emph{Understanding Wine Sulfites}.
+\newblock \urlprefix\url{https://www.thespruceeats.com/what-are-wine-sulfites-3511277}.
+
+\bibitem[{Iowa State University (2018)}]{}
+Iowa State University (2018).
+\newblock \emph{Total Sulfur Dioxide – Why it Matters, Too!}.
+\newblock \urlprefix\url{https://www.extension.iastate.edu/wine/total-sulfur-dioxide-why-it-matters-too/}.
 
 \end{thebibliography}
 
