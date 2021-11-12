@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.11)  12 NOV 2021 00:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.11)  12 NOV 2021 15:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1195,7 +1195,7 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \TeXr@lab=\toks62
 ) (./pinp.aux
 
-Package natbib Warning: Citation `' multiply defined.
+LaTeX Warning: Label `tab:unnamed-chunk-1' multiply defined.
 
 
 Package natbib Warning: Citation `' multiply defined.
@@ -1225,7 +1225,28 @@ Package natbib Warning: Citation `' multiply defined.
 Package natbib Warning: Citation `' multiply defined.
 
 
-LaTeX Warning: Label `tab:unnamed-chunk-2' multiply defined.
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
+
+
+Package natbib Warning: Citation `' multiply defined.
 
 
 Package natbib Warning: Citation `' multiply defined.
@@ -1505,12 +1526,12 @@ LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
 (Font)              scaled to size 6.72005pt on input line 91.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 107.
+(Font)              scaled to size 9.60007pt on input line 97.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.82996pt on input line 107.
+(Font)              scaled to size 8.82996pt on input line 97.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.82996pt on input line 107.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 110.
+(Font)              scaled to size 8.82996pt on input line 97.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 100.
 (c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1520,201 +1541,308 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 110.
+(hyperref)                be the same. Added a new anchor on input line 100.
 
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 163.
+(hyperref)                be the same. Added a new anchor on input line 151.
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.18097pt on input line 222.
+(Font)              scaled to size 6.18097pt on input line 220.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.62247pt on input line 224.
-LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 224.
+(Font)              scaled to size 6.62247pt on input line 222.
+LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 222.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 7.20004pt on input line 224.
+(Font)              scaled to size 7.20004pt on input line 222.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 5.04pt on input line 224.
+(Font)              scaled to size 5.04pt on input line 222.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 3.60002pt on input line 224.
+(Font)              scaled to size 3.60002pt on input line 222.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 7.20004pt on input line 224.
+(Font)              scaled to size 7.20004pt on input line 222.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 5.04pt on input line 224.
+(Font)              scaled to size 5.04pt on input line 222.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 3.60002pt on input line 224.
+(Font)              scaled to size 3.60002pt on input line 222.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 7.20004pt on input line 224.
+(Font)              scaled to size 7.20004pt on input line 222.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 5.04pt on input line 224.
+(Font)              scaled to size 5.04pt on input line 222.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 3.60002pt on input line 224.
+(Font)              scaled to size 3.60002pt on input line 222.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.20004pt on input line 224.
+(Font)              scaled to size 7.20004pt on input line 222.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.04pt on input line 224.
+(Font)              scaled to size 5.04pt on input line 222.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 3.60002pt on input line 224.
+(Font)              scaled to size 3.60002pt on input line 222.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 7.20004pt on input line 224.
+(Font)              scaled to size 7.20004pt on input line 222.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 5.04pt on input line 224.
+(Font)              scaled to size 5.04pt on input line 222.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 3.60002pt on input line 224.
+(Font)              scaled to size 3.60002pt on input line 222.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 7.20004pt on input line 224.
+(Font)              scaled to size 7.20004pt on input line 222.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 5.04pt on input line 224.
+(Font)              scaled to size 5.04pt on input line 222.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 3.60002pt on input line 224.
+(Font)              scaled to size 3.60002pt on input line 222.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 7.20004pt on input line 224.
+(Font)              scaled to size 7.20004pt on input line 222.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 5.04pt on input line 224.
+(Font)              scaled to size 5.04pt on input line 222.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 3.60002pt on input line 224.
+(Font)              scaled to size 3.60002pt on input line 222.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 7.20004pt on input line 224.
+(Font)              scaled to size 7.20004pt on input line 222.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 5.04pt on input line 224.
+(Font)              scaled to size 5.04pt on input line 222.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 3.60002pt on input line 224.
+(Font)              scaled to size 3.60002pt on input line 222.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 256.
+
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 255.
+(Font)              scaled to size 6.72005pt on input line 278.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 255.
+(Font)              scaled to size 6.72005pt on input line 278.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 255.
+(Font)              scaled to size 6.72005pt on input line 278.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 255.
+(Font)              scaled to size 6.72005pt on input line 278.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 255.
+(Font)              scaled to size 6.72005pt on input line 278.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 255.
+(Font)              scaled to size 6.72005pt on input line 278.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 255.
+(Font)              scaled to size 6.72005pt on input line 278.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 255.
+(Font)              scaled to size 6.72005pt on input line 278.
 [1{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
+<pinp_files/figure-latex/unnamed-chunk-2-1.pdf, id=80, 252.945pt x 216.81pt>
+File: pinp_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use pinp_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: pinp_files/figure-latex/unnamed-chunk-2-1.pdf  used on input line 297.
+(pdftex.def)             Requested size: 252.94438pt x 216.80946pt.
 
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 258.
+Overfull \hbox (6.84613pt too wide) in paragraph at lines 297--297
+ [] 
+ []
 
-LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 366.
+<pinp_files/figure-latex/unnamed-chunk-3-1.pdf, id=81, 252.945pt x 180.675pt>
+File: pinp_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use pinp_files/figure-latex/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: pinp_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 328.
+(pdftex.def)             Requested size: 252.94438pt x 180.67455pt.
+
+Overfull \hbox (6.84613pt too wide) in paragraph at lines 328--328
+ [] 
+ []
+
+[2 <./pinp_files/figure-latex/unnamed-chunk-2-1.pdf> <./pinp_files/figure-latex/unnamed-chunk-3-1.pdf>]
+<pinp_files/figure-latex/unnamed-chunk-4-1.pdf, id=102, 252.945pt x 115.43124pt>
+File: pinp_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use pinp_files/figure-latex/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: pinp_files/figure-latex/unnamed-chunk-4-1.pdf  used on input line 367.
+(pdftex.def)             Requested size: 252.94438pt x 115.43095pt.
+
+Overfull \hbox (6.84613pt too wide) in paragraph at lines 367--367
+ [] 
+ []
+
+<pinp_files/figure-latex/unnamed-chunk-4-2.pdf, id=103, 252.945pt x 115.43124pt>
+File: pinp_files/figure-latex/unnamed-chunk-4-2.pdf Graphic file (type pdf)
+<use pinp_files/figure-latex/unnamed-chunk-4-2.pdf>
+Package pdftex.def Info: pinp_files/figure-latex/unnamed-chunk-4-2.pdf  used on input line 369.
+(pdftex.def)             Requested size: 252.94438pt x 115.43095pt.
+
+Overfull \hbox (6.84613pt too wide) in paragraph at lines 369--369
+ [] 
+ []
+
+<pinp_files/figure-latex/unnamed-chunk-4-3.pdf, id=104, 252.945pt x 115.43124pt>
+File: pinp_files/figure-latex/unnamed-chunk-4-3.pdf Graphic file (type pdf)
+<use pinp_files/figure-latex/unnamed-chunk-4-3.pdf>
+Package pdftex.def Info: pinp_files/figure-latex/unnamed-chunk-4-3.pdf  used on input line 371.
+(pdftex.def)             Requested size: 252.94438pt x 115.43095pt.
+
+Overfull \hbox (6.84613pt too wide) in paragraph at lines 371--371
+ [] 
+ []
+
+<pinp_files/figure-latex/unnamed-chunk-4-4.pdf, id=105, 252.945pt x 115.43124pt>
+File: pinp_files/figure-latex/unnamed-chunk-4-4.pdf Graphic file (type pdf)
+<use pinp_files/figure-latex/unnamed-chunk-4-4.pdf>
+Package pdftex.def Info: pinp_files/figure-latex/unnamed-chunk-4-4.pdf  used on input line 373.
+(pdftex.def)             Requested size: 252.94438pt x 115.43095pt.
+
+Overfull \hbox (6.84613pt too wide) in paragraph at lines 373--373
+ [] 
+ []
+
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 390.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 399.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 7.06396pt on input line 390.
-[2pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 
-      ]pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.464 \bibitem[{Kuhn M (2021)}]{}
-                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.469 \bibitem[{Zhu H (2021)}]{}
-                                pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.474 \bibitem[{Firke S (2021)}]{}
-                                  pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.479 ...çois R, Henry L and Müller K (2021)}]{}
-                                                  pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.484 \bibitem[{Lumley T(2020)}]{}
-                                  pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.489 \bibitem[{Tarr G (2021)}]{}
-                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.494 \bibitem[{Tarr G (2021)}]{}
-                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.499 \bibitem[{Tarr G (2021)}]{}
-                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.504 \bibitem[{Tarr G (2021)}]{}
-                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.509 \bibitem[{Tarr G (2021)}]{}
-                                 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.514 \bibitem[{Tarr G (2021)}]{}
-                                 
+(Font)              scaled to size 7.06396pt on input line 399.
+
+Underfull \hbox (badness 10000) in paragraph at lines 534--537
+\T1/phv/m/n/8 (+20) s3 . amazonaws . com / 57835 _ c4ace81da9dc45438ad0c286bcbb4224 . html# :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 534--537
+\T1/phv/m/n/8 (+20) ~ : text = 1 % 20 % 2D % 20^^\xed % 20acidity % 3A % 20most % 20acids ,[] to % 20an %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 549--552
+[]\T1/phv/m/n/8 (+20) Vinny Dr. (2009).  \T1/phv/m/sl/8 (+20) What do "pH" and "TA" num-bers mean
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 549--552
+\T1/phv/m/sl/8 (+20) to a wine?\T1/phv/m/n/8 (+20) .  URL [][][]$https : / / www . winespectator . com / articles /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--562
+[]\T1/phv/m/n/8 (+20) Iowa State Uni-ver-sity (2018).  \T1/phv/m/sl/8 (+20) To-tal Sul-fur Diox-ide ^^U Why it
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--562
+\T1/phv/m/sl/8 (+20) Mat-ters, Too!\T1/phv/m/n/8 (+20) .  URL [][][]$https : / / www . extension . iastate . edu / wine /
+ []
+
 
 Package natbib Warning: There were multiply defined citations.
 
 
 AED: lastpage setting LastPage
-- LAST -
-Extra skip:675.94505pt
-Left:675.94505pt/0.0pt
-Right:0.0pt/0.0pt
-Split: 337.97252pt
-Output:337.97252pt
-Pageshrink: 0.0pt
-Pagestretch: 0.0pt
-@colht:675.94505pt
-FLUSHEND [output]: 337.97252pt
-FLUSHEND [leftcolumn badness]: 1000000
-FUSHEND [rightcolumn badness]: 0
 [3pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.521 \end{document}
-                    ] (./pinp.aux
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.565 \end{document}
+                     <./pinp_files/figure-latex/unnamed-chunk-4-1.pdf> <./pinp_files/figure-latex/unnamed-chunk-4-2.pdf> <./pinp_files/figure-latex/unnamed-chunk-4-3.pdf> <./pinp_files/figure-latex/unnamed-chunk-4-4.pdf>] (./pinp.aux
 
 Package natbib Warning: Citation(s) may have changed.
 (natbib)                Rerun to get citations correct.
@@ -1724,21 +1852,21 @@ Package natbib Warning: Citation(s) may have changed.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `pinp.out' has not changed.
-(rerunfilecheck)             Checksum: 73E33CAB1DCACEAF4EC6681C12DD7241;1689.
+(rerunfilecheck)             Checksum: F1D0CB43D023F98D63DA3561C193DF14;1679.
  ) 
 Here is how much of TeX's memory you used:
- 31849 strings out of 480539
- 565393 string characters out of 5900884
- 932771 words of memory out of 5000000
- 48350 multiletter control sequences out of 15000+600000
- 515565 words of font info for 410 fonts, out of 8000000 for 9000
+ 31886 strings out of 480539
+ 567832 string characters out of 5900884
+ 943191 words of memory out of 5000000
+ 48395 multiletter control sequences out of 15000+600000
+ 511782 words of font info for 402 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,15n,122p,1001b,754s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}<c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7t.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on pinp.pdf (3 pages, 154885 bytes).
+ 117i,14n,122p,1001b,619s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}<c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7t.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/ethan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on pinp.pdf (3 pages, 692689 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
+ 226 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 500000)
- 99957 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 89747 words of extra memory for PDF output out of 106986 (max. 10000000)
 
