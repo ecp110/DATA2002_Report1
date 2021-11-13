@@ -22,7 +22,7 @@ doi_footer: "https://github.sydney.edu.au/epro3000/LAB-03-CC_early_8"
 
 # Abstract
 abstract: |
-  The following paper analyses the quality of Vinho Verde red wine from Northern Portugal, measured from a scale of one to ten. Using multiple regression, this paper aims to model the quality of various red wines on other factors such as the alcohol concentration or total sulfur dioxide concentration. Various potential predictor variables were removed from the model for not meeting key assumption criteria such as co-linearity with red wine quality, normality, or residual homoscedasticity. Transformations were attempted on variables that didn’t meet the co-linearity assumption, with the only successful transformation being the log of total sulfur dioxide. Multiple regression was then computed using both a step-back and step-forward AIC-based model. These both netted the same model; a regression of red wine quality against alcohol concentration, volatile acidity, the log of total sulfur dioxide and density. In-sample performance of this model showcased an $R^2$ value of 0.32, indicating that the model may not be particularly strong, and an RMSE of 0.669. Performing 10-fold cross validation suggested that our selected model wasn’t subject to obvious overfitting issues. The model generated was as follows
+  The following paper analyses the quality of Vinho Verde red wine from Northern Portugal, measured from a scale of one to ten. Using multiple regression, this paper aims to model the quality of various red wines on factors such as the alcohol concentration or total sulfur dioxide concentration. Various potential predictor variables were removed from the model for not meeting key assumption criteria such as co-linearity with red wine quality, normality, or residual homoscedasticity. Transformations were attempted on variables that didn’t meet the co-linearity assumption, with the only successful transformation being the log of total sulfur dioxide. Multiple regression was then computed using both a step-back and step-forward AIC-based model. These both netted the same model; a regression of red wine quality against alcohol concentration, volatile acidity, the log of total sulfur dioxide and density. In-sample performance of this model showcased an $R^2$ value of 0.32, indicating that the model may not be particularly strong, and an RMSE of 0.669. Performing 10-fold cross validation suggested that our selected model wasn’t subject to obvious overfitting issues. The model generated was as follows
   $$
   \mathbf{Quality = -22.22 + 0.32AC -0.67VA - 0.06log(TSD) + 23.31D}
   $$
@@ -102,17 +102,17 @@ of the Portuguese red wine “Vinho Verde”. Red wine quality may be of interes
 
 ## `Dataset Overview`
 The dataset had 1599 rows corresponding to different wine observations, and was collected in 2009 from “Vinho
-Verde” wine in the north of Portugal.
+Verde” wine in the north of Portugal. Each wine observation was measured in 11 different characteristics, as well as an addition quality characteristic. 
 
-The input variables presented to us were collected from chemical
+The independant variables presented to us were collected from chemical
 tests, and consisted of fixed acidity, volatile acidity, citric acid,
 residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide,
 density, pH, sulphates, and alcohol concentration.
 
 
-The following paragraph outlines the input variables for "Vinho Verde" wine. The **fixed acidity** is a measure of the tartaric, malic,
+The **fixed acidity** is a measure of the tartaric, malic,
 citric and succinic acid, found within grapes, which are measured by a
-steam distillation of a sample of the wine. The **volatile acidity** influences the acetic acid levels in the wine which impacts on the flavour negatively if too high. The third variable is **citric acid** which is used
+steam distillation of a sample of the wine. The **volatile acidity** influences the acetic acid levels in wine which impacts the flavour negatively if too high. The third variable is **citric acid** which is used
 in wine in order to assist in increasing flavour. 
 The **residual sugar** in “Vinho Verde” wines is a measure of the raw sugar from grapes found post fermentation, with higher levels of residual sugar resulting in sweeter wine. **Chlorides** are used in this data set
 as a potential factor contributing towards overall quality due
@@ -120,12 +120,12 @@ to its impact on the wine saltiness. The **density** of
 wine is deemed to be a major contributor to the overall quality of
 wine, with higher density typically resulting in higher quality. **pH** is 
 used in wine making in order to quantitatively evaluate both ripeness and acidity. Lower pH is generally more desirable as it reduces susceptibility
-to bacteria growth. **Sulphate** levels are also a key variable in wine in order to protect
+to bacteria growth. **Sulphate** levels are also a key variable in red wine in order to protect
 the final product from bacteria. **Alcohol concentration** may contribute towards the quality of “Vinho Verde”, due to a large impact on flavour and desirability for
 the intended market. 
  
 
-The output variable is the wine quality, graded on a scale of 0
+The dependant variable is the wine quality, graded on a scale of 0
 to 10. This was determined by the median score of at least three
 evaluations made by wine experts.
 
@@ -139,15 +139,15 @@ Multiple regression relies upon four key assumptions:
 Each individual input variable must meet these assumptions when compared to wine quality before they can be reasonably considered for a multiple regression model. 
 
 For independence, collection methodologies were not
-explicitly outlined in the dataset, however we can assume that
+explicitly outlined in the dataset, however we will assume that
 each wine was independent of each other for the purposes of this
-report.
+report. This is a limitation that will be touched on later. 
 
 Linearity refers to how well the input variables can be linearly
 mapped to the output variable. Violations included free sulphur
-dioxide, fixed acidity and pH, the latter of which can be seem in Appendix 1. Additionally, for any variable which violated the linearity assumptions, data transformations were attempted to
+dioxide, fixed acidity and pH, the latter of which can be seen in Appendix 1. Additionally, for any variable which violated the linearity assumptions, data transformations were attempted to
 improve linearity. The only successful case of this was the log transformation of Total
-Sulphur Dioxide, as it allowed for the multiple orders of magnitude of total sulphur dioxide to be better expressed linearly against wine quality. (Appendix 2).
+Sulphur Dioxide, as it allowed for the multiple orders of magnitude of total sulphur dioxide to be better expressed linearly against wine quality (Appendix 2).
 
 Normality refers to the fact
 that residuals should be normally distributed. Violations included the
@@ -162,7 +162,7 @@ Variables which violated assumptions were excluded
 from the dataset used to construct the model.
 
 As such, we were
-left with alcohol, volatile acidity, the log of total sulphur dioxide,
+left with alcohol concentration, volatile acidity, the log of total sulphur dioxide,
 density and citric acid as the remaining input variables which met
 all assumptions.
 
@@ -177,7 +177,7 @@ $$
 
 This model had an AIC of 3259.415, an $R^2$ of 0.32 and an RMSE of 0.669.
 
-In the context of wine distilleries who may be interested, the following conclusions can be drawn from the model. Increasing the alcohol concentration by 1% will improve the wine quality by 0.32 points on average, keeping other factors constant. Similarly, a 1% increase in total sulphur dioxide in the red wine would result in a 0.06% increase in wine quality on average, with other factors remaining constant. 
+In the context of wine distilleries that may be interested, the following conclusions can be drawn from the model. Increasing the alcohol concentration by 1% will improve the wine quality by 0.32 points on average, keeping other factors constant. Similarly, a 1% increase in total sulphur dioxide in the red wine would result in a 0.06% increase in wine quality on average, with other factors remaining constant. 
 
 ```{r, fig.pos = '!h',out.extra = '', echo=FALSE, cache=FALSE, message=FALSE, warning = FALSE}
 
@@ -231,16 +231,16 @@ x2 %>% kable_styling(latex_options = "hold_position")
 # Results & Discussion
 
 ## `In Sample Performance`
-As stated, the selected model had an $R^2$ of 0.32 and an RMSE of 0.669. This means that approximately 32% of the total variance in red wine quality can be explained by our regression model. This isn’t particularly high, indicating this linear model may not be performing strongly. This could be due to the somewhat poor co-linearity observed with most predictor variables versus wine quality in this dataset. However, to ensure that our model isn’t subject to overfitting, we want to test it using out of sample performance.  
+As stated, the selected model had an $R^2$ of 0.32 and an RMSE of 0.669. This means that approximately 32% of the total variance in red wine quality can be explained by our regression model. This isn’t particularly high, indicating this linear model may not be performing strongly. This could be due to the somewhat poor co-linearity observed with most predictor variables versus wine quality in this dataset. However, to ensure that our model isn’t subject to overfitting, we want to test it using out of sample performance. 
 
 ## `Out of Sample Performance`
-To test out of sample performance, we conducted a 10-fold cross validation. The purpose of this was to test how well our model with predictor variables of alcohol concentration, volatile acidity, the log of total sulphur dioxide and density performed out of sample. This method allows for error to only be judged based on performance on the testing subset of the original sample, such that our judgement on the performance of the model isn’t impacted by the data that was used to produce the model in the first place.
+To test out of sample performance, we conducted a 10-fold cross validation. The purpose of this was to test how well our model performs on a subset of data not used to create the model itself. This method allows for error to only be judged based on performance on the testing subset of the original sample, such that our judgement on the performance of the model isn’t impacted by the data that was used to produce the model in the first place.
  
-Using 10-fold cross validation, we divided our sample randomly into 10 folds, of which one was allocated to be the testing set, while the rest were training folds used to build the model using the significant predictor variables. This process was repeated 10 times, where a different fold would be the testing set each time. The $R^2$, root mean squared error and mean average error of each prediction, compared to the real value in the testing set was then computed.
+Using 10-fold cross validation, we divided our sample randomly into 10 folds, of which one was allocated to be the testing set, while the rest were training folds used to build the model using the significant predictor variables. This process was repeated 10 times, where a different fold would be the testing set each time. The $R^2$, RMSE and MAE of each prediction, compared to the real value in the testing set was then computed.
  
-The following graph shows the distribution of $R^2$, MAE and RMSE for each of the 10 total cross validations performed. We have compared the performance of three separate models. The ‘full’ model represents all of the potential predictors that were initially present in the red wine quality data frame – even those that didn’t meet assumptions such as linearity. The ‘selected’ model represents the predictor variables we chose that were outlined previously. Finally, the simple model was the regression of red wine quality using only alcohol concentration which was the most significant predictor.
+The following graph shows the distribution of $R^2$, MAE and RMSE for each of the 10 cross validations performed. We have compared the performance of three separate models. The ‘full’ model represents all of the potential independent variables that were initially present in the red wine quality data frame – even those that didn’t meet assumptions such as linearity. The ‘selected’ model represents the predictor variables we chose that were outlined previously in our model. Finally, the simple model was the regression of red wine quality using only alcohol concentration which was the most significant predictor.
  
-```{r, fig.pos = '!h', fig.height = 3, fig.alight = 'left', out.extra = '', echo=FALSE, cache=FALSE, message=FALSE, warning = FALSE}
+```{r, fig.pos = '!h', fig.height = 2.8, fig.alight = 'left', out.extra = '', echo=FALSE, cache=FALSE, message=FALSE, warning = FALSE}
 
 library(tidyverse)
 library(GGally)
@@ -278,7 +278,7 @@ results <- resamples(list(simple = simple_cv, selected = step_cv, full = full_cv
 
 p1 = ggplot(results, metric = "RMSE") + 
   theme_classic() + 
-  labs(y = "RMSE")
+  labs(y = "RMSE") 
 
 p2 = ggplot(results, metric = "MAE")+
   theme_classic()+
@@ -288,16 +288,18 @@ p3 = ggplot(results, metric = "Rsquared") +
   theme_classic() + 
   labs(y = "Rsquared")
 
-cowplot::plot_grid(p1,p2, p3, ncol = 1, label_size = 5, hjust = -1)
+#cowplot::plot_grid(p1,p2, p3, ncol = 1, label_size = 5, hjust = -1)
+grid.arrange(p1, p2, p3, ncol = 1,top=textGrob("Figure 1"))
+
 ```
  
-The full model had a median $R^2$ of 0.35, which was higher than the median $R^2$ of both the selected and simple models. However, as the full model had predictors that violated assumptions, it is an inappropriate multiple regression model so we must take this result with a grain of salt. The higher $R^2$ is likely to do with the fact that the larger number of predictors used would result in overfitting of the data, and artificially increasing the $R^2$ even though the relationship between the wine quality and some of the predictors may not have been linear in the first place. In comparison, the median $R^2$ of our model was 0.32, which was higher than that of the simple model which was 0.23.  Interestingly, as the $R^2$ of our selected model on the training data was very similar to the $R^2$ during in-sample performance, it appears that our selected model didn’t suffer from overfitting.
+The full model had a median $R^2$ of 0.35, which was higher than the median $R^2$ of both the selected and simple models. However, as the full model had predictors that violated assumptions, it is an inappropriate multiple regression model so we must take this result with a grain of salt. The higher $R^2$ is likely to do with the fact that the larger number of predictors used would result in overfitting of the data, and artificially increased the $R^2$ even though the relationship between the wine quality and some of the predictors may not have been linear in the first place. In comparison, the median $R^2$ of our model was 0.32, which was higher than that of the simple model which was 0.23.  Interestingly, as the $R^2$ of our selected model on the training data was very similar to the $R^2$ during in-sample performance, it appears that our selected model didn’t suffer from overfitting.
  
-Again, discounting the full model, the selected model had the lowest median MAE 0.527 and RMSE (0.671) of the models being compared, indicating that it performed better on the testing set of red wine quality compared to the simple model. (figure name)
+Again, discounting the full model, the selected model had the lowest median MAE (0.527) and RMSE (0.671) of the models being compared, indicating that it performed better on the testing set of red wine quality compared to the simple model (Figure 1).
 
 
 ## `Assumption Re-Validation`
-Additionally, our multiple regression model was also checked against the key assumptions outlined previously – normality and residual homoscedasticity. The following figures show that there is no obvious fanning pattern in the residuals, indicating homoscedasticity, and that the residuals of the full model are also normally distributed.
+Additionally, our multiple regression model was also checked against the key assumptions outlined previously – normality and residual homoscedasticity. There is no obvious fanning pattern in the residuals, indicating homoscedasticity, and that the residuals of the full model are also normally distributed (Figure 2).
 
 ```{r, fig.pos = '!h', fig.height = 2.5, fig.alight = 'left', out.extra = '', echo=FALSE, cache=FALSE, message=FALSE, warning = FALSE}
 modelIdeal = lm(data.quality ~ data.alcohol + data.volatile.acidity + data.total.sulfur.dioxide + data.density, data = dataNew)
@@ -326,13 +328,13 @@ grid.arrange(residual_selected@plots[[1]], normal_selected@plots[[1]], ncol = 2,
 ```
 
 ## `Limitations`
-However, this model has a few limitations. The linearity of most predictor variables against red wine quality, even after attempting transformations, wasn’t very clear and so we had to be generous when determining what met this assumption for the purpose of analysis. An $R^2$ of 0.32 for the selected model is fairly low, which indicates that the in-sample performance of the model isn’t particularly strong, even though it appears the model didn’t run into overfitting issues when performing 10-fold cross-validation
+While our selected model may showcase insights into factors that impact red wine quality, certain limiations must be acknowledged. The linearity of most predictor variables against red wine quality, even after attempting transformations, wasn’t very strong and so we had to be generous when determining what met this assumption for the purpose of analysis. An $R^2$ of 0.32 for the selected model is fairly low, which indicates that the in-sample performance of the model isn’t particularly strong, even though it appears the model didn’t run into overfitting issues when performing 10-fold cross validation
  
-There is also not much information available on the data collection process, so we are unsure about whether the different observations are independent or not. For example, red wines from neighbouring regions may not be independent and the quality of wine could be influenced as such. This is an assumption we have had to make for the purpose of the analysis. 
+There is also not much information available on the data collection process, so we are unsure about whether the different observations are independent or not. We are apprehensive about this as red wines from neighboring regions may not be independent and the quality of wine could be influenced as such. 
 
 
 # Conclusion 
-Overall, we were able to model the quality of red wine by linear regression, using alcohol concentration, volatile acidity, log of total sulfur dioxide, and density. 
+Overall, we were able to model the quality of red wine by multiple regression, using alcohol concentration, volatile acidity, log of total sulfur dioxide, and density. 
  
 This model could be useful for wine distilleries as any pursuit of improving the quality of their red wines would be more data-driven, allowing them to deliberately modify certain characteristics such as alcohol concentration or total sulphur dioxide in order to achieve a desired level of quality at a given price point.  
 
