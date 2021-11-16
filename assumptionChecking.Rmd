@@ -25,7 +25,7 @@ library(ggcharts)
 
 ```{r, message = FALSE}
 data = read.table("winequality-red.csv", sep=";", header=T)
-
+View(data)
 ```
 
 
